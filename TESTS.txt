@@ -1,0 +1,42 @@
+Test #1:
+
+INPUT:
+	Using the following mock graph as input to the visualizer: 
+	
+	Graph g = null;
+	Table classData = new Table();
+	
+	// create 4 columns in the table
+	classData.addColumn("cname", String.class);
+	classData.addColumn("newflag", boolean.class);
+	classData.addColumn("quality", double.class);
+	classData.addColumn("methodcount", double.class);
+	
+	g = new Graph(classData, true);
+	
+	Node class1 = g.addNode();
+	class1.setString("cname", "Class 1");
+	class1.setBoolean("newflag", true);
+	class1.setDouble("quality", 1.0);
+	class1.setDouble("methodcount", 1.0);
+	
+	Node class2 = g.addNode();
+	class2.setString("cname", "Class 2");
+	class2.setBoolean("newflag", false);
+	class2.setDouble("quality", 6.0);
+	class2.setDouble("methodcount", 130.0);
+	
+	Node class3 = g.addNode();
+	class3.setString("cname", "Class 3");
+	class3.setBoolean("newflag", false);
+	class3.setDouble("quality", 10.0);
+	class3.setDouble("methodcount", 54.0);
+
+EXPECTED OUTPUT:
+	A new frame should open with a radial image that contain a central empty circle
+	with three nodes extending from it: Class 1, Class 2, Class 3. 
+	-Class 1 should appear the most brown in color (lowest quality code)
+	-Class 2 & 3 should be yellow-ish if not brown (pre-existing class)
+	-Class 1 should appear green if not brown (new class)
+	-Class 2 should be the longest, then Class 3, and Class 1 the shortest 
+	(based on method counts in the class, or "size" of the class)
