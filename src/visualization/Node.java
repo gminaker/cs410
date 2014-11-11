@@ -7,8 +7,8 @@ public class Node {
 
 	private String key;
 	private ArrayList<Node> edges;
-	private int lat;
-	private int longt;
+	private float lat;
+	private float longt;
 
 	// node constructor
 	public Node(String name) {
@@ -35,20 +35,20 @@ public class Node {
 
 	}
 
-	public int getLat() {
+	public float getLat() {
 		return this.lat;
 	}
 
-	public int getLongt() {
+	public float getLongt() {
 		return this.longt;
 	}
 
-	public void setLat(int newLat) {
+	public void setLat(float newLat) {
 		this.lat = newLat;
 
 	}
 
-	public void setLongt(int newLongt) {
+	public void setLongt(float newLongt) {
 		this.longt = newLongt;
 	}
 

@@ -20,10 +20,6 @@ public class visualizer extends PApplet {
 			{ "Coffee", 2.0, 2.5 }, { "Ethel", 19.0, 3.383157894736842 },
 			{ "Tom", 5.0, 2.0 } };
 
-	public void fuse() {
-		// Object[][] joinedArray = join();
-	}
-
 	private static Table arrayToTable(Object[][] convertArray) {
 		Table table = new Table();
 
@@ -62,25 +58,55 @@ public class visualizer extends PApplet {
 	}
 
 	public void draw() {
-		String tempString;
-		int locint;
 		size(500, 500);
 		background(153, 76, 0);
-		ellipse(55, 55, 25, 25);
-		for (int i = 0; i < nodesToDraw.size(); i++) {
+		drawNodes();
+	}
+
+	public void drawNodes() {
+		// algorithm for calculation of x y coordinates found at
+		// http://www.mathopenref.com/coordcirclealgorithm.html
+		String tempString;
+		float locint;
+		int centerx = 250;
+		int centery = 250;
+		fill(255, 255, 0);
+		ellipse(250, 250, 25, 25);
+		tempString = nodesToDraw.get(0).getName();
+		fill(50);
+		text(tempString, 250 - 8, 250 + 5);
+		float degreesPerNode = 360 / nodesToDraw.size();
+		int r = 35;
+		for (int i = 1; i < nodesToDraw.size(); i++) {
+			float x;
+			float y;
+			float thetaDegrees = degreesPerNode * i;
+			float thetaRads = radians(thetaDegrees);
+			x = centerx + r * cos(thetaRads);
+			y = centery + r * sin(thetaRads);
 			fill(0, 255, 0);
-			locint = floor(500 / nodesToDraw.size()) * i;
-			ellipse(locint, locint, 50, 25);
+			locint = x;
+			ellipse(x, y, 50, 25);
 			fill(0);
 			tempString = nodesToDraw.get(i).getName();
-			text(tempString, locint - 5, locint + 5);
+			text(tempString, x - 5, y + 5);
+			nodesToDraw.get(i).setLat(x);
+			nodesToDraw.get(i).setLongt(y);
 		}
+
+		for (int i = 1; i < nodesToDraw.size(); i++) {
+			System.out.println(nodesToDraw.get(i).getName());
+			System.out.println(nodesToDraw.get(i).getLat());
+			System.out.println(nodesToDraw.get(i).getLongt());
+		}
+
 	}
 
 	public void makeNodes(Table table) {
 		System.out.println(table.getRowCount());
 		System.out.println(nodesToDraw.size());
 		String tempString;
+
 		for (int i = 0; i < table.getRowCount(); i++) {
 			tempString = table.getString(i, "className");
 			nodesToDraw.add(new Node(tempString));
