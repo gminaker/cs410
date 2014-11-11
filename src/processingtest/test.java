@@ -10,7 +10,7 @@ public class test extends PApplet {
 
 	PGraphics pg;
 	Table outputTable;
-	ArrayList<Node> nodesToDraw;
+	ArrayList<Node> nodesToDraw = new ArrayList<Node>();
 	public static final int SIZE_WIDTH = 1000;
 	public static final int SIZE_HEIGHT = 1000;
 
@@ -62,24 +62,31 @@ public class test extends PApplet {
 	}
 
 	public void draw() {
-
-		pg.beginDraw();
-		pg.background(218, 165, 32);
-		pg.stroke(255);
-		pg.endDraw();
-
-		// Draw the offscreen buffer to the screen with image()
-		image(pg, 120, 60);
+		String tempString;
+		size(500, 500);
+		ellipse(55, 55, 25, 25);
+		for (int i = 0; i < nodesToDraw.size(); i++) {
+			fill(255, 200, 200);
+			ellipse(floor(500 / (i + 1)), floor(500 / (i + 1)), 25, 25);
+			fill(0);
+			tempString = nodesToDraw.get(i).getName();
+			text(tempString, floor(500 / (i + 1)), floor(500 / (i + 1)));
+		}
 	}
 
 	public void makeNodes(Table table) {
 		System.out.println(table.getRowCount());
-		// Node tempNode;
+		System.out.println(nodesToDraw.size());
+		String tempString;
 		for (int i = 0; i < table.getRowCount(); i++) {
-			System.out.println(table.getString(i, "className"));
-			// nodesToDraw.add(new Node(table.getString(i, "className")));
+			tempString = table.getString(i, "className");
+			nodesToDraw.add(new Node(tempString));
+			System.out.println(nodesToDraw.size());
+			// System.out.println(nodesToDraw.get(i).getName());
 		}
-
+		for (int i = 0; i < table.getRowCount(); i++) {
+			System.out.println(nodesToDraw.get(i).getName());
+		}
 	}
 
 }

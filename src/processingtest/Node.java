@@ -6,11 +6,12 @@ import java.util.ArrayList;
 public class Node {
 
 	private static String key;
-	private ArrayList edges;
+	private ArrayList<Node> edges;
 
 	// node constructor
 	public Node(String name) {
 		key = name;
+		edges = new ArrayList<Node>();
 
 	}
 
@@ -30,6 +31,23 @@ public class Node {
 	public void addEdge(Node node) {
 		edges.add(node);
 
+	}
+
+	// returns the number of children that a node and its sub nodes have
+	// including its self
+	public int getNumNodes() {
+		int accumulator = 0;
+		int tempNum;
+
+		if (this.edges.size() == 0) {
+			return 1;
+		} else {
+			for (int i = 0; i < this.edges.size(); i++) {
+				tempNum = this.edges.get(i).getNumNodes();
+				accumulator = accumulator + tempNum;
+			}
+			return accumulator + 1;
+		}
 	}
 
 }
