@@ -1,4 +1,4 @@
-package processingtest;
+package visualization;
 
 import java.util.ArrayList;
 

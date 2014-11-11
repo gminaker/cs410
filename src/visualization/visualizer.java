@@ -1,4 +1,4 @@
-package processingtest;
+package visualization;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.data.Table;
 
-public class test extends PApplet {
+public class visualizer extends PApplet {
 
 	PGraphics pg;
 	Table outputTable;
