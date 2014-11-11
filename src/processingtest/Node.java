@@ -5,7 +5,7 @@ import java.util.ArrayList;
 //a class to enable the drawing of directed graphs
 public class Node {
 
-	private static String key;
+	private String key;
 	private ArrayList<Node> edges;
 
 	// node constructor
