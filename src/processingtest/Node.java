@@ -7,6 +7,8 @@ public class Node {
 
 	private String key;
 	private ArrayList<Node> edges;
+	private int lat;
+	private int longt;
 
 	// node constructor
 	public Node(String name) {
@@ -31,6 +33,23 @@ public class Node {
 	public void addEdge(Node node) {
 		edges.add(node);
 
+	}
+
+	public int getLat() {
+		return this.lat;
+	}
+
+	public int getLongt() {
+		return this.longt;
+	}
+
+	public void setLat(int newLat) {
+		this.lat = newLat;
+
+	}
+
+	public void setLongt(int newLongt) {
+		this.longt = newLongt;
 	}
 
 	// returns the number of children that a node and its sub nodes have

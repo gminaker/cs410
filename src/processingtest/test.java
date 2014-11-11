@@ -63,14 +63,17 @@ public class test extends PApplet {
 
 	public void draw() {
 		String tempString;
+		int locint;
 		size(500, 500);
+		background(153, 76, 0);
 		ellipse(55, 55, 25, 25);
 		for (int i = 0; i < nodesToDraw.size(); i++) {
-			fill(255, 200, 200);
-			ellipse(floor(500 / (i + 1)), floor(500 / (i + 1)), 25, 25);
+			fill(0, 255, 0);
+			locint = floor(500 / nodesToDraw.size()) * i;
+			ellipse(locint, locint, 50, 25);
 			fill(0);
 			tempString = nodesToDraw.get(i).getName();
-			text(tempString, floor(500 / (i + 1)), floor(500 / (i + 1)));
+			text(tempString, locint - 5, locint + 5);
 		}
 	}
 
