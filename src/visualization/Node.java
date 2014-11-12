@@ -19,7 +19,15 @@ public class Node {
 		edges = new ArrayList<Node>();
 
 	}
-
+	
+	public int[] getColor(){
+		return rgb;
+	}
+	
+	public void setColor(int[] c){
+		this.rgb = c;
+	}
+	
 	public Node getParent() {
 		return parent;
 	}
@@ -31,7 +39,6 @@ public class Node {
 	// getter method for the node key (in our case the name of the developer)
 	public String getName() {
 		return this.key;
-
 	}
 	
 	// gets the Node at index i in the arraylist of edges
