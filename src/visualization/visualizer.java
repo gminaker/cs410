@@ -56,8 +56,8 @@ public class visualizer extends PApplet {
 	public void drawTestGraph() {
 		Node testGraph = createDummyGraph();
 		generateCoordinate(testGraph, SIZE_WIDTH/2, SIZE_HEIGHT/2);
-		drawLines(testGraph);
-		drawNodes(testGraph);
+		drawLine(testGraph);
+		drawNode(testGraph);
 	}
 	
 	
@@ -76,7 +76,7 @@ public class visualizer extends PApplet {
 		
 	}
 
-	public void drawLines(Node testGraph) {
+	public void drawLine(Node testGraph) {
 		// TODO Auto-generated method stub
 		
 	}

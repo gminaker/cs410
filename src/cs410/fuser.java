@@ -1,89 +1,64 @@
 package cs410;
 
-import prefuse.data.Table;
+import visualization.Node;
 
 //contains methods for joining 2D arrays and for converting this into a Prefuse table
 public class fuser {
 
+	static Object[][] gitNamesssssss = { { "a", "c1", "c3", "c8" },
+			{ "b", "c1", "c6", "c2" }, { "c", "c2", "c6" },
+			{ "d", "c2", "c5" }, { "e", "c4", "c1" }, { "f", "c7" },
+			{ "g", "c1", "c2", "c3", "c4", "c5", "c6" }, { "h", "c4" },
+			{ "i", "c2" }, { "j", "c1" } };
+
+	static Object[][] locTablesssss = { { "c1", 2 }, { "c2", 7 }, { "c3", 5 },
+			{ "c4", 2 }, { "c5", 4 }, { "c6", 7 }, { "c7", 3 }, { "c8", 1 },
+			{ "c9", 2 }, { "c10", 3 } };
+
 	public static void main(String[] args) {
-		fuse();
+		fuse("api", locTablesssss, gitNamesssssss);
 	}
 
-	public static void fuse() {
-		Object[][] joinedArray = join();
-		Table outputTable = arrayToTable(joinedArray);
+	public static void fuse(String apiName, Object[][] locTable,
+			Object[][] gitTable) {
+		makeAPINode(apiName, locTable, gitTable);
+
 	}
 
-	private static Table arrayToTable(Object[][] convertArray) {
-		Table table = new Table();
+	public static Node makeAPINode(String apiName, Object[][] locTable,
+			Object[][] gitTable) {
+		Node apiNode = new Node(apiName);
+		for (int i = 0; i < gitTable.length; i++) {
+			apiNode.addEdge(makeAuthorNode((String) gitTable[i][0], locTable,
+					gitTable, i));
+		}
+		return apiNode;
+	}
 
-		// creating and labeling table columns
-		table.addColumn("className", String.class);
-		table.addColumn("methodCount", double.class);
-		table.addColumn("averageCRAP", double.class);
-		table.addColumn("percentChanged", double.class);
-		table.addColumn("changeFlag", int.class);
+	public static Node makeAuthorNode(String authName, Object[][] locTable,
+			Object[][] gitTable, int row) {
+		Node authNode = new Node(authName);
 
-		// creating table rows
-		table.addRows(convertArray.length);
+		for (int i = 1; i < gitTable[row].length; i++) {
+			authNode.addEdge(makeClassNode((String) gitTable[row][i], locTable));
+		}
 
-		// populate table with values from fused 2D array
-		for (int i = 0; i < convertArray.length; i++) {
-			for (int j = 0; j < convertArray[i].length; j++) {
-				table.set(i, j, convertArray[i][j]);
+		return authNode;
+	}
+
+	public static Node makeClassNode(String className, Object[][] locTable) {
+		Node classNode = new Node(className);
+		int tempComplex;
+
+		for (tempComplex = 0; tempComplex < locTable.length; tempComplex++) {
+			if (locTable[tempComplex][0].equals(className)) {
+				break;
 			}
 
 		}
 
-		return table;
+		classNode.setComplexity((int) locTable[tempComplex][1]);
 
+		return classNode;
 	}
-
-	// Essentially does a SQL join on two 2D arrays containing the results from
-	// the two parsers. Will eventually take these as input but using mock
-	// objects for now
-	public static Object[][] join() {
-
-		// mock object to imitate the output of the xml parser
-		Object[][] xmlArray = new Object[][] {
-				{ "BancoAgitarException", 1.0, 1.0 },
-				{ "SSNChecks", 2.0, 2.705 }, { "MathUtils", 3.0, 2.0 },
-				{ "Branch", 4.0, 1.75 }, { "BancoAgitar", 12.0, 2.0 },
-				{ "StringUtil", 2.0, 2.5 },
-				{ "CheckingAccount", 19.0, 3.383157894736842 },
-				{ "Util", 5.0, 2.0 } };
-
-		// mock object to imitate the output of the html parser
-		Object[][] htmlArray = new Object[][] {
-				{ "BancoAgitarException", 100, 2 }, { "SSNChecks", 50, 0 },
-				{ "MathUtils", 25, 1 }, { "Branch", 33, 1 },
-				{ "BancoAgitar", 66, 2 }, { "StringUtil", 77, 0 },
-				{ "CheckingAccount", 99, 0 }, { "Util", 20, 1 } };
-
-		Object[][] fusedArray = new Object[xmlArray.length][5];
-
-		// fuse the two arrays together (essentially doing a SQL join)
-		// TODO: need to refactor this a bit to remove hard coded values
-		for (int i = 0; i < xmlArray.length; i++) {
-
-			for (int j = 0; j < xmlArray.length; j++) {
-				if (xmlArray[i][0] == htmlArray[j][0]) {
-					fusedArray[i][0] = xmlArray[i][0];
-					fusedArray[i][1] = xmlArray[i][1];
-					fusedArray[i][2] = xmlArray[i][2];
-					fusedArray[i][3] = htmlArray[j][1];
-					fusedArray[i][4] = htmlArray[j][2];
-				}
-			}
-		}
-
-		/*
-		 * for (int i = 0; i < xmlArray.length; i++) { for (int j = 0; j < 5;
-		 * j++) { System.out.print(" " + fusedArray[i][j] + " "); }
-		 * System.out.println(); }
-		 */
-
-		return fusedArray;
-	}
-
 }
