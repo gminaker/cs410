@@ -52,7 +52,7 @@ public class visualizer extends PApplet {
 
 	public void setup() {
 		outputTable = arrayToTable(testArray);
-		makeNodes(outputTable);
+		// makeNodes(outputTable);
 		size(SIZE_WIDTH, SIZE_HEIGHT);
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
 	}
@@ -102,20 +102,8 @@ public class visualizer extends PApplet {
 
 	}
 
-	public void makeNodes(Table table) {
-		System.out.println(table.getRowCount());
-		System.out.println(nodesToDraw.size());
-		String tempString;
+	// public void makeNodes(Table table) {
 
-		for (int i = 0; i < table.getRowCount(); i++) {
-			tempString = table.getString(i, "className");
-			nodesToDraw.add(new Node(tempString));
-			System.out.println(nodesToDraw.size());
-			// System.out.println(nodesToDraw.get(i).getName());
-		}
-		for (int i = 0; i < table.getRowCount(); i++) {
-			System.out.println(nodesToDraw.get(i).getName());
-		}
-	}
+	// }
 
 }

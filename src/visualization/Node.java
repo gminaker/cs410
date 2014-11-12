@@ -9,6 +9,7 @@ public class Node {
 	private ArrayList<Node> edges;
 	private float lat;
 	private float longt;
+	private int complexity;
 
 	// node constructor
 	public Node(String name) {
@@ -31,7 +32,7 @@ public class Node {
 
 	// adds an edge to the node
 	public void addEdge(Node node) {
-		edges.add(node);
+		this.edges.add(node);
 
 	}
 
@@ -50,6 +51,15 @@ public class Node {
 
 	public void setLongt(float newLongt) {
 		this.longt = newLongt;
+	}
+
+	public void setComplexity(int complex) {
+		this.complexity = complex;
+
+	}
+
+	public int getComplexity() {
+		return this.complexity;
 	}
 
 	// returns the number of children that a node and its sub nodes have
