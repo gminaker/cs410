@@ -6,7 +6,9 @@ import java.util.ArrayList;
 public class Node {
 
 	private String key;
+	private Node parent;
 	private ArrayList<Node> edges;
+	private int[] rgb = new int[3]; 
 	private float lat;
 	private float longt;
 
@@ -17,9 +19,23 @@ public class Node {
 
 	}
 
+	public Node getParent() {
+		return parent;
+	}
+	
+	public void setParent(Node parent) {
+		this.parent = parent;
+	}
+
 	// getter method for the node key (in our case the name of the developer)
 	public String getName() {
 		return this.key;
+
+	}
+	
+	// gets the Node at index i in the arraylist of edges
+	public Node getNode(int i) {
+		return edges.get(i);
 
 	}
 
@@ -51,7 +67,7 @@ public class Node {
 	public void setLongt(float newLongt) {
 		this.longt = newLongt;
 	}
-
+	
 	// returns the number of children that a node and its sub nodes have
 	// including its self
 	public int getNumNodes() {
