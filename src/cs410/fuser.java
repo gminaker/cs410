@@ -2,7 +2,7 @@ package cs410;
 
 import visualization.Node;
 
-//contains methods for joining 2D arrays and for converting this into a Prefuse table
+//contains methods for creating the graph to be used by the visualizer using the output from the parsers
 public class fuser {
 
 	// constants

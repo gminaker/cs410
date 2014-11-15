@@ -9,6 +9,10 @@ import cs410.fuser;
 //Test
 public class visualizer extends PApplet {
 
+	public static void main(String args[]) {
+		PApplet.main(new String[] { "--present", "visualization.visualizer" });
+	}
+
 	PGraphics pg;
 	public static final int SIZE_WIDTH = 500;
 	public static final int SIZE_HEIGHT = 500;
