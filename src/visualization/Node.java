@@ -8,30 +8,38 @@ public class Node {
 	private String key;
 	private Node parent;
 	private ArrayList<Node> edges;
-	private int[] rgb = new int[3]; 
+	private int[] rgb = new int[3];
 	private float lat;
 	private float longt;
 	private int complexity;
 
-	// node constructor
+	// node constructor for constructing a parentless node
 	public Node(String name) {
-		key = name;
-		edges = new ArrayList<Node>();
+		this.parent = null;
+		this.key = name;
+		this.edges = new ArrayList<Node>();
 
 	}
-	
-	public int[] getColor(){
+
+	// constructor for constructing a node with a parent
+	public Node(String name, Node nodeParent) {
+		this.key = name;
+		this.edges = new ArrayList<Node>();
+
+	}
+
+	public int[] getColor() {
 		return rgb;
 	}
-	
-	public void setColor(int[] c){
+
+	public void setColor(int[] c) {
 		this.rgb = c;
 	}
-	
+
 	public Node getParent() {
 		return parent;
 	}
-	
+
 	public void setParent(Node parent) {
 		this.parent = parent;
 	}
@@ -40,7 +48,7 @@ public class Node {
 	public String getName() {
 		return this.key;
 	}
-	
+
 	// gets the Node at index i in the arraylist of edges
 	public Node getNode(int i) {
 		return edges.get(i);
