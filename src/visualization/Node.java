@@ -25,6 +25,7 @@ public class Node {
 	public Node(String name, Node nodeParent) {
 		this.key = name;
 		this.edges = new ArrayList<Node>();
+		this.parent = nodeParent;
 
 	}
 
