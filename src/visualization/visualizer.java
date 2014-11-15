@@ -9,16 +9,20 @@ import cs410.fuser;
 //Draws a graph given the parent node
 public class visualizer extends PApplet {
 
-	// main method to allow us to run as an application instead of a applet
-	public static void main(String args[]) {
-		PApplet.main(new String[] { "--present", "visualization.visualizer" });
-	}
-
 	PGraphics pg;
 	public static final int SIZE_WIDTH = 750;
 	public static final int SIZE_HEIGHT = 750;
 	public Node graph;
 	public PApplet p;
+	public static String xmlFilepath;
+	public static String htmlFilepath;
+
+	// main method to allow us to run as an application instead of a applet
+	public static void main(String args[]) {
+		PApplet.main(new String[] { "--present", "visualization.visualizer" });
+		xmlFilepath = args[0];
+		htmlFilepath = args[1];
+	}
 
 	/**
 	 * Function to get processing going.
