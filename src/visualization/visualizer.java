@@ -19,9 +19,15 @@ public class visualizer extends PApplet {
 
 	// main method to allow us to run as an application instead of a applet
 	public static void main(String args[]) {
+		if (args.length == 2) {
+			xmlFilepath = args[0];
+			htmlFilepath = args[1];
+		} else {
+			System.out
+					.println("Incorrect number of arguments correct number is 2");
+			return;
+		}
 		PApplet.main(new String[] { "--present", "visualization.visualizer" });
-		xmlFilepath = args[0];
-		htmlFilepath = args[1];
 	}
 
 	/**
