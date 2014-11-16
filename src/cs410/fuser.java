@@ -35,6 +35,10 @@ public class fuser {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public Node fuse() {
 		return makeAPINode("API", this.xmlParserOutput, this.htmlParserOutput);
 

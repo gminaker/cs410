@@ -19,14 +19,14 @@ public class visualizer extends PApplet {
 
 	// main method to allow us to run as an application instead of a applet
 	public static void main(String args[]) {
-		if (args.length == 2) {
-			xmlFilepath = args[0];
-			htmlFilepath = args[1];
-		} else {
-			System.out
-					.println("Incorrect number of arguments correct number is 2");
-			return;
-		}
+		// if (args.length == 2) {
+		// xmlFilepath = args[0];
+		// htmlFilepath = args[1];
+		// } else {
+		// System.out
+		// .println("Incorrect number of arguments correct number is 2");
+		// return;
+		// }
 		PApplet.main(new String[] { "--present", "visualization.visualizer" });
 	}
 
@@ -36,6 +36,7 @@ public class visualizer extends PApplet {
 	public void setup() {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
+
 		fuser resultFuser = new fuser();
 		Node drawGraph = resultFuser.fuse();
 		graph = drawGraph;
