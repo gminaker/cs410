@@ -16,12 +16,12 @@ public class fuser {
 	private Object[][] htmlParserOutput;
 
 	static Object[][] gitNamesssssss = { { "a", "c1", "c3", "c8" },
-			{ "b", "c1", "c6", "c2" }, { "c", "c2", "c6" },
-			{ "d", "c2", "c5" }, { "e", "c4", "c1" }, { "f", "c7" },
-			{ "g", "c1", "c2", "c3", "c4", "c5", "c6" }, { "h", "c4" },
-			{ "i", "c2" }, { "j", "c1" } };
+			{ "b", "c1", "c6", "c22222" }, { "c", "c22222", "c6" },
+			{ "d", "c22222", "c5" }, { "e", "c4", "c1" }, { "f", "c7" },
+			{ "g", "c1", "c22222", "c3", "c4", "c5", "c6" }, { "h", "c4" },
+			{ "i", "c22222" }, { "j", "c1" } };
 
-	static Object[][] locTablesssss = { { "c1", 2 }, { "c2", 7 }, { "c3", 5 },
+	static Object[][] locTablesssss = { { "c1", 2 }, { "c22222", 7 }, { "c3", 5 },
 			{ "c4", 2 }, { "c5", 4 }, { "c6", 7 }, { "c7", 3 }, { "c8", 1 },
 			{ "c9", 2 }, { "c10", 3 } };
 
@@ -52,6 +52,7 @@ public class fuser {
 					locTable, gitTable, i));
 		}
 		apiNode.setColor(API_COLOUR);
+		apiNode.setDepth(1);
 		return apiNode;
 	}
 
@@ -64,6 +65,7 @@ public class fuser {
 					locTable));
 		}
 		authNode.setColor(AUTH_COLOUR);
+		authNode.setDepth(2);
 		return authNode;
 	}
 
@@ -97,6 +99,7 @@ public class fuser {
 
 		classNode.setColor(tempColour);
 
+		classNode.setDepth(3);
 		return classNode;
 	}
 }
