@@ -12,6 +12,7 @@ public class Node {
 	private float lat;
 	private float longt;
 	private int complexity;
+	private int depth;
 
 	// node constructor for constructing a parentless node
 	public Node(String name) {
@@ -93,6 +94,14 @@ public class Node {
 	public int getComplexity() {
 		return this.complexity;
 	}
+	
+	public int getDepth(){
+		return this.depth;
+	}
+	
+	public void setDepth(int newDepth){
+		this.depth = newDepth;
+	}
 
 	// returns the number of children that a node and its sub nodes have
 	// including its self
@@ -107,7 +116,7 @@ public class Node {
 				tempNum = this.edges.get(i).getNumNodes();
 				accumulator = accumulator + tempNum;
 			}
-			return accumulator + 1;
+			return accumulator;
 		}
 	}
 

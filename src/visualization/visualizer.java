@@ -10,8 +10,8 @@ import cs410.fuser;
 public class visualizer extends PApplet {
 
 	PGraphics pg;
-	public static final int SIZE_WIDTH = 750;
-	public static final int SIZE_HEIGHT = 750;
+	public static final int SIZE_WIDTH = 1000;
+	public static final int SIZE_HEIGHT = 1000;
 	public Node graph;
 	public PApplet p;
 	public static String xmlFilepath;
@@ -19,14 +19,14 @@ public class visualizer extends PApplet {
 
 	// main method to allow us to run as an application instead of a applet
 	public static void main(String args[]) {
-		if (args.length == 2) {
-			xmlFilepath = args[0];
-			htmlFilepath = args[1];
-		} else {
-			System.out
-					.println("Incorrect number of arguments correct number is 2");
-			return;
-		}
+//		if (args.length == 2) {
+//			xmlFilepath = args[0];
+//			htmlFilepath = args[1];
+//		} else {
+//			System.out
+//					.println("Incorrect number of arguments correct number is 2");
+//			return;
+//		}
 		PApplet.main(new String[] { "--present", "visualization.visualizer" });
 	}
 
@@ -46,7 +46,7 @@ public class visualizer extends PApplet {
 	 */
 	public void draw() {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
-		background(153, 76, 0);
+		background(250, 250, 250);
 		drawTestGraph();
 	}
 
@@ -74,7 +74,7 @@ public class visualizer extends PApplet {
 		fill(rgb[0], rgb[1], rgb[2]);
 		ellipse(node.getLat(), node.getLongt(), width, 25);
 		fill(50);
-		text(node.getName(), node.getLat() - 17, node.getLongt() + 5);
+		text(node.getName(), node.getLat() - 7, node.getLongt() + 5);
 		drawNodes(node.getEdges(), node.getEdges().size());
 	}
 
@@ -101,7 +101,7 @@ public class visualizer extends PApplet {
 	 * @param node
 	 * @return
 	 */
-	private int calculateNodeWidth(Node node) {
+	public static int calculateNodeWidth(Node node) {
 		return 25 + (node.getName().length() * 7);
 	}
 
@@ -140,7 +140,7 @@ public class visualizer extends PApplet {
 	 * Mutually recursive with generateCoordinates to traverse nodes and
 	 * generate coordinates at each one.
 	 */
-	public void generateCoordinate(Node node, float x, float y) {
+	public static void generateCoordinate(Node node, float x, float y) {
 		node.setLat(x);
 		node.setLongt(y);
 		generateCoordinates(node.getEdges(), node.getEdges().size(), x, y);
@@ -155,7 +155,7 @@ public class visualizer extends PApplet {
 	 * @param n
 	 *            - the length of the array of nodes
 	 */
-	public void generateCoordinates(ArrayList<Node> nodes, int n, float x,
+	public static void generateCoordinates(ArrayList<Node> nodes, int n, float x,
 			float y) {
 		if (n == 0) {
 			return;
@@ -163,7 +163,7 @@ public class visualizer extends PApplet {
 			float x_new;
 			float y_new;
 
-			int radius = generateRadius(nodes.get(n - 1));
+			float radius = generateRadius(nodes.get(n - 1), nodes.size());
 			float degreesPerNode = 360 / nodes.size();
 			float thetaDegrees = degreesPerNode * n;
 			float thetaRads = radians(thetaDegrees);
@@ -183,8 +183,10 @@ public class visualizer extends PApplet {
 	 * @param node
 	 * @return distance
 	 */
-	private int generateRadius(Node node) {
-		return 15 + (node.getNumNodes() * 30);
+	public static int generateRadius(Node node, int siblingCount) {
+		return 10 
+			  + (node.getNumNodes() * 15)
+			  + (node.getNumNodes() * siblingCount * 5);
 	}
 
 }
