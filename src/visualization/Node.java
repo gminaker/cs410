@@ -94,12 +94,12 @@ public class Node {
 	public int getComplexity() {
 		return this.complexity;
 	}
-	
-	public int getDepth(){
+
+	public int getDepth() {
 		return this.depth;
 	}
-	
-	public void setDepth(int newDepth){
+
+	public void setDepth(int newDepth) {
 		this.depth = newDepth;
 	}
 
@@ -110,11 +110,11 @@ public class Node {
 		int tempNum;
 
 		if (this.edges.size() == 0) {
-			return 1;
+			return 0;
 		} else {
 			for (int i = 0; i < this.edges.size(); i++) {
 				tempNum = this.edges.get(i).getNumNodes();
-				accumulator = accumulator + tempNum;
+				accumulator = accumulator + tempNum + 1;
 			}
 			return accumulator;
 		}

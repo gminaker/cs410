@@ -21,9 +21,9 @@ public class fuser {
 			{ "g", "c1", "c22222", "c3", "c4", "c5", "c6" }, { "h", "c4" },
 			{ "i", "c22222" }, { "j", "c1" } };
 
-	static Object[][] locTablesssss = { { "c1", 2 }, { "c22222", 7 }, { "c3", 5 },
-			{ "c4", 2 }, { "c5", 4 }, { "c6", 7 }, { "c7", 3 }, { "c8", 1 },
-			{ "c9", 2 }, { "c10", 3 } };
+	static Object[][] locTablesssss = { { "c1", 2 }, { "c22222", 7 },
+			{ "c3", 5 }, { "c4", 2 }, { "c5", 4 }, { "c6", 7 }, { "c7", 3 },
+			{ "c8", 1 }, { "c9", 2 }, { "c10", 3 } };
 
 	// public static void main(String[] args) {
 	// fuse("api", locTablesssss, gitNamesssssss);
@@ -36,14 +36,30 @@ public class fuser {
 	}
 
 	/**
+	 * Test method for using test objects (not to be called for other purposes)
 	 * 
-	 * @return
+	 * @return Node
 	 */
 	public Node fuse() {
 		return makeAPINode("API", this.xmlParserOutput, this.htmlParserOutput);
 
 	}
 
+	/**
+	 * Recursively constructs a DAG to be used by the fuser, the first level
+	 * (root) is the codebase name, the second level is the names of the authors
+	 * who have worked on the codebase, and the third level is the classes they
+	 * have worked on with some associated complexity data
+	 * 
+	 * @param apiName
+	 *            - name of api or codebase being analyzed
+	 * @param locTable
+	 *            - table containing class names and their complexities
+	 * @param gitTable
+	 *            - table containing git stats (author name followed by the
+	 *            classes they have worked on)
+	 * @return - a DAG nodes with the codebase name being the root node
+	 */
 	public Node makeAPINode(String apiName, Object[][] locTable,
 			Object[][] gitTable) {
 		Node apiNode = new Node(apiName);
@@ -56,6 +72,19 @@ public class fuser {
 		return apiNode;
 	}
 
+	/**
+	 * This constructs all the parent nodes it should not be called dirrectly
+	 * 
+	 * 
+	 * @param authName
+	 *            - name of author
+	 * @param parent
+	 *            - the parent node of the node being constructed
+	 * @param locTable
+	 * @param gitTable
+	 * @param row
+	 * @return
+	 */
 	public Node makeAuthorNode(String authName, Node parent,
 			Object[][] locTable, Object[][] gitTable, int row) {
 		Node authNode = new Node(authName, parent);
@@ -69,6 +98,17 @@ public class fuser {
 		return authNode;
 	}
 
+	/**
+	 * Constructs leaf nodes in the DAG
+	 * 
+	 * @param className
+	 *            - name of class
+	 * @param parent
+	 *            - parent of class (should be an author)
+	 * @param locTable
+	 *            - table containing classes and their associated compleities
+	 * @return - a Node reprenting a class
+	 */
 	public Node makeClassNode(String className, Node parent, Object[][] locTable) {
 		Node classNode = new Node(className, parent);
 		int tempComplex;

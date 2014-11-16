@@ -15,6 +15,7 @@ public class fuserTest {
 	private Object[][] xmlParserOutput;
 	private Object[][] htmlParserOutput;
 
+	// test objects reprenting sample output from the parsers
 	public Object[][] gitNamessssss = { { "a", "c1", "c3", "c8" },
 			{ "b", "c1", "c6", "c2" }, { "c", "c2", "c6" },
 			{ "d", "c2", "c5" }, { "e", "c4", "c1" }, { "f", "c7" },
@@ -37,6 +38,7 @@ public class fuserTest {
 		fail("Not yet implemented");
 	}
 
+	// tests the makeAuthorNode method
 	@Test
 	public void makeAuthorNodeTest() {
 		Node compareAuthorNode = new Node("b");
@@ -62,6 +64,7 @@ public class fuserTest {
 
 	}
 
+	// tests the makeClassNode method
 	@Test
 	public void makeClassNodeTest() {
 		Node parentNode = new Node("b");
