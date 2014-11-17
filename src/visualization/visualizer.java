@@ -1,16 +1,18 @@
 package visualization;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import processing.core.PApplet;
 import processing.core.PGraphics;
+import processing.core.PImage;
 import cs410.fuser;
 
 //Draws a graph given the parent node
 public class visualizer extends PApplet {
 
 	PGraphics pg;
-	public static final int SIZE_WIDTH = 1000;
+	public static final int SIZE_WIDTH = 1100;
 	public static final int SIZE_HEIGHT = 1000;
 	public Node graph;
 	public PApplet p;
@@ -42,6 +44,7 @@ public class visualizer extends PApplet {
 		fuser resultFuser = new fuser();
 		Node drawGraph = resultFuser.fuse();
 		graph = drawGraph;
+		frameRate(30);
 	}
 
 	/**
@@ -49,7 +52,9 @@ public class visualizer extends PApplet {
 	 */
 	public void draw() {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
-		background(250, 250, 250);
+		PImage img = loadImage("sky.jpg");
+		img.resize(SIZE_WIDTH, SIZE_HEIGHT);
+		background(img);
 		drawTestGraph();
 	}
 
@@ -75,9 +80,39 @@ public class visualizer extends PApplet {
 		int width = calculateNodeWidth(node);
 
 		fill(rgb[0], rgb[1], rgb[2]);
-		ellipse(node.getLat(), node.getLongt(), width, 25);
-		fill(50);
-		text(node.getName(), node.getLat() - 7, node.getLongt() + 5);
+		
+		if(node.getDepth() ==  1){
+			
+			width = 150;
+			PImage img = loadImage("soil.png");
+			img.resize(width, width);
+			image(img, node.getLat() - (width/2), node.getLongt() - (width/2), width, width);
+			fill(250,250,250);
+			textSize(26); 
+			text(node.getName(), (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
+			fill(50);
+			textSize(14); 
+			
+			//ellipse(node.getLat(), node.getLongt(), width, 25);
+			
+			
+		}else if(node.getDepth() ==  2){
+			width = 100;
+			PImage img = loadImage("flower-2.png");
+			img.resize(width, width);
+			image(img, node.getLat() - (width/2), node.getLongt() - (width/2), width, width);
+			//fill(250,250,250);
+			//textSize(15); 
+			text(node.getName(), (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
+			//fill(50);
+			//textSize(14); 
+			
+		}else{
+			ellipse(node.getLat(), node.getLongt(), width, width);	
+			fill(50);
+			text(node.getName(), (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
+		}
+		
 		drawNodes(node.getEdges(), node.getEdges().size());
 	}
 
@@ -114,11 +149,28 @@ public class visualizer extends PApplet {
 	 * @param node
 	 */
 	public void drawLine(Node node) {
-		int[] rgb = { 0, 0, 0 };
+		int[] rgb_white = { 250, 250, 250 };
+		int[] rgb_green = { 45, 186, 73 };
 		if (node.getParent() != null) {
-			fill(rgb[0], rgb[1], rgb[2]);
-			line(node.getLat(), node.getLongt(), node.getParent().getLat(),
-					node.getParent().getLongt());
+			
+			if(node.getParent().getDepth() == 1){
+				
+				strokeWeight(10);
+				stroke(rgb_green[0], rgb_green[1], rgb_green[2]);
+				line(node.getLat(), node.getLongt(), node.getParent().getLat(),
+						node.getParent().getLongt());
+				strokeWeight(1);
+				stroke(rgb_white[0], rgb_white[1], rgb_white[2]);
+				
+			}else{
+				fill(rgb_white[0], rgb_white[1], rgb_white[2]);
+				strokeWeight(2);
+				line(node.getLat(), node.getLongt(), node.getParent().getLat(),
+						node.getParent().getLongt());
+				strokeWeight(1);
+			}
+			
+			
 		}
 		drawLines(node.getEdges(), node.getEdges().size());
 	}
@@ -144,9 +196,17 @@ public class visualizer extends PApplet {
 	 * generate coordinates at each one.
 	 */
 	public static void generateCoordinate(Node node, float x, float y) {
-		node.setLat(x);
-		node.setLongt(y);
-		generateCoordinates(node.getEdges(), node.getEdges().size(), x, y);
+		Random rand = new Random();
+		float next_x = rand.nextFloat();
+		float random_x = (float) x + next_x * 1;
+		
+		float next_y = rand.nextFloat();
+		float random_y = (float) y + next_y * 1;
+		
+		node.setLat(random_x);
+		node.setLongt(random_y);
+		
+		generateCoordinates(node.getEdges(), node.getEdges().size(), random_x, random_y);
 	}
 
 	/**
@@ -187,8 +247,14 @@ public class visualizer extends PApplet {
 	 * @return distance
 	 */
 	public static int generateRadius(Node node, int siblingCount) {
-		return 10 + (node.getNumNodes() * 15)
-				+ (node.getNumNodes() * siblingCount * 5);
+		
+		if (node.getParent().getDepth() == 1){
+		return 250 + (node.getNumNodes() * 20);
+				//+ (siblingCount * 10);
+		}
+		else{
+			return 110;
+		}
 	}
 
 }

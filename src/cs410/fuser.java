@@ -9,21 +9,28 @@ public class fuser {
 	private int[] AUTH_COLOUR = { 255, 255, 0 };
 	private int[] API_COLOUR = { 255, 0, 0 };
 
-	private int[][] LEAF_COLOURS = { { 0, 255, 0 }, { 255, 128, 0 },
-			{ 204, 204, 0 }, { 153, 76, 0 }, { 102, 51, 0 } };
+	private int[][] LEAF_COLOURS = { { 255, 220, 0 },  //best
+									{ 199, 179, 46 },
+									{ 169, 155, 59 },
+									{ 104, 99, 65 }, 
+									{ 82, 81, 69 } }; //worst
+	
+	private int[][] OLD_LEAF_COLOURS = { { 0, 255, 0 },  //best
+									{ 255, 128, 0 },
+									{ 204, 204, 0 },
+									{ 153, 76, 0 }, 
+									{ 102, 51, 0 } }; //worst
 
 	private Object[][] xmlParserOutput;
 	private Object[][] htmlParserOutput;
 
-	static Object[][] gitNamesssssss = { { "a", "c1", "c3", "c8" },
-			{ "b", "c1", "c6", "c22222" }, { "c", "c22222", "c6" },
-			{ "d", "c22222", "c5" }, { "e", "c4", "c1" }, { "f", "c7" },
-			{ "g", "c1", "c22222", "c3", "c4", "c5", "c6" }, { "h", "c4" },
-			{ "i", "c22222" }, { "j", "c1" } };
+	static Object[][] gitNamesssssss = { { "author_aaa", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" },
+			{ "author_bbb", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, { "author_ccc", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" },
+			{ "author_ddd","c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, { "author_eee", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, 
+			{ "author_fff", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" } };
 
-	static Object[][] locTablesssss = { { "c1", 2 }, { "c22222", 7 },
-			{ "c3", 5 }, { "c4", 2 }, { "c5", 4 }, { "c6", 7 }, { "c7", 3 },
-			{ "c8", 1 }, { "c9", 2 }, { "c10", 3 } };
+	static Object[][] locTablesssss = { { "c1", 2 }, { "class_22222", 7 },
+			{ "class_33333", 5 }, { "class_44444", 2 }, { "class_55555", 4 }, { "class_66666", 7 }};
 
 	// public static void main(String[] args) {
 	// fuse("api", locTablesssss, gitNamesssssss);
