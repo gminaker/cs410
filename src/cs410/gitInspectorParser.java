@@ -25,10 +25,14 @@ public class gitInspectorParser {
 	static Hashtable<String, String> responsibilities = new Hashtable<String, String>();
 	
 	public static void main(String[] args) {
+		parseXML();
+	}	
+
+	public static Object[][] parseXML() {
 
 		try {
-		
-			File fXmlFile = new File("src/cs410/GitInspectorOutput.xml");
+			
+			File fXmlFile = new File("src/cs410/GitInspectorOutput.xml"); 
 			
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -38,17 +42,17 @@ public class gitInspectorParser {
 			
 			NodeList nList = doc.getElementsByTagName("author");
 
-			for (int temp = 0; temp < nList.getLength(); temp++) {
+			for (int temp = 0; temp < maxAuthorNum; temp++) {
 				 
 				Node nNode = nList.item(temp);
 		 
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 		 
 					Element eElement = (Element) nNode;
-		 
+
 					outputArray[temp][0] = eElement.getElementsByTagName("name").item(0).getTextContent();
 							
-					for (int i=1; i <maxFileNum; i++)
+					for (int i=1; i < maxFileNum+1; i++)
 					{
 						String content;
 						
@@ -60,6 +64,7 @@ public class gitInspectorParser {
 						{
 							content = "";
 						}
+						
 						outputArray[temp][i] = content;
 					}
 				}
@@ -80,53 +85,7 @@ public class gitInspectorParser {
 		    }
 		    System.out.println();
 		}
-		
-	}	
-
-	public static void parseXML() {
-		try {
-			
-			File fXmlFile = new File("C:/Users/Tiana Im/Desktop/jquery_output.xml");
-			
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(fXmlFile);
-			
-			doc.getDocumentElement().normalize();
-			
-			NodeList nList = doc.getElementsByTagName("author");
-
-			for (int temp = 0; temp < nList.getLength(); temp++) {
-				 
-				Node nNode = nList.item(temp);
-		 
-				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-		 
-					Element eElement = (Element) nNode;
-		 
-					outputArray[temp][0] = eElement.getElementsByTagName("name").item(0).getTextContent();
-							
-					for (int i=1; i <maxFileNum; i++)
-					{
-						String content;
-						
-						if (eElement.getElementsByTagName("file").item(i-1) != null)
-						{
-							content = eElement.getElementsByTagName("file").item(i-1).getTextContent();
-						}
-						else
-						{
-							content = "";
-						}
-						outputArray[temp][i+1] = content;
-					}
-				}
-			}
-		    
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-	    }
+		return outputArray;
 		
 	}
 	
