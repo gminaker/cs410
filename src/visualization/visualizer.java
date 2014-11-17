@@ -6,7 +6,10 @@ import java.util.Random;
 import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PImage;
+
+import cs410.HTMLParser;
 import cs410.fuser;
+import cs410.xmlParser;
 
 //Draws a graph given the parent node
 public class visualizer extends PApplet {
@@ -40,7 +43,9 @@ public class visualizer extends PApplet {
 	public void setup() {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
-
+		xmlParser xParser = new xmlParser();
+		String[] filepaths = new String[4];
+		Object[][] htmlParserOutput = HTMLParser.complexityAndClassNamesForFilepaths(filepaths);
 		fuser resultFuser = new fuser();
 		Node drawGraph = resultFuser.fuse();
 		graph = drawGraph;
