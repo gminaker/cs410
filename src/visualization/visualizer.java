@@ -43,9 +43,9 @@ public class visualizer extends PApplet {
 	public void setup() {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
-		xmlParser xParser = new xmlParser();
-		String[] filepaths = new String[4];
-		Object[][] htmlParserOutput = HTMLParser.complexityAndClassNamesForFilepaths(filepaths);
+		//xmlParser xParser = new xmlParser();
+		//String[] filepaths = new String[4];
+		//Object[][] htmlParserOutput = HTMLParser.complexityAndClassNamesForFilepaths(filepaths);
 		fuser resultFuser = new fuser();
 		Node drawGraph = resultFuser.fuse();
 		graph = drawGraph;
