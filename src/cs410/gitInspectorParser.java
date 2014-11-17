@@ -20,7 +20,7 @@ public class gitInspectorParser {
 	static int maxAuthorNum = 6;
 	static int maxFileNum = 6;
 	
-	static Object[][] outputArray = new Object[maxFileNum+1][maxAuthorNum];
+	static Object[][] outputArray = new Object[maxFileNum][maxAuthorNum+1];
 	
 	static Hashtable<String, String> responsibilities = new Hashtable<String, String>();
 	
