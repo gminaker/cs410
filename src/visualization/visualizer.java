@@ -167,6 +167,20 @@ public class visualizer extends PApplet {
 				strokeWeight(1);
 				stroke(rgb_white[0], rgb_white[1], rgb_white[2]);
 				
+				//place image of leaf
+				float x1 = node.getParent().getLat();
+				float x2 = node.getLat();
+				
+				float y1 = node.getParent().getLongt();
+				float y2 = node.getLongt();
+				
+				PImage leaf = loadImage("leaf.png");
+				
+				float leaf_x = calculateLeafXPosition(x1, x2);
+				float leaf_y = calculateLeafYPosition(y1, y2);
+				
+				image(leaf, leaf_x, leaf_y, 50, 50);
+				
 			}else{
 				fill(rgb_white[0], rgb_white[1], rgb_white[2]);
 				strokeWeight(2);
@@ -178,6 +192,14 @@ public class visualizer extends PApplet {
 			
 		}
 		drawLines(node.getEdges(), node.getEdges().size());
+	}
+
+	private float calculateLeafYPosition( float y1, float y2) {
+		return (2* y1 + y2)/3;
+	}
+
+	private float calculateLeafXPosition( float x1, float x2) {
+		return (2* x1 + x2)/3;
 	}
 
 	/**
