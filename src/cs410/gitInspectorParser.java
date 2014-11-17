@@ -54,7 +54,7 @@ public class gitInspectorParser {
 						
 						if (eElement.getElementsByTagName("file").item(i-1) != null)
 						{
-							content = eElement.getElementsByTagName("file").item(i-1).getTextContent();
+							content = eElement.getElementsByTagName("name").item(1).getTextContent();
 						}
 						else
 						{
@@ -118,7 +118,7 @@ public class gitInspectorParser {
 						{
 							content = "";
 						}
-						outputArray[temp][i] = content;
+						outputArray[temp][i+1] = content;
 					}
 				}
 			}
@@ -127,6 +127,7 @@ public class gitInspectorParser {
 		catch (Exception e) {
 			e.printStackTrace();
 	    }
+		
 	}
 	
 	

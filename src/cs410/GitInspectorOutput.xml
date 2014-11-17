@@ -23,6 +23,22 @@
 						<name>src/callbacks.js</name>
 						<rows>1</rows>
 					</file>
+					<file>
+						<name>test/unit/callbacks.js</name>
+						<rows>47</rows>
+					</file>
+					<file>
+						<name>test/data/jquery-1.9.1.js</name>
+						<rows>1</rows>
+					</file>
+					<file>
+						<name>src/sizzle/test/jquery.js</name>
+						<rows>1</rows>
+					</file>
+					<file>
+						<name>src/callbacks.js</name>
+						<rows>1</rows>
+					</file>
 				</files>
 			</author>
 			<author>
