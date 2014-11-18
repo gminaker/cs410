@@ -110,18 +110,14 @@ public class gitInspectorParser {
 		        
 		        authorTable = getAuthors(doc, xpath);
 		        
+		        outputArray = returnTempArray();
+		                
+		        
+		        /*
 				for (int temp = 0; temp < maxAuthorNum; temp++) {
 
-					//outputArray[temp][0] = authorTable.keySet();
+					outputArray[temp][0] = authorTable.keySet();
 
-					//temp
-					outputArray[temp][0] = "Adrien Grand";
-					outputArray[temp][0] = "Bogdan Dumitrescu";
-					outputArray[temp][0] = "Leonardo Menezes";
-					outputArray[temp][0] = "Robert Muir";
-					outputArray[temp][0] = "tstibbs";
-					outputArray[temp][0] = "uboness";
-					
 					for (int i=1; i < maxFileNum+1; i++)
 					{
 						String content;
@@ -138,6 +134,7 @@ public class gitInspectorParser {
 						outputArray[temp][i] = content;
 					}
 				}
+				*/
 				
 	        } catch (ParserConfigurationException | SAXException | IOException e) {
 	        e.printStackTrace();
@@ -155,6 +152,64 @@ public class gitInspectorParser {
 			    System.out.println();
 			}
 			
-		return outputArray;
+		return returnTempArray();
+		//return outputArray;
 	}
+	
+	public static Object[][] returnTempArray() throws Exception {	
+		
+		Object[][] tempArray = new Object[maxFileNum][maxAuthorNum+1];
+		
+		outputArray[0][0] = "kimchy";
+		outputArray[1][0] = "Martijn van Groningen";
+		outputArray[2][0] = "Simon Willnauer";
+		outputArray[3][0] = "Luca Cavanna";
+		outputArray[4][0] = "uboness";
+		outputArray[5][0] = "Martijn van Groningen";
+
+		outputArray[0][1] = "src/test/java/org/elasticsearch/index/query/SimpleIndexQueryParserTests.java";
+		outputArray[0][2] = "src/main/java/org/elasticsearch/common/Base64.java";
+		outputArray[0][3] = "src/main/java/org/elasticsearch/common/xcontent/XContentBuilder.java";
+		outputArray[0][4] = "src/test/java/org/elasticsearch/transport/AbstractSimpleTransportTests.java";
+		outputArray[0][5] = "src/main/java/org/elasticsearch/monitor/jvm/JvmStats.java";
+		outputArray[0][6] = "src/main/java/org/elasticsearch/index/engine/internal/InternalEngine.java";
+		
+		outputArray[1][1] = "src/test/java/org/elasticsearch/search/child/SimpleChildQuerySearchTests.java";
+		outputArray[1][2] = "src/test/java/org/elasticsearch/percolator/PercolatorTests.java";
+		outputArray[1][3] = "src/test/java/org/elasticsearch/search/aggregations/bucket/TopHitsTests.java";
+		outputArray[1][4] = "src/test/java/org/elasticsearch/nested/SimpleNestedTests.java";
+		outputArray[1][5] = "src/test/java/org/elasticsearch/indices/IndicesOptionsIntegrationTests.java";
+		outputArray[1][6] = "src/main/java/org/elasticsearch/percolator/PercolatorService.java";
+		
+		outputArray[2][1] = "src/test/java/org/elasticsearch/test/InternalTestCluster.java";
+		outputArray[2][2] = "src/main/java/org/elasticsearch/cluster/routing/allocation/allocator/BalancedShardsAllocator.java";
+		outputArray[2][3] = "src/test/java/org/elasticsearch/index/store/StoreTest.java";
+		outputArray[2][4] = "src/test/java/org/elasticsearch/search/sort/SimpleSortTests.java";
+		outputArray[2][5] = "src/test/java/org/elasticsearch/test/ElasticsearchIntegrationTest.java";
+		outputArray[2][6] = "src/test/java/org/elasticsearch/search/query/MultiMatchQueryTests.java";
+		
+		outputArray[3][1] = "src/test/java/org/apache/lucene/search/postingshighlight/XPostingsHighlighterTests.java";
+		outputArray[3][2] = "src/test/java/org/elasticsearch/search/highlight/HighlighterSearchTests.java";
+		outputArray[3][3] = "src/test/java/org/elasticsearch/search/query/SimpleQueryTests.java";
+		outputArray[3][4] = "src/test/java/org/elasticsearch/action/IndicesRequestTests.java";
+		outputArray[3][5] = "src/test/java/org/elasticsearch/count/query/SimpleQueryTests.java";
+		outputArray[3][6] = "src/main/java/org/apache/lucene/search/postingshighlight/XPostingsHighlighter.java";
+	
+		outputArray[4][1] = "src/test/java/org/elasticsearch/search/aggregations/bucket/DateHistogramTests.java";
+		outputArray[4][2] = "src/test/java/org/elasticsearch/search/aggregations/bucket/StringTermsTests.java";
+		outputArray[4][3] = "src/test/java/org/elasticsearch/search/aggregations/bucket/DateRangeTests.java";
+		outputArray[4][4] = "src/test/java/org/elasticsearch/search/aggregations/bucket/LongTermsTests.java";
+		outputArray[4][5] = "src/test/java/org/elasticsearch/search/aggregations/bucket/DoubleTermsTests.java";
+		outputArray[4][6] = "src/test/java/org/elasticsearch/search/aggregations/bucket/RangeTests.java";
+		
+		outputArray[5][1] = "src/test/java/org/elasticsearch/search/child/SimpleChildQuerySearchTests.java";
+		outputArray[5][2] = "src/test/java/org/elasticsearch/percolator/PercolatorTests.java";
+		outputArray[5][3] = "src/test/java/org/elasticsearch/search/aggregations/bucket/TopHitsTests.java";
+		outputArray[5][4] = "src/test/java/org/elasticsearch/nested/SimpleNestedTests.java";
+		outputArray[5][5] = "src/test/java/org/elasticsearch/indices/IndicesOptionsIntegrationTests.java";
+		outputArray[5][6] = "src/main/java/org/elasticsearch/percolator/PercolatorService.java";
+		
+		return tempArray;
+	}
+
 }
