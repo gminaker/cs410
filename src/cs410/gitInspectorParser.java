@@ -1,24 +1,17 @@
 package cs410;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
-import java.util.Set;
+import java.util.TreeMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-
-import java.io.File;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -26,8 +19,6 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class gitInspectorParser {
@@ -68,26 +59,46 @@ public class gitInspectorParser {
         } catch (ParserConfigurationException | SAXException | IOException e) {
         e.printStackTrace();
         }
+        
+		//testing
+		for(int i = 0; i < outputArray.length; i++)
+		{
+		    for(int j = 0; j < outputArray[i].length; j++)
+		    {
+		        System.out.print(outputArray[i][j]);
+		        if(j < outputArray[i].length - 1) System.out.print(" ");
+		    }
+		    System.out.println();
+		}
 	}	
 
 	
-    private static List<String> getAuthors(Document doc, XPath xpath) {
-        List<String> list = new ArrayList<>();
+    private static TreeMap<String, Double> getAuthors(Document doc, XPath xpath) {
+        
+    	TreeMap<String, Double> AuthorTable = new TreeMap<String, Double>();
+    	
         try {
-        	
-	        // 7) Get all writers
-	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/name/text()");
-	        Object result = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-	        NodeList nodes = (NodeList) result;
-	        System.out.println(nodes.getLength());
-	        for (int i = 0; i < nodes.getLength(); i++) {
-	        	list.add(nodes.item(i).getNodeValue());
-	            System.out.println(nodes.item(i).getNodeValue());
+	        XPathExpression exprAuthor = xpath.compile("/gitinspector/responsibilities/authors/author/name/text()");
+	        Object resultAuthor = (NodeList) exprAuthor.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodesAuthor = (NodeList) resultAuthor;
+	        
+	        XPathExpression exprRow = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/rows/text()");
+	        Object resultRow = (NodeList) exprRow.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodesRow = (NodeList) resultRow;
+	        
+	        for (int i = 0; i < nodesAuthor.getLength(); i++) {
+	        	AuthorTable.put(nodesAuthor.item(i).getNodeValue(), Double.valueOf(nodesRow.item(i).getNodeValue()));
 	        }
+	        
+	        for (String key : AuthorTable.keySet()) {
+	            System.out.println(key + ":" + AuthorTable.get(key));
+	        }
+	        
         } catch (XPathExpressionException e) {
             e.printStackTrace();
         }
-        return list;
+        
+        return AuthorTable;
     }
     
     
@@ -128,6 +139,7 @@ public class gitInspectorParser {
         }
         return list;
     }	
+    
 	public static Object[][] parseXML() {
 /*
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -193,17 +205,6 @@ public class gitInspectorParser {
 		catch (Exception e) {
 			e.printStackTrace();
 	    }
-		
-		//testing
-		for(int i = 0; i < outputArray.length; i++)
-		{
-		    for(int j = 0; j < outputArray[i].length; j++)
-		    {
-		        System.out.print(outputArray[i][j]);
-		        if(j < outputArray[i].length - 1) System.out.print(" ");
-		    }
-		    System.out.println();
-		}
 		
 		*/		
 		return outputArray;
