@@ -58,7 +58,7 @@ public class gitInspectorParser {
 	        authorTable = getAuthors(doc, xpath);
 	        
 			for (int temp = 0; temp < maxAuthorNum; temp++) {
-			       
+
 				outputArray[temp][0] = authorTable.keySet();
 				
 				for (int i=1; i < maxFileNum+1; i++)
