@@ -35,7 +35,14 @@ public class gitInspectorParser {
 	static int maxAuthorNum = 6;
 	static int maxFileNum = 6;
 	
+	public class Authors {
+		public String Name;
+		public int TopRowCount;
+		public java.util.List<java.util.Map.Entry<String,Integer>> Files;
+	}
+	
 	static Object[][] outputArray = new Object[maxFileNum][maxAuthorNum+1];
+	static List<Authors> authorList;
 	static List allList = new ArrayList<Object>();
 	
 	static Hashtable<String, String> responsibilities = new Hashtable<String, String>();
@@ -64,6 +71,63 @@ public class gitInspectorParser {
 	}	
 
 	
+    private static List<String> getAuthors(Document doc, XPath xpath) {
+        List<String> list = new ArrayList<>();
+        try {
+        	
+	        // 7) Get all writers
+	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/name/text()");
+	        Object result = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodes = (NodeList) result;
+	        System.out.println(nodes.getLength());
+	        for (int i = 0; i < nodes.getLength(); i++) {
+	        	list.add(nodes.item(i).getNodeValue());
+	            System.out.println(nodes.item(i).getNodeValue());
+	        }
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    
+    private static List<String> getFileNames(Document doc, XPath xpath) {
+        List<String> list = new ArrayList<>();
+        try {
+        	
+	        // 7) Get all writers
+	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/name/text()");
+	        Object result = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodes = (NodeList) result;
+	        System.out.println(nodes.getLength());
+	        for (int i = 0; i < nodes.getLength(); i++) {
+	        	list.add(nodes.item(i).getNodeValue());
+	            System.out.println(nodes.item(i).getNodeValue());
+	        }
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    private static List<String> getRows(Document doc, XPath xpath) {
+        List<String> list = new ArrayList<>();
+        try {
+        	
+	        // 7) Get all writers
+	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/rows/text()");
+	        Object result = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodes = (NodeList) result;
+	        System.out.println(nodes.getLength());
+	        for (int i = 0; i < nodes.getLength(); i++) {
+	        	list.add(nodes.item(i).getNodeValue());
+	            System.out.println(nodes.item(i).getNodeValue());
+	        }
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }	
 	public static Object[][] parseXML() {
 /*
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -145,62 +209,4 @@ public class gitInspectorParser {
 		return outputArray;
 
 	}
-	
-    private static List<String> getAuthors(Document doc, XPath xpath) {
-        List<String> list = new ArrayList<>();
-        try {
-        	
-	        // 7) Get all writers
-	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/name/text()");
-	        Object result = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-	        NodeList nodes = (NodeList) result;
-	        System.out.println(nodes.getLength());
-	        for (int i = 0; i < nodes.getLength(); i++) {
-	        	list.add(nodes.item(i).getNodeValue());
-	            System.out.println(nodes.item(i).getNodeValue());
-	        }
-        } catch (XPathExpressionException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-    
-    
-    private static List<String> getFileNames(Document doc, XPath xpath) {
-        List<String> list = new ArrayList<>();
-        try {
-        	
-	        // 7) Get all writers
-	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/name/text()");
-	        Object result = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-	        NodeList nodes = (NodeList) result;
-	        System.out.println(nodes.getLength());
-	        for (int i = 0; i < nodes.getLength(); i++) {
-	        	list.add(nodes.item(i).getNodeValue());
-	            System.out.println(nodes.item(i).getNodeValue());
-	        }
-        } catch (XPathExpressionException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-    
-    private static List<String> getRows(Document doc, XPath xpath) {
-        List<String> list = new ArrayList<>();
-        try {
-        	
-	        // 7) Get all writers
-	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/rows/text()");
-	        Object result = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-	        NodeList nodes = (NodeList) result;
-	        System.out.println(nodes.getLength());
-	        for (int i = 0; i < nodes.getLength(); i++) {
-	        	list.add(nodes.item(i).getNodeValue());
-	            System.out.println(nodes.item(i).getNodeValue());
-	        }
-        } catch (XPathExpressionException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
 }
