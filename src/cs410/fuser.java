@@ -1,89 +1,152 @@
 package cs410;
 
-import prefuse.data.Table;
+import visualization.Node;
 
-//contains methods for joining 2D arrays and for converting this into a Prefuse table
+//contains methods for creating the graph to be used by the visualizer using the output from the parsers
 public class fuser {
 
-	public static void main(String[] args) {
-		fuse();
+	// constants
+	private int[] AUTH_COLOUR = { 255, 255, 0 };
+	private int[] API_COLOUR = { 255, 0, 0 };
+
+	private int[][] LEAF_COLOURS = { { 255, 220, 0 },  //best
+									{ 199, 179, 46 },
+									{ 169, 155, 59 },
+									{ 104, 99, 65 }, 
+									{ 82, 81, 69 } }; //worst
+	
+	private int[][] OLD_LEAF_COLOURS = { { 0, 255, 0 },  //best
+									{ 255, 128, 0 },
+									{ 204, 204, 0 },
+									{ 153, 76, 0 }, 
+									{ 102, 51, 0 } }; //worst
+
+	private Object[][] xmlParserOutput;
+	private Object[][] htmlParserOutput;
+
+	static Object[][] gitNamesssssss = { { "author_aaa", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" },
+			{ "author_bbb", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, { "author_ccc", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" },
+			{ "author_ddd","c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, { "author_eee", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, 
+			{ "author_fff", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" } };
+
+	static Object[][] locTablesssss = { { "c1", 2 }, { "class_22222", 7 },
+			{ "class_33333", 5 }, { "class_44444", 2 }, { "class_55555", 4 }, { "class_66666", 7 }};
+
+	// public static void main(String[] args) {
+	// fuse("api", locTablesssss, gitNamesssssss);
+	// }
+
+	public fuser() {
+		this.htmlParserOutput = gitNamesssssss;
+		this.xmlParserOutput = locTablesssss;
+
 	}
 
-	public static void fuse() {
-		Object[][] joinedArray = join();
-		Table outputTable = arrayToTable(joinedArray);
+	/**
+	 * Test method for using test objects (not to be called for other purposes)
+	 * 
+	 * @return Node
+	 */
+	public Node fuse() {
+		return makeAPINode("API", this.xmlParserOutput, this.htmlParserOutput);
+
 	}
 
-	private static Table arrayToTable(Object[][] convertArray) {
-		Table table = new Table();
+	/**
+	 * Recursively constructs a DAG to be used by the fuser, the first level
+	 * (root) is the codebase name, the second level is the names of the authors
+	 * who have worked on the codebase, and the third level is the classes they
+	 * have worked on with some associated complexity data
+	 * 
+	 * @param apiName
+	 *            - name of api or codebase being analyzed
+	 * @param locTable
+	 *            - table containing class names and their complexities
+	 * @param gitTable
+	 *            - table containing git stats (author name followed by the
+	 *            classes they have worked on)
+	 * @return - a DAG nodes with the codebase name being the root node
+	 */
+	public Node makeAPINode(String apiName, Object[][] locTable,
+			Object[][] gitTable) {
+		Node apiNode = new Node(apiName);
+		for (int i = 0; i < gitTable.length; i++) {
+			apiNode.addEdge(makeAuthorNode((String) gitTable[i][0], apiNode,
+					locTable, gitTable, i));
+		}
+		apiNode.setColor(API_COLOUR);
+		apiNode.setDepth(1);
+		return apiNode;
+	}
 
-		// creating and labeling table columns
-		table.addColumn("className", String.class);
-		table.addColumn("methodCount", double.class);
-		table.addColumn("averageCRAP", double.class);
-		table.addColumn("percentChanged", double.class);
-		table.addColumn("changeFlag", int.class);
+	/**
+	 * This constructs all the parent nodes it should not be called dirrectly
+	 * 
+	 * 
+	 * @param authName
+	 *            - name of author
+	 * @param parent
+	 *            - the parent node of the node being constructed
+	 * @param locTable
+	 * @param gitTable
+	 * @param row
+	 * @return
+	 */
+	public Node makeAuthorNode(String authName, Node parent,
+			Object[][] locTable, Object[][] gitTable, int row) {
+		Node authNode = new Node(authName, parent);
 
-		// creating table rows
-		table.addRows(convertArray.length);
+		for (int i = 1; i < gitTable[row].length; i++) {
+			authNode.addEdge(makeClassNode((String) gitTable[row][i], authNode,
+					locTable));
+		}
+		authNode.setColor(AUTH_COLOUR);
+		authNode.setDepth(2);
+		return authNode;
+	}
 
-		// populate table with values from fused 2D array
-		for (int i = 0; i < convertArray.length; i++) {
-			for (int j = 0; j < convertArray[i].length; j++) {
-				table.set(i, j, convertArray[i][j]);
+	/**
+	 * Constructs leaf nodes in the DAG
+	 * 
+	 * @param className
+	 *            - name of class
+	 * @param parent
+	 *            - parent of class (should be an author)
+	 * @param locTable
+	 *            - table containing classes and their associated compleities
+	 * @return - a Node reprenting a class
+	 */
+	public Node makeClassNode(String className, Node parent, Object[][] locTable) {
+		Node classNode = new Node(className, parent);
+		int tempComplex;
+
+		for (tempComplex = 0; tempComplex < locTable.length; tempComplex++) {
+			if (locTable[tempComplex][0].equals(className)) {
+				break;
 			}
 
 		}
 
-		return table;
+		classNode.setComplexity((int) locTable[tempComplex][1]);
 
-	}
+		int tempComplexity = classNode.getComplexity();
+		int[] tempColour;
 
-	// Essentially does a SQL join on two 2D arrays containing the results from
-	// the two parsers. Will eventually take these as input but using mock
-	// objects for now
-	public static Object[][] join() {
-
-		// mock object to imitate the output of the xml parser
-		Object[][] xmlArray = new Object[][] {
-				{ "BancoAgitarException", 1.0, 1.0 },
-				{ "SSNChecks", 2.0, 2.705 }, { "MathUtils", 3.0, 2.0 },
-				{ "Branch", 4.0, 1.75 }, { "BancoAgitar", 12.0, 2.0 },
-				{ "StringUtil", 2.0, 2.5 },
-				{ "CheckingAccount", 19.0, 3.383157894736842 },
-				{ "Util", 5.0, 2.0 } };
-
-		// mock object to imitate the output of the html parser
-		Object[][] htmlArray = new Object[][] {
-				{ "BancoAgitarException", 100, 2 }, { "SSNChecks", 50, 0 },
-				{ "MathUtils", 25, 1 }, { "Branch", 33, 1 },
-				{ "BancoAgitar", 66, 2 }, { "StringUtil", 77, 0 },
-				{ "CheckingAccount", 99, 0 }, { "Util", 20, 1 } };
-
-		Object[][] fusedArray = new Object[xmlArray.length][5];
-
-		// fuse the two arrays together (essentially doing a SQL join)
-		// TODO: need to refactor this a bit to remove hard coded values
-		for (int i = 0; i < xmlArray.length; i++) {
-
-			for (int j = 0; j < xmlArray.length; j++) {
-				if (xmlArray[i][0] == htmlArray[j][0]) {
-					fusedArray[i][0] = xmlArray[i][0];
-					fusedArray[i][1] = xmlArray[i][1];
-					fusedArray[i][2] = xmlArray[i][2];
-					fusedArray[i][3] = htmlArray[j][1];
-					fusedArray[i][4] = htmlArray[j][2];
-				}
-			}
+		if (tempComplexity < 5) {
+			tempColour = LEAF_COLOURS[0];
+		} else if (tempComplexity < 10) {
+			tempColour = LEAF_COLOURS[1];
+		} else if (tempComplexity < 15) {
+			tempColour = LEAF_COLOURS[2];
+		} else if (tempComplexity < 20) {
+			tempColour = LEAF_COLOURS[3];
+		} else {
+			tempColour = LEAF_COLOURS[4];
 		}
 
-		/*
-		 * for (int i = 0; i < xmlArray.length; i++) { for (int j = 0; j < 5;
-		 * j++) { System.out.print(" " + fusedArray[i][j] + " "); }
-		 * System.out.println(); }
-		 */
+		classNode.setColor(tempColour);
 
-		return fusedArray;
+		classNode.setDepth(3);
+		return classNode;
 	}
-
 }
