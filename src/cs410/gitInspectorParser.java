@@ -44,26 +44,47 @@ public class gitInspectorParser {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         DocumentBuilder builder = null;
-		try {
+        
+        try {
 			builder = factory.newDocumentBuilder();
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        Document doc = builder.parse("src/cs410/ElasticSearchGitInspector.xml");
-        
-        XPathFactory xpathfactory = XPathFactory.newInstance();
-        XPath xpath = xpathfactory.newXPath();
-        
-        System.out.println("Get all writers");
-        // 7) Get all writers
-        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/name/text()");
-        Object result = expr.evaluate(doc, XPathConstants.NODESET);
-        NodeList nodes = (NodeList) result;
-        nodes = (NodeList) result;
-        System.out.println(nodes.getLength());
-        for (int i = 0; i < nodes.getLength(); i++) {
-            System.out.println(nodes.item(i).getNodeValue());
+
+	        Document doc = builder.parse("src/cs410/ElasticSearchGitInspector.xml");
+	        
+	        XPathFactory xpathfactory = XPathFactory.newInstance();
+	        XPath xpath = xpathfactory.newXPath();
+	        
+	        System.out.println("Get all writers");
+	        // 7) Get all writers
+	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/name/text()");
+	        Object result = expr.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodes = (NodeList) result;
+	        nodes = (NodeList) result;
+	        System.out.println(nodes.getLength());
+	        for (int i = 0; i < nodes.getLength(); i++) {
+	            System.out.println(nodes.item(i).getNodeValue());
+	        }
+
+	        expr = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/name/text()");
+	        result = expr.evaluate(doc, XPathConstants.NODESET);
+	        nodes = (NodeList) result;
+	        nodes = (NodeList) result;
+	        System.out.println(nodes.getLength());
+	        for (int i = 0; i < nodes.getLength(); i++) {
+	            System.out.println(nodes.item(i).getNodeValue());
+	        }
+   
+	        
+	        expr = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/rows/text()");
+	        result = expr.evaluate(doc, XPathConstants.NODESET);
+	        nodes = (NodeList) result;
+	        nodes = (NodeList) result;
+	        System.out.println(nodes.getLength());
+	        for (int i = 0; i < nodes.getLength(); i++) {
+	            System.out.println(nodes.item(i).getNodeValue());
+	        }
+	        
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+        e.printStackTrace();
         }
 	}	
 
