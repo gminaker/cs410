@@ -1,19 +1,33 @@
 package cs410;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+
 import java.io.File;
+
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class gitInspectorParser {
 	
@@ -21,18 +35,63 @@ public class gitInspectorParser {
 	static int maxFileNum = 6;
 	
 	static Object[][] outputArray = new Object[maxFileNum][maxAuthorNum+1];
+	static List allList = new ArrayList<Object>();
 	
 	static Hashtable<String, String> responsibilities = new Hashtable<String, String>();
 	
-	public static void main(String[] args) {
-		parseXML();
+	public static void main(String[] args) throws Exception {
+
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        DocumentBuilder builder = null;
+		try {
+			builder = factory.newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        Document doc = builder.parse("src/cs410/ElasticSearchGitInspector.xml");
+        
+        XPathFactory xpathfactory = XPathFactory.newInstance();
+        XPath xpath = xpathfactory.newXPath();
+        
+        System.out.println("Get all writers");
+        // 7) Get all writers
+        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/name/text()");
+        Object result = expr.evaluate(doc, XPathConstants.NODESET);
+        NodeList nodes = (NodeList) result;
+        nodes = (NodeList) result;
+        System.out.println(nodes.getLength());
+        for (int i = 0; i < nodes.getLength(); i++) {
+            System.out.println(nodes.item(i).getNodeValue());
+        }
 	}	
 
+	
 	public static Object[][] parseXML() {
+/*
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse("src/cs410/ElasticSearchGitInspector.xml");
+        
+        XPathFactory xpathfactory = XPathFactory.newInstance();
+        XPath xpath = xpathfactory.newXPath();
+        
+        System.out.println("n//7) Get all writers");
+        // 7) Get all writers
+        XPathExpression expr = xpath.compile("//gitinspector/responsibilities/author/name()");
+        Object result = expr.evaluate(doc, XPathConstants.NODESET);
+        NodeList nodes = (NodeList) result;
+        nodes = (NodeList) result;
+        for (int i = 0; i < nodes.getLength(); i++) {
+            System.out.println(nodes.item(i).getNodeValue());
+        }
 
 		try {
 			
-			File fXmlFile = new File("src/cs410/GitInspectorOutput.xml"); 
+			//File fXmlFile = new File("src/cs410/GitInspectorOutput.xml"); 
+			File fXmlFile = new File("src/cs410/ElasticSearchGitInspector.xml"); 
 			
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -85,8 +144,10 @@ public class gitInspectorParser {
 		    }
 		    System.out.println();
 		}
-		return outputArray;
 		
+		*/		
+		return outputArray;
+
 	}
 	
 	
