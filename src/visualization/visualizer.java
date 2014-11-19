@@ -9,7 +9,6 @@ import processing.core.PImage;
 import cs410.HTMLParser;
 import cs410.fuser;
 import cs410.gitInspectorParser;
-import cs410.xmlParser;
 
 //Draws a graph given the parent node
 public class visualizer extends PApplet {
