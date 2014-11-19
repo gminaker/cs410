@@ -23,8 +23,8 @@ import org.xml.sax.SAXException;
 
 public class gitInspectorParser {
 	
-	static int maxAuthorNum = 6;
-	static int maxFileNum = 6;
+	public static int maxAuthorNum = 6;
+	public static int maxFileNum = 6;
 	
 	public class Authors {
 		public String Name;
@@ -36,12 +36,7 @@ public class gitInspectorParser {
 	static List<Authors> authorList;
 	
 	static Hashtable<String, String> responsibilities = new Hashtable<String, String>();
-	
-	public static void main(String[] args) throws Exception {
-		giveOutputArray();   
-	}	
-
-	
+		
     private static TreeMap<String, Double> getAuthors(Document doc, XPath xpath) {
         
     	TreeMap<String, Double> AuthorTable = new TreeMap<String, Double>();
@@ -91,7 +86,7 @@ public class gitInspectorParser {
     }
     
     
-	public static Object[][] giveOutputArray() throws Exception {	
+	public static Object[][] giveOutputArray(String filepath) throws Exception {	
 		
 	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	        factory.setNamespaceAware(true);
@@ -100,7 +95,7 @@ public class gitInspectorParser {
 	        try {
 				builder = factory.newDocumentBuilder();
 
-		        Document doc = builder.parse("src/cs410/ElasticSearchGitInspector.xml");
+		        Document doc = builder.parse(filepath);
 		        
 		        XPathFactory xpathfactory = XPathFactory.newInstance();
 		        XPath xpath = xpathfactory.newXPath();
@@ -113,7 +108,7 @@ public class gitInspectorParser {
 		        outputArray = returnTempArray();
 		                
 		        
-		        /*
+		        
 				for (int temp = 0; temp < maxAuthorNum; temp++) {
 
 					outputArray[temp][0] = authorTable.keySet();
@@ -134,7 +129,7 @@ public class gitInspectorParser {
 						outputArray[temp][i] = content;
 					}
 				}
-				*/
+				
 				
 	        } catch (ParserConfigurationException | SAXException | IOException e) {
 	        e.printStackTrace();

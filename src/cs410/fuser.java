@@ -21,34 +21,19 @@ public class fuser {
 									{ 153, 76, 0 }, 
 									{ 102, 51, 0 } }; //worst
 
-	private Object[][] xmlParserOutput;
-	private Object[][] htmlParserOutput;
-
-	static Object[][] gitNamesssssss = { { "author_aaa", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" },
-			{ "author_bbb", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, { "author_ccc", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" },
-			{ "author_ddd","c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, { "author_eee", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, 
-			{ "author_fff", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" } };
-
-	static Object[][] locTablesssss = { { "c1", 2 }, { "class_22222", 7 },
-			{ "class_33333", 5 }, { "class_44444", 2 }, { "class_55555", 4 }, { "class_66666", 7 }};
 
 	// public static void main(String[] args) {
 	// fuse("api", locTablesssss, gitNamesssssss);
 	// }
 
-	public fuser() {
-		this.htmlParserOutput = gitNamesssssss;
-		this.xmlParserOutput = locTablesssss;
-
-	}
 
 	/**
 	 * Test method for using test objects (not to be called for other purposes)
 	 * 
 	 * @return Node
 	 */
-	public Node fuse() {
-		return makeAPINode("API", this.xmlParserOutput, this.htmlParserOutput);
+	public Node fuse(String apiName, Object[][] xmlParserOutput, Object[][] htmlParserOutput) {
+		return makeAPINode("API", xmlParserOutput, htmlParserOutput);
 
 	}
 

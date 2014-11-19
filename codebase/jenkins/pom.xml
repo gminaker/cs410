@@ -757,6 +757,7 @@ THE SOFTWARE.
 	        <groupId>org.codehaus.mojo</groupId>
 	        <artifactId>cobertura-maven-plugin</artifactId>          
 			<configuration>
+			  <outputDirectory>../../src/cs410/CoberturaJenkins</outputDirectory>
 	          <formats>
 	            <format>html</format>
 	            <format>xml</format>

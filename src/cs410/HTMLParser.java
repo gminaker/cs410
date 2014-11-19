@@ -11,7 +11,7 @@ import org.jsoup.select.Elements;
 public class HTMLParser {
 	
 	
-	public static Object[][]complexityAndClassNamesForFilepaths(String[] filepaths) {
+	public static Object[][]complexityAndClassNamesForFilepathsAndFolder(String[] filepaths, String folder) {
 		Object[][] returnValue = new Object[filepaths.length][];
 		for (int i = 0; i<filepaths.length; i++) {
 			returnValue[i] = new Object[] {filepaths[i], complexityForFilepath(filepaths[i])};
@@ -24,6 +24,7 @@ public class HTMLParser {
 		double complexity = 0;
 		String htmlFileName = filepath.replaceAll("\\.\\w+", ".html");
 		htmlFileName.replace('/', '.');	
+		String htmlFilePath;
 		
 		File f = new File(htmlFileName);
 		if (f.exists() && !f.isDirectory()) { 
