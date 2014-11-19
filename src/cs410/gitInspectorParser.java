@@ -55,7 +55,7 @@ public class gitInspectorParser {
 	        }
 	        
 	        for (String key : AuthorTable.keySet()) {
-	            System.out.println(key + ":" + AuthorTable.get(key));
+	            //System.out.println(key + ":" + AuthorTable.get(key));
 	        }
 	        
         } catch (XPathExpressionException e) {
