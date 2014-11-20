@@ -35,6 +35,7 @@ public class visualizer extends PApplet {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
 		try {
+			
 //			Object[][] gitInspectorParserOutputElasticSearch = gitInspectorParser.giveElasticSearchOutputArray(gitInspectorElasticSearchFilepath);
 //			Object[][] gitInspectorParserOutputJenkins = gitInspectorParser.giveJenkinsOutputArray(gitInspectorJenkinsFilepath);
 //			
@@ -58,6 +59,7 @@ public class visualizer extends PApplet {
 //			Object[][] htmlParserOutputJenkins = HTMLParser.complexityAndClassNamesForFilepathsAndFolder(jenkinsFilepaths, coberturaJenkinsFilepath);
 			gitInspectorParser gitParser = new gitInspectorParser();
 			gitParser.giveElasticSearchOutputArray(filepath)
+
 			fuser resultFuser = new fuser();
 			Node drawGraph = resultFuser.makeAPINode("Project", locTable, gitTable)
 			graph = drawGraph;
