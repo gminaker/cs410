@@ -44,7 +44,7 @@ public class gitInspectorParser {
 	 * @param xpath
 	 * @return
 	 */
-    private static TreeMap<String, Double> getAuthors(Document doc, XPath xpath) {
+    public static TreeMap<String, Double> getAuthors(Document doc, XPath xpath) {
         
     	TreeMap<String, Double> AuthorTable = new TreeMap<String, Double>();
     	
@@ -78,7 +78,7 @@ public class gitInspectorParser {
      * @param xpath
      * @return
      */
-    private static ArrayList<String> getTop6Authors(Document doc, XPath xpath) {
+    public static ArrayList<String> getTop6Authors(Document doc, XPath xpath) {
         
     	ArrayList<String> top6Authors = new ArrayList<String>();
     	
@@ -128,7 +128,7 @@ public class gitInspectorParser {
      * @param xpath
      * @return
      */
-    private static List<String> getFileNames(Document doc, XPath xpath) {
+    public static List<String> getFileNames(Document doc, XPath xpath) {
         List<String> list = new ArrayList<>();
         try {
         	
@@ -156,7 +156,7 @@ public class gitInspectorParser {
      * @param topSixAuthorsList
      * @return
      */
-    private static List<String> getTop6FileNamesForTopAuthors(Document doc, XPath xpath, ArrayList<String> topSixAuthorsList) {
+    public static List<String> getTop6FileNamesForTopAuthors(Document doc, XPath xpath, ArrayList<String> topSixAuthorsList) {
         
     	List<String> list = new ArrayList<>();
         try {
