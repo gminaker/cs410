@@ -1,5 +1,6 @@
 package visualization;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -34,29 +35,31 @@ public class visualizer extends PApplet {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
 		try {
-			Object[][] gitInspectorParserOutputElasticSearch = gitInspectorParser.giveElasticSearchOutputArray(gitInspectorElasticSearchFilepath);
-			Object[][] gitInspectorParserOutputJenkins = gitInspectorParser.giveJenkinsOutputArray(gitInspectorJenkinsFilepath);
-			
-			String[] elasticSearchFilepaths = new String[gitInspectorParser.maxAuthorNum * gitInspectorParser.maxFileNum];
-			for (int i=0; i<gitInspectorParserOutputElasticSearch.length; i++) {
-				for (int j=0; j<gitInspectorParserOutputElasticSearch[i].length; i++) {
-					elasticSearchFilepaths[i*gitInspectorParserOutputElasticSearch[i].length + j] = 
-							(String) gitInspectorParserOutputElasticSearch[i][j];
-				}
-			}
-			
-			String[] jenkinsFilepaths = new String[gitInspectorParser.maxAuthorNum * gitInspectorParser.maxFileNum];
-			for (int i=0; i<gitInspectorParserOutputJenkins.length; i++) {
-				for (int j=0; j<gitInspectorParserOutputJenkins[i].length; i++) {
-					jenkinsFilepaths[i*gitInspectorParserOutputJenkins[i].length + j] = 
-							(String) gitInspectorParserOutputJenkins[i][j];
-				}
-			}
-			
-			Object[][] htmlParserOutputElasticSearch = HTMLParser.complexityAndClassNamesForFilepathsAndFolder(elasticSearchFilepaths, coberturaElasticSearchFilepath);
-			Object[][] htmlParserOutputJenkins = HTMLParser.complexityAndClassNamesForFilepathsAndFolder(jenkinsFilepaths, coberturaJenkinsFilepath);
+//			Object[][] gitInspectorParserOutputElasticSearch = gitInspectorParser.giveElasticSearchOutputArray(gitInspectorElasticSearchFilepath);
+//			Object[][] gitInspectorParserOutputJenkins = gitInspectorParser.giveJenkinsOutputArray(gitInspectorJenkinsFilepath);
+//			
+//			String[] elasticSearchFilepaths = new String[gitInspectorParser.maxAuthorNum * gitInspectorParser.maxFileNum];
+//			for (int i=0; i<gitInspectorParserOutputElasticSearch.length; i++) {
+//				for (int j=0; j<gitInspectorParserOutputElasticSearch[i].length; i++) {
+//					elasticSearchFilepaths[i*gitInspectorParserOutputElasticSearch[i].length + j] = 
+//							(String) gitInspectorParserOutputElasticSearch[i][j];
+//				}
+//			}
+//			
+//			String[] jenkinsFilepaths = new String[gitInspectorParser.maxAuthorNum * gitInspectorParser.maxFileNum];
+//			for (int i=0; i<gitInspectorParserOutputJenkins.length; i++) {
+//				for (int j=0; j<gitInspectorParserOutputJenkins[i].length; i++) {
+//					jenkinsFilepaths[i*gitInspectorParserOutputJenkins[i].length + j] = 
+//							(String) gitInspectorParserOutputJenkins[i][j];
+//				}
+//			}
+//			
+//			Object[][] htmlParserOutputElasticSearch = HTMLParser.complexityAndClassNamesForFilepathsAndFolder(elasticSearchFilepaths, coberturaElasticSearchFilepath);
+//			Object[][] htmlParserOutputJenkins = HTMLParser.complexityAndClassNamesForFilepathsAndFolder(jenkinsFilepaths, coberturaJenkinsFilepath);
+			gitInspectorParser gitParser = new gitInspectorParser();
+			gitParser.giveElasticSearchOutputArray(filepath)
 			fuser resultFuser = new fuser();
-			Node drawGraph = resultFuser.fuse("ElasticSearch", gitInspectorParserOutputElasticSearch, htmlParserOutputElasticSearch);
+			Node drawGraph = resultFuser.makeAPINode("Project", locTable, gitTable)
 			graph = drawGraph;
 			frameRate(30);
 
@@ -96,22 +99,21 @@ public class visualizer extends PApplet {
 	public void drawNode(Node node) {
 		int rgb[] = node.getColor();
 		int width = calculateNodeWidth(node);
-
+		String truncatedName = truncateName(node.getName());
+		
 		fill(rgb[0], rgb[1], rgb[2]);
 		
 		if(node.getDepth() ==  1){
-			// Draw the very center for the proect
+			// Draw the very center for the project
 			width = 150;
 			PImage img = loadImage("soil.png");
 			img.resize(width, width);
 			image(img, node.getLat() - (width/2), node.getLongt() - (width/2), width, width);
 			fill(250,250,250);
 			textSize(26); 
-			text(node.getName(), (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
+			text(truncatedName, (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
 			fill(50);
 			textSize(14); 
-			
-			//ellipse(node.getLat(), node.getLongt(), width, 25);
 			
 		}else if(node.getDepth() ==  2){
 			// draw center of flower
@@ -120,16 +122,31 @@ public class visualizer extends PApplet {
 			img.resize(width, width);
 			image(img, node.getLat() - (width/2), node.getLongt() - (width/2), width, width);
 
-			text(node.getName(), (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
+			text(truncatedName, (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
 			
 		}else{
 			// draw the pedals
 			ellipse(node.getLat(), node.getLongt(), width, width);	
 			fill(50);
-			text(node.getName(), (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
+			text(truncatedName, (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
 		}
 		
 		drawNodes(node.getEdges(), node.getEdges().size());
+	}
+
+	/**
+	 * truncates the name of the node to fit within bounds
+	 * of the visualizer. truncates if name length > 10
+	 * 
+	 * @param name
+	 * @return truncated name
+	 */
+	private String truncateName(String name) {
+		if(name.length() <= 10){
+			return name;
+		}else{
+			return name.substring(0, 5) + "..." + name.substring(name.length()-4, name.length());
+		}
 	}
 
 	/**
@@ -178,20 +195,6 @@ public class visualizer extends PApplet {
 				strokeWeight(1);
 				stroke(rgb_white[0], rgb_white[1], rgb_white[2]);
 				
-				//place image of leaf
-				float x1 = node.getParent().getLat();
-				float x2 = node.getLat();
-				
-				float y1 = node.getParent().getLongt();
-				float y2 = node.getLongt();
-				
-				PImage leaf = loadImage("leaf.png");
-				
-				float leaf_x = calculateLeafXPosition(x1, x2);
-				float leaf_y = calculateLeafYPosition(y1, y2);
-				
-				image(leaf, leaf_x, leaf_y, 50, 50);
-				
 			}else{
 				fill(rgb_white[0], rgb_white[1], rgb_white[2]);
 				strokeWeight(2);
@@ -203,14 +206,6 @@ public class visualizer extends PApplet {
 			
 		}
 		drawLines(node.getEdges(), node.getEdges().size());
-	}
-
-	private float calculateLeafYPosition( float y1, float y2) {
-		return (2* y1 + y2)/3;
-	}
-
-	private float calculateLeafXPosition( float x1, float x2) {
-		return (2* x1 + x2)/3;
 	}
 
 	/**

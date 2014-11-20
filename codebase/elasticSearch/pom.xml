@@ -1548,6 +1548,12 @@
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>findbugs-maven-plugin</artifactId>
                         <version>2.5.3</version>
+                        <configuration>
+						<outputDirectory>/Documents/eclipse_java/</outputDirectory>
+			            <formats>
+			              <format>xml</format>
+			            </formats>
+			          </configuration>
                     </plugin>
                 </plugins>
             </build>
@@ -1557,9 +1563,8 @@
 			          <groupId>org.codehaus.mojo</groupId>
 			          <artifactId>cobertura-maven-plugin</artifactId>
 			          <configuration>
-						<outputDirectory>../../src/cs410/CoberturaElasticSearch</outputDirectory>
+						<outputDirectory>/Documents/eclipse_java/</outputDirectory>
 			            <formats>
-			              <format>html</format>
 			              <format>xml</format>
 			            </formats>
 			          </configuration>

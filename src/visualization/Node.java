@@ -11,7 +11,7 @@ public class Node {
 	private int[] rgb = new int[3];
 	private float lat;
 	private float longt;
-	private int complexity;
+	private double complexity;
 	private int depth;
 
 	// node constructor for constructing a parentless node
@@ -86,12 +86,12 @@ public class Node {
 		this.longt = newLongt;
 	}
 
-	public void setComplexity(int complex) {
+	public void setComplexity(double complex) {
 		this.complexity = complex;
 
 	}
 
-	public int getComplexity() {
+	public double getComplexity() {
 		return this.complexity;
 	}
 
