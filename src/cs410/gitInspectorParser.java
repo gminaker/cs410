@@ -21,8 +21,6 @@ import javax.xml.xpath.XPathFactory;
 
 import org.xml.sax.SAXException;
 
-import processing.core.PApplet;
-
 public class gitInspectorParser {
 	
 	public static int maxAuthorNum = 6;
@@ -39,15 +37,18 @@ public class gitInspectorParser {
 	
 	static Hashtable<String, String> responsibilities = new Hashtable<String, String>();
 		
+	/*
 	public static void main(String [ ] args)
 	{
 		try {
-			giveOutputArray("C:/Git/cs410/bin/cs410/GitInspectorElasticSearch.xml");
+			Object[][] helloArray = returnParsedArray("C:/Git/cs410/bin/cs410/GitInspectorElasticSearch.xml");
+			String hi;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	*/
 	
     private static TreeMap<String, Double> getAuthors(Document doc, XPath xpath) {
         
@@ -67,7 +68,7 @@ public class gitInspectorParser {
 	        }
 	        
 	        for (String key : AuthorTable.keySet()) {
-	            System.out.println(key + ":" + AuthorTable.get(key));
+	            //System.out.println(key + ":" + AuthorTable.get(key));
 	        }
 	        
         } catch (XPathExpressionException e) {
@@ -96,14 +97,17 @@ public class gitInspectorParser {
 	        	AuthorTable.put(Double.valueOf(nodesRow.item(i).getNodeValue()), nodesAuthor.item(i).getNodeValue());
 	        }
 	       
+	        /*
 	        System.out.println("...........................");
 	        for (Double key : AuthorTable.keySet()) {
 	            System.out.println(key + ":" + AuthorTable.get(key));
 	        }
-	        
+	        */
 	        int size = AuthorTable.size();
+	        /*
 	        System.out.println(size);
 	        System.out.println("HI" + (String) AuthorTable.values().toArray()[size-1]); 
+	        */
 	        
 	        for (int i=1; i<7; i++)
 	        {
@@ -125,10 +129,11 @@ public class gitInspectorParser {
 	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/name/text()");
 	        Object result = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
 	        NodeList nodes = (NodeList) result;
-	        System.out.println(nodes.getLength());
+	        
+	        //System.out.println(nodes.getLength());
 	        for (int i = 0; i < nodes.getLength(); i++) {
 	        	list.add(nodes.item(i).getNodeValue());
-	            System.out.println(nodes.item(i).getNodeValue());
+	            //System.out.println(nodes.item(i).getNodeValue());
 	        }
 	        
         } catch (XPathExpressionException e) {
@@ -138,6 +143,52 @@ public class gitInspectorParser {
         return list;
     }
     
+    private static List<String> getTop6FileNamesForTopAuthors(Document doc, XPath xpath, ArrayList<String> topSixAuthorsList) {
+        
+    	List<String> list = new ArrayList<>();
+        try {
+        	
+        	XPathExpression exprName = xpath.compile("/gitinspector/responsibilities/authors/author/name/text()");
+	        Object resultName = (NodeList) exprName.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodesName = (NodeList) resultName;
+	       
+	        XPathExpression exprFile = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/name/text()");
+	        Object resultFile = (NodeList) exprFile.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodesFile = (NodeList) resultFile;
+	        
+	        /*
+	        System.out.println("******************************");
+	        System.out.println(nodesName.getLength());
+	        */
+	        for (int j= 0; j < topSixAuthorsList.size(); j++) {
+		        for (int i = 0; i < nodesName.getLength(); i++) {
+		        	String ii = nodesName.item(i).getNodeValue();
+		        	String jj = topSixAuthorsList.get(j);
+		        	
+		        	if (ii.equals(jj))
+		        	{
+		        		list.add(ii);
+		        		list.add(nodesFile.item(i).getNodeValue());		
+		        		list.add(nodesFile.item(i+1).getNodeValue());		
+		        		list.add(nodesFile.item(i+2).getNodeValue());		
+		        		list.add(nodesFile.item(i+3).getNodeValue());		
+		        		list.add(nodesFile.item(i+4).getNodeValue());		
+		        		list.add(nodesFile.item(i+5).getNodeValue());		
+		        	}
+		        }        	
+	        }			
+	        
+	        //for ( String listContent : list)
+	        	//System.out.println(listContent);
+	        
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+    
+    /*************old*************/
 	public static Object[][] giveOutputArray(String filepath) throws Exception {	
 		
 	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -198,7 +249,7 @@ public class gitInspectorParser {
 	return outputArray;
 	}
 
-	public static void returnParsedArray(String filepath) throws Exception {	
+	public static Object[][] returnParsedArray(String filepath) throws Exception {	
 		
 	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	        factory.setNamespaceAware(true);
@@ -215,36 +266,24 @@ public class gitInspectorParser {
 		        TreeMap<String, Double> authorTable = new TreeMap<String, Double>();
 		        List<String> fileNameTable = getFileNames(doc, xpath);
 		        
-		        getTop6Authors(doc, xpath);
-		        
-		        /*
-		        authorTable = getAuthors(doc, xpath);
-		        
-				for (int temp = 0; temp < maxAuthorNum; temp++) {
+		        ArrayList<String> top6Authors = getTop6Authors(doc, xpath);
+				List<String> authorAndFileList = getTop6FileNamesForTopAuthors(doc, xpath, top6Authors);
 
-					outputArray[temp][0] = authorTable.keySet();
+				int count = 0;
+				
+					for (int temp = 0; temp < maxAuthorNum; temp++) {
 
-					for (int i=1; i < maxFileNum+1; i++)
-					{
-						String content;
-						
-						if (fileNameTable != null)
+						for (int i=0; i < maxFileNum+1; i++)
 						{
-							content = fileNameTable.get(i);
+							outputArray[temp][i] = authorAndFileList.get(count);
+							count++;
 						}
-						else
-						{
-							content = "";
-						}
-						
-						outputArray[temp][i] = content;
 					}
-				}
-			*/				
+			
 	        } catch (ParserConfigurationException | SAXException | IOException e) {
 	        e.printStackTrace();
 	        }
-/*			
+	
 			//testing
 			for(int i = 0; i < outputArray.length; i++)
 			{
@@ -255,8 +294,14 @@ public class gitInspectorParser {
 			    }
 			    System.out.println();
 			}
-			*/
+			
+			return outputArray;
+
 	}
+	
+	
+    /*************old*************/
+	
 	
 	public static Object[][] giveElasticSearchOutputArray(String filepath) throws Exception {	
 		
