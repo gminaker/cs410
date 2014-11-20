@@ -2,6 +2,8 @@ package cs410;
 
 import java.io.File;
 import java.util.Hashtable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -36,7 +38,7 @@ public class CoberturaXMLParser {
 		try {
 			// Initialization code modified from tutorial
 			// http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/
-			File crapFile = new File("/Documents/eclipse_java/cs410/codebase/elasticSearch/target/site/cobertura/coverage.xml");
+			File crapFile = new File("codebase/elasticSearch/target/site/cobertura/coverage.xml");
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder dBuilder = docFactory.newDocumentBuilder();
@@ -132,6 +134,15 @@ public class CoberturaXMLParser {
 	 */
 	public void addToHash(NamedNodeMap classAtts){
 		String className = classAtts.getNamedItem("filename").getNodeValue();
+		String patternString = "(?<=[\\\\/])w+\\.java";
+		Pattern pattern = Pattern.compile(patternString);
+		Matcher matcher = pattern.matcher(className);
+		while (matcher.find()) {
+		    className = matcher.group(1);
+		}
+		
+		System.out.println(className);
+
 		String classComplexityString = classAtts.getNamedItem("complexity").getNodeValue().toString();
 		Double classComplexity = Double.parseDouble(classComplexityString);
 		
