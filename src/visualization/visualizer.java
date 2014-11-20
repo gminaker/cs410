@@ -97,6 +97,7 @@ public class Visualizer extends PApplet {
 		String truncatedName = truncateName(node.getName());
 		
 		fill(rgb[0], rgb[1], rgb[2]);
+		textAlign(CENTER, CENTER);
 		
 		if(node.getDepth() ==  1){
 			// Draw the very center for the project
@@ -106,7 +107,9 @@ public class Visualizer extends PApplet {
 			image(img, node.getLat() - (width/2), node.getLongt() - (width/2), width, width);
 			fill(250,250,250);
 			textSize(26); 
-			text(truncatedName, (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
+			//text(truncatedName, (float) (node.getLat() - (truncatedName.length() * 3.8)),  node.getLongt() + 5, 40, 40);
+			text(truncatedName, node.getLat() - 50,  node.getLongt() - 60 + 5, 100, 100);
+			
 			fill(50);
 			textSize(14); 
 			
@@ -116,31 +119,34 @@ public class Visualizer extends PApplet {
 			PImage img = loadImage("flower-2.png");
 			img.resize(width, width);
 			image(img, node.getLat() - (width/2), node.getLongt() - (width/2), width, width);
-
-			text(truncatedName, (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
+			text(truncatedName, node.getLat() - 40,  node.getLongt() - 50 + 5, 80, 80);
+			//text(truncatedName, (float) (node.getLat() - (truncatedName.length() * 3.8)), node.getLongt() + 5, 40, 40);
 			
 		}else{
-			// draw the pedals
+			// draw the petals
 			truncatedName = truncateClassName(node.getName());
 			ellipse(node.getLat(), node.getLongt(), width, width);	
 			fill(50);
-			text(truncatedName, (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
+			
+			text(truncatedName, node.getLat() - 40,  node.getLongt() - 50 + 5, 80, 80);
+			//text(truncatedName, (float) (node.getLat() - (truncatedName.length() * 3.8)), node.getLongt() + 5, 40, 40);
 		}
 		
 		drawNodes(node.getEdges(), node.getEdges().size());
 	}
 
+	
+	/**
+	 * truncates the name of the node to fit within bounds
+	 * of the visualizer. truncates if name length > 10
+	 * 
+	 * @param name
+	 * @return truncated name
+	 */
 	private String truncateClassName(String name) {
 		
 		String classNameWithoutJavaSuffix = name.substring(0, name.length() - 5);
-		
-		if(classNameWithoutJavaSuffix.length() <= 10){
-			return classNameWithoutJavaSuffix;
-		}else{
-			return classNameWithoutJavaSuffix.substring(0, 5) 
-					+ "..." 
-					+ classNameWithoutJavaSuffix.substring(classNameWithoutJavaSuffix.length()-4, classNameWithoutJavaSuffix.length());
-		}
+		return truncateName(classNameWithoutJavaSuffix);
 	}
 
 	/**
@@ -152,10 +158,10 @@ public class Visualizer extends PApplet {
 	 */
 	private String truncateName(String name) {
 		
-		if(name.length() <= 10){
+		if(name.length() <= 40){
 			return name;
 		}else{
-			return name.substring(0, 5) + "..." + name.substring(name.length()-4, name.length());
+			return name.substring(0, 15) + "..." + name.substring(name.length()-15, name.length());
 		}
 	}
 
