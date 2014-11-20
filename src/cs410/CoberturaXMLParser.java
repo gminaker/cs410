@@ -31,7 +31,7 @@ public class CoberturaXMLParser {
 		return this.outputTable;
 	}
 	
-	public void parseXML() {
+	public Hashtable<String, Double> parseXML() {
 
 		try {
 			// Initialization code modified from tutorial
@@ -62,6 +62,8 @@ public class CoberturaXMLParser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return this.getHashTable();
 
 	}
 	

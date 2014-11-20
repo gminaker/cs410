@@ -115,7 +115,6 @@ public class fuser {
 
 		classNode.setComplexity(tempComplexity);
 
-		
 		int[] tempColour;
 
 		if (tempComplexity < 5) {

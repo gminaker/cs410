@@ -2,11 +2,13 @@ package visualization;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Random;
 
 import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PImage;
+import cs410.CoberturaXMLParser;
 import cs410.HTMLParser;
 import cs410.fuser;
 import cs410.gitInspectorParser;
@@ -19,12 +21,16 @@ public class visualizer extends PApplet {
 	public static final int SIZE_HEIGHT = 1000;
 	public Node graph;
 	public PApplet p;
-	public static String gitInspectorElasticSearchFilepath = "cs410/GitInspectorElasticSearch.xml";
-	public static String gitInspectorJenkinsFilepath = "cs410/GitInspectorJenkins.xml";
-	public static String coberturaElasticSearchFilepath = "codebase/elasticSearch/target/site/cobertura";
-	public static String coberturaJenkinsFilepath = "codebase/jenkins/core/target/site/cobertura";
+	public String APIname;
+	public String coFilePath;
+	public String gIFilePath;
+	
+//	public static String gitInspectorElasticSearchFilepath = "cs410/GitInspectorElasticSearch.xml";
+//	public static String gitInspectorJenkinsFilepath = "cs410/GitInspectorJenkins.xml";
+//	public static String coberturaElasticSearchFilepath = "codebase/elasticSearch/target/site/cobertura";
+//	public static String coberturaJenkinsFilepath = "codebase/jenkins/core/target/site/cobertura";
 
-	public static void main() {
+	public static void main(String[] args) {
 		PApplet.main(new String[] { "--present", "visualization.visualizer" });
 	}
 
@@ -36,33 +42,21 @@ public class visualizer extends PApplet {
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
 		try {
 			
-//			Object[][] gitInspectorParserOutputElasticSearch = gitInspectorParser.giveElasticSearchOutputArray(gitInspectorElasticSearchFilepath);
-//			Object[][] gitInspectorParserOutputJenkins = gitInspectorParser.giveJenkinsOutputArray(gitInspectorJenkinsFilepath);
-//			
-//			String[] elasticSearchFilepaths = new String[gitInspectorParser.maxAuthorNum * gitInspectorParser.maxFileNum];
-//			for (int i=0; i<gitInspectorParserOutputElasticSearch.length; i++) {
-//				for (int j=0; j<gitInspectorParserOutputElasticSearch[i].length; i++) {
-//					elasticSearchFilepaths[i*gitInspectorParserOutputElasticSearch[i].length + j] = 
-//							(String) gitInspectorParserOutputElasticSearch[i][j];
-//				}
-//			}
-//			
-//			String[] jenkinsFilepaths = new String[gitInspectorParser.maxAuthorNum * gitInspectorParser.maxFileNum];
-//			for (int i=0; i<gitInspectorParserOutputJenkins.length; i++) {
-//				for (int j=0; j<gitInspectorParserOutputJenkins[i].length; i++) {
-//					jenkinsFilepaths[i*gitInspectorParserOutputJenkins[i].length + j] = 
-//							(String) gitInspectorParserOutputJenkins[i][j];
-//				}
-//			}
-//			
-//			Object[][] htmlParserOutputElasticSearch = HTMLParser.complexityAndClassNamesForFilepathsAndFolder(elasticSearchFilepaths, coberturaElasticSearchFilepath);
-//			Object[][] htmlParserOutputJenkins = HTMLParser.complexityAndClassNamesForFilepathsAndFolder(jenkinsFilepaths, coberturaJenkinsFilepath);
+			//GitInspector
 			gitInspectorParser gitParser = new gitInspectorParser();
-			gitParser.giveElasticSearchOutputArray(filepath)
-
+		    Object[][] gitParserOutput = gitParser.giveElasticSearchOutputArray("//");
+		    
+		    //Cobertura
+		    CoberturaXMLParser cobParser = new CoberturaXMLParser();
+		    cobParser.parseXML();
+		    Hashtable<String, Double> cobertuaPaseOutput = cobParser.parseXML();
+		    
+		    //Fuser
 			fuser resultFuser = new fuser();
-			Node drawGraph = resultFuser.makeAPINode("Project", locTable, gitTable)
+			Node drawGraph = resultFuser.makeAPINode("Project", cobertuaPaseOutput, gitParserOutput);
 			graph = drawGraph;
+
+			//Visualization
 			frameRate(30);
 
 		} catch (Exception e) {
@@ -128,12 +122,26 @@ public class visualizer extends PApplet {
 			
 		}else{
 			// draw the pedals
+			truncatedName = truncateClassName(node.getName());
 			ellipse(node.getLat(), node.getLongt(), width, width);	
 			fill(50);
 			text(truncatedName, (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
 		}
 		
 		drawNodes(node.getEdges(), node.getEdges().size());
+	}
+
+	private String truncateClassName(String name) {
+		
+		String classNameWithoutJavaSuffix = name.substring(0, name.length() - 5);
+		
+		if(classNameWithoutJavaSuffix.length() <= 10){
+			return classNameWithoutJavaSuffix;
+		}else{
+			return classNameWithoutJavaSuffix.substring(0, 5) 
+					+ "..." 
+					+ classNameWithoutJavaSuffix.substring(classNameWithoutJavaSuffix.length()-4, classNameWithoutJavaSuffix.length());
+		}
 	}
 
 	/**
@@ -144,6 +152,7 @@ public class visualizer extends PApplet {
 	 * @return truncated name
 	 */
 	private String truncateName(String name) {
+		
 		if(name.length() <= 10){
 			return name;
 		}else{
