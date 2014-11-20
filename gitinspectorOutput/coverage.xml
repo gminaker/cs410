@@ -1,0 +1,3954 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="1.0" branch-rate="1.0" lines-covered="1718" lines-valid="1718" branches-covered="0" branches-valid="0" complexity="1.9753042233357194" version="1.9.4.1" timestamp="1416477872455">
+	<sources>
+		<source>/Users/leomarchand/Documents/CPSC410/cs410/codebase/jenkins/core/target/generated-sources/taglib-interface</source>
+		<source>/Users/leomarchand/Documents/CPSC410/cs410/codebase/jenkins/core/src/main/groovy</source>
+		<source>/Users/leomarchand/Documents/CPSC410/cs410/codebase/jenkins/core/target/generated-sources/groovy-stubs/main</source>
+		<source>/Users/leomarchand/Documents/CPSC410/cs410/codebase/jenkins/core/target/generated-sources/localizer</source>
+		<source>/Users/leomarchand/Documents/CPSC410/cs410/codebase/jenkins/core/target/generated-sources/antlr</source>
+		<source>--source</source>
+		<source>/Users/leomarchand/Documents/CPSC410/cs410/codebase/jenkins/core/src/main/java</source>
+	</sources>
+	<packages>
+		<package name="hudson" line-rate="1.0" branch-rate="1.0" complexity="2.6491499227202473">
+			<classes>
+				<class name="hudson.AbstractMarkupText" filename="hudson/AbstractMarkupText.java" line-rate="1.0" branch-rate="0.5714285714285714" complexity="1.6923076923076923">
+					<methods>
+					</methods>
+					<lines>
+						<line number="43" hits="28" branch="false"/>
+						<line number="53" hits="12" branch="false"/>
+						<line number="60" hits="12" branch="false"/>
+						<line number="86" hits="12" branch="false"/>
+						<line number="87" hits="12" branch="false"/>
+						<line number="142" hits="6" branch="false"/>
+						<line number="143" hits="6" branch="false"/>
+						<line number="144" hits="6" branch="false"/>
+						<line number="146" hits="18" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="147" hits="12" branch="false"/>
+						<line number="148" hits="12" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="149" hits="12" branch="false"/>
+						<line number="150" hits="12" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="153" hits="12" branch="false"/>
+						<line number="154" hits="12" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="155" hits="12" branch="false"/>
+						<line number="156" hits="12" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="159" hits="12" branch="false"/>
+						<line number="160" hits="12" branch="false"/>
+						<line number="162" hits="6" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.EnvVars" filename="hudson/EnvVars.java" line-rate="1.0" branch-rate="0.5" complexity="2.2962962962962963">
+					<methods>
+					</methods>
+					<lines>
+						<line number="74" hits="24" branch="false"/>
+						<line number="75" hits="1" branch="false"/>
+						<line number="88" hits="2" branch="false"/>
+						<line number="89" hits="2" branch="false"/>
+						<line number="92" hits="1" branch="false"/>
+						<line number="93" hits="1" branch="false"/>
+						<line number="97" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="101" hits="1" branch="false"/>
+						<line number="356" hits="26" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="357" hits="26" branch="false"/>
+						<line number="426" hits="1" branch="false"/>
+						<line number="429" hits="1" branch="false"/>
+						<line number="430" hits="1" branch="false"/>
+						<line number="431" hits="1" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="436" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.ExtensionList" filename="hudson/ExtensionList.java" line-rate="1.0" branch-rate="0.5" complexity="1.8">
+					<methods>
+					</methods>
+					<lines>
+						<line number="119" hits="5631" branch="false"/>
+						<line number="120" hits="5631" branch="false"/>
+						<line number="121" hits="5631" branch="false"/>
+						<line number="122" hits="5631" branch="false"/>
+						<line number="123" hits="5631" branch="false"/>
+						<line number="124" hits="5631" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="125" hits="5631" branch="false"/>
+						<line number="127" hits="5631" branch="false"/>
+						<line number="143" hits="5631" branch="false"/>
+						<line number="246" hits="5631" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="247" hits="5631" branch="false"/>
+						<line number="333" hits="5631" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="336" hits="5631" branch="false"/>
+						<line number="350" hits="5631" branch="false"/>
+						<line number="351" hits="5631" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="357" hits="1" branch="false"/>
+						<line number="370" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.ExtensionList$1" filename="hudson/ExtensionList.java" line-rate="1.0" branch-rate="1.0" complexity="1.8">
+					<methods>
+					</methods>
+					<lines>
+						<line number="143" hits="5631" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.ExtensionList$3" filename="hudson/ExtensionList.java" line-rate="1.0" branch-rate="1.0" complexity="1.8">
+					<methods>
+					</methods>
+					<lines>
+						<line number="357" hits="2" branch="false"/>
+						<line number="359" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="0.7380952380952381" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="191" hits="19442" branch="false"/>
+						<line number="229" hits="2753" branch="false"/>
+						<line number="230" hits="2753" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="231" hits="2753" branch="false"/>
+						<line number="232" hits="2753" branch="false"/>
+						<line number="241" hits="2536" branch="false"/>
+						<line number="242" hits="2536" branch="false"/>
+						<line number="243" hits="2536" branch="false"/>
+						<line number="244" hits="2536" branch="false"/>
+						<line number="251" hits="10327" branch="false"/>
+						<line number="252" hits="10327" branch="false"/>
+						<line number="253" hits="10327" branch="false"/>
+						<line number="254" hits="10327" branch="false"/>
+						<line number="257" hits="10327" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="258" hits="10327" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="260" hits="10322" branch="false"/>
+						<line number="264" hits="5" branch="false"/>
+						<line number="272" hits="10331" branch="true" condition-coverage="50% (3/6)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+								<condition number="2" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="275" hits="1" branch="false"/>
+						<line number="276" hits="1" branch="false"/>
+						<line number="277" hits="1" branch="false"/>
+						<line number="284" hits="15616" branch="false"/>
+						<line number="286" hits="15616" branch="false"/>
+						<line number="287" hits="15616" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="288" hits="15592" branch="false"/>
+						<line number="289" hits="15592" branch="false"/>
+						<line number="291" hits="15616" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="293" hits="15616" branch="false"/>
+						<line number="294" hits="15616" branch="false"/>
+						<line number="295" hits="1570342" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="296" hits="1554726" branch="false"/>
+						<line number="297" hits="1554726" branch="true" condition-coverage="100% (4/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="298" hits="161195" branch="false"/>
+						<line number="299" hits="161195" branch="false"/>
+						<line number="301" hits="161205" branch="true" condition-coverage="100% (6/6)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+								<condition number="2" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="303" hits="161195" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="304" hits="161195" branch="false"/>
+						<line number="307" hits="15616" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="309" hits="15616" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="310" hits="176801" branch="false"/>
+						<line number="311" hits="176801" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="312" hits="10" branch="false"/>
+						<line number="313" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="314" hits="9" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="315" hits="176791" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="316" hits="27" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="319" hits="9" branch="false"/>
+						<line number="320" hits="9" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="321" hits="9" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="324" hits="18" branch="false"/>
+						<line number="325" hits="18" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="326" hits="18" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="327" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="330" hits="176764" branch="false"/>
+						<line number="331" hits="176801" branch="false"/>
+						<line number="333" hits="15616" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="334" hits="15616" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="335" hits="15616" branch="false"/>
+						<line number="343" hits="10536" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="344" hits="10111" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="350" hits="425" branch="true" condition-coverage="66% (4/6)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+								<condition number="2" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="351" hits="6" branch="false"/>
+						<line number="354" hits="419" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="362" hits="45" branch="false"/>
+						<line number="378" hits="1" branch="false"/>
+						<line number="379" hits="1" branch="false"/>
+						<line number="400" hits="1" branch="false"/>
+						<line number="401" hits="1" branch="false"/>
+						<line number="428" hits="1" branch="false"/>
+						<line number="429" hits="1" branch="false"/>
+						<line number="447" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="448" hits="3" branch="false"/>
+						<line number="464" hits="1" branch="false"/>
+						<line number="468" hits="2" branch="false"/>
+						<line number="517" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="528" hits="1" branch="false"/>
+						<line number="536" hits="1" branch="false"/>
+						<line number="547" hits="1" branch="false"/>
+						<line number="548" hits="1" branch="false"/>
+						<line number="555" hits="1" branch="false"/>
+						<line number="558" hits="1" branch="false"/>
+						<line number="561" hits="1" branch="false"/>
+						<line number="562" hits="1" branch="false"/>
+						<line number="565" hits="1" branch="false"/>
+						<line number="566" hits="1" branch="false"/>
+						<line number="567" hits="1" branch="false"/>
+						<line number="570" hits="1" branch="false"/>
+						<line number="571" hits="1" branch="false"/>
+						<line number="573" hits="1" branch="false"/>
+						<line number="576" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="577" hits="1" branch="false"/>
+						<line number="578" hits="1" branch="false"/>
+						<line number="579" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="582" hits="1" branch="false"/>
+						<line number="583" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="584" hits="1" branch="false"/>
+						<line number="586" hits="1" branch="false"/>
+						<line number="588" hits="1" branch="false"/>
+						<line number="590" hits="1" branch="false"/>
+						<line number="591" hits="1" branch="false"/>
+						<line number="593" hits="1" branch="false"/>
+						<line number="594" hits="1" branch="false"/>
+						<line number="595" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="599" hits="1" branch="false"/>
+						<line number="600" hits="1" branch="false"/>
+						<line number="602" hits="1" branch="false"/>
+						<line number="604" hits="1" branch="false"/>
+						<line number="605" hits="1" branch="false"/>
+						<line number="606" hits="1" branch="false"/>
+						<line number="630" hits="2" branch="false"/>
+						<line number="638" hits="2" branch="false"/>
+						<line number="648" hits="1" branch="false"/>
+						<line number="658" hits="9" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="659" hits="9" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="661" hits="9" branch="false"/>
+						<line number="663" hits="9" branch="true" condition-coverage="33% (2/6)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+								<condition number="2" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="664" hits="9" branch="false"/>
+						<line number="670" hits="27" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="757" hits="2" branch="false"/>
+						<line number="760" hits="2" branch="false"/>
+						<line number="761" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="762" hits="1" branch="false"/>
+						<line number="764" hits="2" branch="false"/>
+						<line number="775" hits="2" branch="false"/>
+						<line number="777" hits="2" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="779" hits="1" branch="false"/>
+						<line number="782" hits="1" branch="false"/>
+						<line number="784" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="785" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="787" hits="1" branch="false"/>
+						<line number="792" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="795" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="809" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="810" hits="1" branch="false"/>
+						<line number="812" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="813" hits="1" branch="false"/>
+						<line number="819" hits="1" branch="false"/>
+						<line number="820" hits="1" branch="false"/>
+						<line number="821" hits="1" branch="false"/>
+						<line number="959" hits="10959" branch="false"/>
+						<line number="963" hits="10959" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="966" hits="5629" branch="false"/>
+						<line number="967" hits="5629" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="970" hits="5629" branch="false"/>
+						<line number="971" hits="1" branch="false"/>
+						<line number="972" hits="1" branch="false"/>
+						<line number="981" hits="5330" branch="false"/>
+						<line number="1046" hits="2" branch="false"/>
+						<line number="1047" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1050" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1142" hits="104" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1155" hits="104" branch="false"/>
+						<line number="1161" hits="1" branch="false"/>
+						<line number="1168" hits="1" branch="false"/>
+						<line number="1174" hits="1" branch="false"/>
+						<line number="1181" hits="1" branch="false"/>
+						<line number="1184" hits="8" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1185" hits="6" branch="false"/>
+						<line number="1187" hits="8" branch="false"/>
+						<line number="1195" hits="8" branch="false"/>
+						<line number="1196" hits="8" branch="false"/>
+						<line number="1199" hits="7" branch="false"/>
+						<line number="1200" hits="7" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1201" hits="3" branch="false"/>
+						<line number="1202" hits="11" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1203" hits="7" branch="false"/>
+						<line number="1204" hits="4" branch="false"/>
+						<line number="1223" hits="1" branch="false"/>
+						<line number="1224" hits="1" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1227" hits="1" branch="false"/>
+						<line number="1228" hits="9" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1229" hits="9" branch="false"/>
+						<line number="1230" hits="9" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1231" hits="1" branch="false"/>
+						<line number="1232" hits="8" branch="false"/>
+						<line number="1233" hits="8" branch="false"/>
+						<line number="1235" hits="1" branch="false"/>
+						<line number="1258" hits="10319" branch="false"/>
+						<line number="1266" hits="9" branch="false"/>
+						<line number="1267" hits="41" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1268" hits="22" branch="false"/>
+						<line number="1269" hits="22" branch="true" condition-coverage="100% (4/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1270" hits="3" branch="false"/>
+						<line number="1273" hits="9" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1413" hits="5000" branch="false"/>
+						<line number="1420" hits="5000" branch="false"/>
+						<line number="1427" hits="4" branch="false"/>
+						<line number="1443" hits="104" branch="false"/>
+						<line number="1457" hits="109" branch="false"/>
+						<line number="1467" hits="109" branch="false"/>
+						<line number="1470" hits="101" branch="false"/>
+						<line number="1486" hits="101" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1489" hits="101" branch="false"/>
+						<line number="1572" hits="103" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1573" hits="103" branch="false"/>
+						<line number="1581" hits="103" branch="false"/>
+						<line number="1587" hits="104" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1589" hits="104" branch="false"/>
+						<line number="1590" hits="104" branch="false"/>
+						<line number="1592" hits="1" branch="false"/>
+						<line number="1603" hits="103" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1604" hits="103" branch="false"/>
+						<line number="1675" hits="1" branch="false"/>
+						<line number="1689" hits="3" branch="false"/>
+						<line number="1704" hits="4" branch="false"/>
+						<line number="1725" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1727" hits="4" branch="false"/>
+						<line number="1728" hits="4" branch="false"/>
+						<line number="1729" hits="4" branch="false"/>
+						<line number="1730" hits="4" branch="false"/>
+						<line number="1731" hits="4" branch="false"/>
+						<line number="1738" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1739" hits="1" branch="false"/>
+						<line number="1864" hits="12603" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1865" hits="10001" branch="false"/>
+						<line number="1866" hits="10001" branch="false"/>
+						<line number="1867" hits="10001" branch="false"/>
+						<line number="1870" hits="2602" branch="false"/>
+						<line number="1941" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1944" hits="1" branch="false"/>
+						<line number="1964" hits="1" branch="false"/>
+						<line number="1971" hits="2601" branch="false"/>
+						<line number="1973" hits="2601" branch="false"/>
+						<line number="1975" hits="2601" branch="false"/>
+						<line number="1976" hits="2601" branch="false"/>
+						<line number="1979" hits="2601" branch="false"/>
+						<line number="1980" hits="2601" branch="false"/>
+						<line number="1987" hits="101" branch="false"/>
+						<line number="1989" hits="101" branch="false"/>
+						<line number="1990" hits="101" branch="false"/>
+						<line number="1991" hits="101" branch="false"/>
+						<line number="1997" hits="2702" branch="false"/>
+						<line number="1999" hits="2702" branch="false"/>
+						<line number="2016" hits="2702" branch="false"/>
+						<line number="2017" hits="2702" branch="false"/>
+						<line number="2026" hits="2702" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2027" hits="101" branch="false"/>
+						<line number="2035" hits="2702" branch="false"/>
+						<line number="2036" hits="2702" branch="false"/>
+						<line number="2069" hits="3" branch="false"/>
+						<line number="2084" hits="3" branch="false"/>
+						<line number="2101" hits="3" branch="false"/>
+						<line number="2113" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2115" hits="2" branch="false"/>
+						<line number="2154" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2156" hits="1" branch="false"/>
+						<line number="2158" hits="1" branch="false"/>
+						<line number="2169" hits="1" branch="false"/>
+						<line number="2177" hits="1" branch="false"/>
+						<line number="2179" hits="1" branch="false"/>
+						<line number="2180" hits="1" branch="false"/>
+						<line number="2226" hits="1" branch="false"/>
+						<line number="2247" hits="1" branch="false"/>
+						<line number="2249" hits="1" branch="false"/>
+						<line number="2251" hits="1" branch="false"/>
+						<line number="2260" hits="2" branch="false"/>
+						<line number="2263" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2264" hits="3" branch="false"/>
+						<line number="2265" hits="3" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2268" hits="3" branch="false"/>
+						<line number="2269" hits="3" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2270" hits="3" branch="false"/>
+						<line number="2272" hits="3" branch="false"/>
+						<line number="2273" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2274" hits="1" branch="false"/>
+						<line number="2276" hits="2" branch="false"/>
+						<line number="2278" hits="1" branch="false"/>
+						<line number="2279" hits="1" branch="false"/>
+						<line number="2280" hits="1" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2281" hits="1" branch="false"/>
+						<line number="2284" hits="2" branch="false"/>
+						<line number="2285" hits="1" branch="false"/>
+						<line number="2286" hits="1" branch="false"/>
+						<line number="2293" hits="2" branch="false"/>
+						<line number="2294" hits="1" branch="false"/>
+						<line number="2295" hits="1" branch="false"/>
+						<line number="2329" hits="7" branch="false"/>
+						<line number="2346" hits="10" branch="false"/>
+						<line number="2609" hits="10537" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2613" hits="5631" branch="false"/>
+						<line number="2615" hits="5631" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2618" hits="5631" branch="false"/>
+						<line number="2619" hits="5631" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2620" hits="5631" branch="false"/>
+						<line number="2623" hits="5631" branch="false"/>
+						<line number="2624" hits="5631" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2626" hits="5631" branch="false"/>
+						<line number="2627" hits="5631" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2628" hits="1" branch="false"/>
+						<line number="2629" hits="1" branch="false"/>
+						<line number="2631" hits="5630" branch="false"/>
+						<line number="2636" hits="5630" branch="false"/>
+						<line number="2638" hits="5631" branch="false"/>
+						<line number="2642" hits="1" branch="false"/>
+						<line number="2644" hits="1" branch="false"/>
+						<line number="2696" hits="1" branch="false"/>
+						<line number="2702" hits="1" branch="false"/>
+						<line number="2706" hits="1" branch="false"/>
+						<line number="2707" hits="1" branch="false"/>
+						<line number="2708" hits="1" branch="false"/>
+						<line number="2757" hits="1" branch="false"/>
+						<line number="2763" hits="1" branch="false"/>
+						<line number="2766" hits="21098" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2773" hits="6" branch="false"/>
+						<line number="2774" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2800" hits="2733" branch="false"/>
+						<line number="2801" hits="2733" branch="false"/>
+						<line number="2808" hits="322" branch="false"/>
+						<line number="2809" hits="322" branch="false"/>
+						<line number="2816" hits="111" branch="false"/>
+						<line number="2817" hits="111" branch="false"/>
+						<line number="2824" hits="12813" branch="false"/>
+						<line number="2825" hits="12813" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2826" hits="10107" branch="false"/>
+						<line number="2827" hits="12813" branch="false"/>
+						<line number="2828" hits="12813" branch="false"/>
+						<line number="2835" hits="2" branch="false"/>
+						<line number="2836" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2837" hits="2" branch="false"/>
+						<line number="2838" hits="2" branch="false"/>
+						<line number="2839" hits="2" branch="false"/>
+						<line number="2846" hits="5010" branch="false"/>
+						<line number="2847" hits="5010" branch="false"/>
+						<line number="2851" hits="12711" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2853" hits="107" branch="false"/>
+						<line number="2854" hits="107" branch="false"/>
+						<line number="2858" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2859" hits="2" branch="false"/>
+						<line number="2865" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$1" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="448" hits="6" branch="false"/>
+						<line number="450" hits="3" branch="false"/>
+						<line number="452" hits="3" branch="false"/>
+						<line number="454" hits="3" branch="false"/>
+						<line number="455" hits="3" branch="false"/>
+						<line number="456" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$13" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="0.5" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1142" hits="208" branch="false"/>
+						<line number="1145" hits="104" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1146" hits="104" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$14" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1161" hits="2" branch="false"/>
+						<line number="1164" hits="1" branch="false"/>
+						<line number="1165" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$15" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1174" hits="2" branch="false"/>
+						<line number="1177" hits="1" branch="false"/>
+						<line number="1178" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$19" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1413" hits="10000" branch="false"/>
+						<line number="1416" hits="5000" branch="false"/>
+						<line number="1417" hits="5000" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$20" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1427" hits="8" branch="false"/>
+						<line number="1430" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$21" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1443" hits="208" branch="false"/>
+						<line number="1446" hits="104" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$22" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="0.5" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1457" hits="218" branch="false"/>
+						<line number="1460" hits="109" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1461" hits="109" branch="false"/>
+						<line number="1462" hits="109" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1464" hits="109" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$23" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="0.5" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1470" hits="202" branch="false"/>
+						<line number="1473" hits="101" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1482" hits="101" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$29" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1573" hits="206" branch="false"/>
+						<line number="1576" hits="103" branch="false"/>
+						<line number="1578" hits="103" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$30" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1604" hits="206" branch="false"/>
+						<line number="1607" hits="103" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$32" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1704" hits="8" branch="false"/>
+						<line number="1707" hits="4" branch="false"/>
+						<line number="1709" hits="4" branch="false"/>
+						<line number="1710" hits="13" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1711" hits="9" branch="false"/>
+						<line number="1713" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$36" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1870" hits="5204" branch="false"/>
+						<line number="1873" hits="2602" branch="false"/>
+						<line number="1874" hits="2602" branch="false"/>
+						<line number="1875" hits="2602" branch="false"/>
+						<line number="1876" hits="2602" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$40" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="0.6666666666666666" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1944" hits="2" branch="false"/>
+						<line number="1949" hits="1" branch="false"/>
+						<line number="1950" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1953" hits="1" branch="false"/>
+						<line number="1955" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1956" hits="2" branch="false"/>
+						<line number="1957" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1960" hits="1" branch="false"/>
+						<line number="1961" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$41" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1999" hits="5404" branch="false"/>
+						<line number="2002" hits="2702" branch="false"/>
+						<line number="2004" hits="2702" branch="false"/>
+						<line number="2005" hits="2702" branch="false"/>
+						<line number="2006" hits="2702" branch="false"/>
+						<line number="2008" hits="2702" branch="false"/>
+						<line number="2009" hits="2702" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$42" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="0.5" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2115" hits="5" branch="false"/>
+						<line number="2118" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2119" hits="2" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2120" hits="2" branch="false"/>
+						<line number="2121" hits="2" branch="false"/>
+						<line number="2122" hits="2" branch="false"/>
+						<line number="2150" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$42$1" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="0.5" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2122" hits="2" branch="false"/>
+						<line number="2125" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2126" hits="2" branch="false"/>
+						<line number="2127" hits="2" branch="false"/>
+						<line number="2128" hits="2" branch="false"/>
+						<line number="2129" hits="2" branch="false"/>
+						<line number="2131" hits="2" branch="false"/>
+						<line number="2135" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$43" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2158" hits="2" branch="false"/>
+						<line number="2162" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$44" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2169" hits="2" branch="false"/>
+						<line number="2172" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$46" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="0.775" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2346" hits="20" branch="false"/>
+						<line number="2349" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2352" hits="10" branch="false"/>
+						<line number="2354" hits="15" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2355" hits="10" branch="false"/>
+						<line number="2356" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2357" hits="5" branch="false"/>
+						<line number="2361" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2374" hits="4" branch="false"/>
+						<line number="2376" hits="6" branch="false"/>
+						<line number="2377" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2378" hits="2" branch="false"/>
+						<line number="2380" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2382" hits="2" branch="false"/>
+						<line number="2387" hits="4" branch="false"/>
+						<line number="2388" hits="4" branch="false"/>
+						<line number="2389" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2391" hits="1" branch="false"/>
+						<line number="2392" hits="1" branch="false"/>
+						<line number="2393" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2400" hits="1" branch="false"/>
+						<line number="2402" hits="3" branch="false"/>
+						<line number="2403" hits="3" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2405" hits="3" branch="false"/>
+						<line number="2406" hits="3" branch="false"/>
+						<line number="2407" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2408" hits="1" branch="false"/>
+						<line number="2409" hits="2" branch="false"/>
+						<line number="2415" hits="3" branch="false"/>
+						<line number="2416" hits="3" branch="false"/>
+						<line number="2419" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2421" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2424" hits="2" branch="false"/>
+						<line number="2427" hits="3" branch="false"/>
+						<line number="2428" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2429" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2430" hits="1" branch="false"/>
+						<line number="2436" hits="2" branch="false"/>
+						<line number="2437" hits="2" branch="false"/>
+						<line number="2438" hits="2" branch="false"/>
+						<line number="2442" hits="5" branch="false"/>
+						<line number="2447" hits="20" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2456" hits="20" branch="false"/>
+						<line number="2457" hits="20" branch="false"/>
+						<line number="2459" hits="20" branch="false"/>
+						<line number="2460" hits="3" branch="false"/>
+						<line number="2461" hits="3" branch="true" condition-coverage="100% (4/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2462" hits="2" branch="false"/>
+						<line number="2464" hits="1" branch="false"/>
+						<line number="2466" hits="17" branch="false"/>
+						<line number="2467" hits="17" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="2474" hits="12" branch="false"/>
+						<line number="2475" hits="12" branch="false"/>
+						<line number="2476" hits="12" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$46$1" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2447" hits="6" branch="false"/>
+						<line number="2450" hits="1048" branch="true" condition-coverage="100% (6/6)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+								<condition number="2" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="2451" hits="3" branch="false"/>
+						<line number="2453" hits="1045" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$46$1Cancel" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2446" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$47" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2696" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$5" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="528" hits="2" branch="false"/>
+						<line number="530" hits="1" branch="false"/>
+						<line number="531" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$6" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="548" hits="2" branch="false"/>
+						<line number="550" hits="1" branch="false"/>
+						<line number="551" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$8" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="630" hits="4" branch="false"/>
+						<line number="633" hits="2" branch="false"/>
+						<line number="634" hits="2" branch="false"/>
+						<line number="635" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$9" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="648" hits="2" branch="false"/>
+						<line number="651" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$FileCallableWrapper" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2649" hits="5629" branch="false"/>
+						<line number="2653" hits="2" branch="false"/>
+						<line number="2654" hits="2" branch="false"/>
+						<line number="2655" hits="2" branch="false"/>
+						<line number="2656" hits="2" branch="false"/>
+						<line number="2658" hits="5629" branch="false"/>
+						<line number="2659" hits="5629" branch="false"/>
+						<line number="2660" hits="5629" branch="false"/>
+						<line number="2661" hits="5629" branch="false"/>
+						<line number="2665" hits="5631" branch="false"/>
+						<line number="2666" hits="1" branch="false"/>
+						<line number="2667" hits="1" branch="false"/>
+						<line number="2680" hits="11260" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$SecureFileCallable" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="951" hits="10951" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$TarCompression" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="676" hits="5" branch="false"/>
+						<line number="677" hits="1" branch="false"/>
+						<line number="685" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$TarCompression$1" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="677" hits="1" branch="false"/>
+						<line number="679" hits="1" branch="false"/>
+						<line number="682" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$TarCompression$2" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="685" hits="1" branch="false"/>
+						<line number="687" hits="1" branch="false"/>
+						<line number="689" hits="1" branch="false"/>
+						<line number="697" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.FilePath$TunneledInterruptedException" filename="hudson/FilePath.java" line-rate="1.0" branch-rate="1.0" complexity="2.558139534883721">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2689" hits="1" branch="false"/>
+						<line number="2691" hits="1" branch="false"/>
+						<line number="2692" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.Functions" filename="hudson/Functions.java" line-rate="1.0" branch-rate="0.7777777777777778" complexity="2.917197452229299">
+					<methods>
+					</methods>
+					<lines>
+						<line number="166" hits="8" branch="false"/>
+						<line number="168" hits="8" branch="false"/>
+						<line number="439" hits="5482" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="514" hits="8" branch="false"/>
+						<line number="533" hits="8" branch="false"/>
+						<line number="562" hits="8" branch="false"/>
+						<line number="817" hits="8" branch="false"/>
+						<line number="1376" hits="1" branch="false"/>
+						<line number="1377" hits="1" branch="false"/>
+						<line number="1378" hits="1" branch="false"/>
+						<line number="1420" hits="8" branch="false"/>
+						<line number="1468" hits="5" branch="false"/>
+						<line number="1469" hits="15" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1470" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1472" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1473" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1474" hits="2" branch="false"/>
+						<line number="1475" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1477" hits="10" branch="false"/>
+						<line number="1479" hits="5" branch="false"/>
+						<line number="1487" hits="6" branch="false"/>
+						<line number="1488" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1490" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1493" hits="1" branch="false"/>
+						<line number="1494" hits="1" branch="false"/>
+						<line number="1495" hits="1" branch="false"/>
+						<line number="1496" hits="5" branch="false"/>
+						<line number="1497" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1498" hits="2" branch="false"/>
+						<line number="1501" hits="3" branch="false"/>
+						<line number="1729" hits="2" branch="false"/>
+						<line number="1744" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.Main" filename="hudson/Main.java" line-rate="1.0" branch-rate="1.0" complexity="6.8">
+					<methods>
+					</methods>
+					<lines>
+						<line number="216" hits="1" branch="false"/>
+						<line number="221" hits="1" branch="false"/>
+						<line number="226" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.MarkupText" filename="hudson/MarkupText.java" line-rate="1.0" branch-rate="0.55" complexity="2.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="42" hits="34" branch="false"/>
+						<line number="48" hits="6" branch="false"/>
+						<line number="237" hits="6" branch="false"/>
+						<line number="238" hits="6" branch="false"/>
+						<line number="239" hits="6" branch="false"/>
+						<line number="243" hits="18" branch="false"/>
+						<line number="253" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="258" hits="12" branch="false"/>
+						<line number="259" hits="12" branch="false"/>
+						<line number="260" hits="12" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="265" hits="12" branch="false"/>
+						<line number="266" hits="12" branch="false"/>
+						<line number="267" hits="12" branch="false"/>
+						<line number="275" hits="24" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="277" hits="24" branch="false"/>
+						<line number="298" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="301" hits="6" branch="false"/>
+						<line number="303" hits="6" branch="false"/>
+						<line number="304" hits="6" branch="false"/>
+						<line number="306" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="307" hits="24" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="308" hits="24" branch="false"/>
+						<line number="309" hits="24" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="310" hits="24" branch="false"/>
+						<line number="312" hits="24" branch="false"/>
+						<line number="313" hits="24" branch="false"/>
+						<line number="314" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="315" hits="6" branch="false"/>
+						<line number="316" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="319" hits="6" branch="false"/>
+						<line number="326" hits="6" branch="false"/>
+						<line number="331" hits="12" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.MarkupText$SubText" filename="hudson/MarkupText.java" line-rate="1.0" branch-rate="1.0" complexity="2.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="79" hits="12" branch="false"/>
+						<line number="80" hits="12" branch="false"/>
+						<line number="81" hits="12" branch="false"/>
+						<line number="83" hits="12" branch="false"/>
+						<line number="84" hits="12" branch="false"/>
+						<line number="85" hits="24" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="86" hits="12" branch="false"/>
+						<line number="87" hits="12" branch="false"/>
+						<line number="89" hits="12" branch="false"/>
+						<line number="91" hits="10" branch="false"/>
+						<line number="92" hits="10" branch="false"/>
+						<line number="93" hits="10" branch="false"/>
+						<line number="94" hits="10" branch="false"/>
+						<line number="95" hits="10" branch="false"/>
+						<line number="99" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="105" hits="34" branch="false"/>
+						<line number="110" hits="12" branch="false"/>
+						<line number="111" hits="12" branch="false"/>
+						<line number="137" hits="12" branch="false"/>
+						<line number="138" hits="12" branch="false"/>
+						<line number="156" hits="12" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.MarkupText$Tag" filename="hudson/MarkupText.java" line-rate="1.0" branch-rate="1.0" complexity="2.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="53" hits="126" branch="false"/>
+						<line number="62" hits="24" branch="false"/>
+						<line number="63" hits="24" branch="false"/>
+						<line number="64" hits="24" branch="false"/>
+						<line number="65" hits="24" branch="false"/>
+						<line number="68" hits="30" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.Messages" filename="hudson/Messages.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="14" hits="1" branch="false"/>
+						<line number="213" hits="2" branch="false"/>
+						<line number="229" hits="2" branch="false"/>
+						<line number="453" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.Platform" filename="hudson/Platform.java" line-rate="1.0" branch-rate="0.5" complexity="2.25">
+					<methods>
+					</methods>
+					<lines>
+						<line number="39" hits="1" branch="false"/>
+						<line number="40" hits="1" branch="false"/>
+						<line number="50" hits="2" branch="false"/>
+						<line number="51" hits="2" branch="false"/>
+						<line number="52" hits="2" branch="false"/>
+						<line number="55" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+					</lines>
+				</class>
+				<class name="hudson.ProxyConfiguration" filename="hudson/ProxyConfiguration.java" line-rate="1.0" branch-rate="0.5" complexity="2.7916666666666665">
+					<methods>
+					</methods>
+					<lines>
+						<line number="217" hits="2" branch="false"/>
+						<line number="218" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="219" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="220" hits="2" branch="false"/>
+						<line number="243" hits="1" branch="false"/>
+						<line number="244" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="245" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="246" hits="1" branch="false"/>
+						<line number="266" hits="1" branch="false"/>
+						<line number="271" hits="1" branch="false"/>
+						<line number="272" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.Util" filename="hudson/Util.java" line-rate="1.0" branch-rate="0.7142857142857143" complexity="4.394736842105263">
+					<methods>
+					</methods>
+					<lines>
+						<line number="86" hits="2" branch="false"/>
+						<line number="121" hits="2" branch="false"/>
+						<line number="208" hits="10396" branch="false"/>
+						<line number="209" hits="10396" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="210" hits="10226" branch="false"/>
+						<line number="211" hits="10552" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="212" hits="10382" branch="false"/>
+						<line number="213" hits="170" branch="false"/>
+						<line number="221" hits="15404" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="266" hits="15404" branch="false"/>
+						<line number="300" hits="10396" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="301" hits="10396" branch="false"/>
+						<line number="303" hits="10396" branch="false"/>
+						<line number="311" hits="10396" branch="false"/>
+						<line number="312" hits="10396" branch="false"/>
+						<line number="334" hits="10404" branch="false"/>
+						<line number="335" hits="10404" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="336" hits="10404" branch="false"/>
+						<line number="364" hits="10404" branch="false"/>
+						<line number="365" hits="10404" branch="false"/>
+						<line number="377" hits="14" branch="false"/>
+						<line number="378" hits="14" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="380" hits="14" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="382" hits="14" branch="false"/>
+						<line number="385" hits="2" branch="false"/>
+						<line number="458" hits="2702" branch="false"/>
+						<line number="460" hits="3802" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="461" hits="1100" branch="false"/>
+						<line number="462" hits="2702" branch="false"/>
+						<line number="533" hits="1" branch="false"/>
+						<line number="817" hits="2" branch="false"/>
+						<line number="819" hits="2" branch="false"/>
+						<line number="825" hits="2" branch="false"/>
+						<line number="826" hits="182" branch="false"/>
+						<line number="827" hits="180" branch="false"/>
+						<line number="930" hits="30" branch="false"/>
+						<line number="931" hits="312" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="932" hits="282" branch="false"/>
+						<line number="933" hits="282" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="934" hits="4" branch="false"/>
+						<line number="936" hits="278" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="937" hits="3" branch="false"/>
+						<line number="939" hits="275" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="942" hits="275" branch="false"/>
+						<line number="944" hits="30" branch="false"/>
+						<line number="958" hits="2" branch="false"/>
+						<line number="959" hits="2" branch="false"/>
+						<line number="960" hits="2" branch="false"/>
+						<line number="961" hits="2" branch="false"/>
+						<line number="962" hits="2" branch="false"/>
+						<line number="963" hits="2" branch="false"/>
+						<line number="964" hits="2" branch="false"/>
+						<line number="980" hits="6" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="981" hits="6" branch="false"/>
+						<line number="1077" hits="13" branch="false"/>
+						<line number="1078" hits="13" branch="false"/>
+						<line number="1079" hits="13" branch="false"/>
+						<line number="1083" hits="13" branch="false"/>
+						<line number="1084" hits="26" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1085" hits="13" branch="false"/>
+						<line number="1086" hits="13" branch="false"/>
+						<line number="1087" hits="13" branch="false"/>
+						<line number="1088" hits="13" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1089" hits="3" branch="false"/>
+						<line number="1090" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="1091" hits="1" branch="false"/>
+						<line number="1092" hits="1" branch="false"/>
+						<line number="1093" hits="1" branch="false"/>
+						<line number="1095" hits="13" branch="false"/>
+						<line number="1100" hits="4" branch="false"/>
+						<line number="1118" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1119" hits="2" branch="false"/>
+						<line number="1190" hits="2" branch="false"/>
+						<line number="1191" hits="2" branch="false"/>
+						<line number="1192" hits="2" branch="false"/>
+						<line number="1193" hits="2" branch="false"/>
+						<line number="1194" hits="2" branch="false"/>
+						<line number="1196" hits="2" branch="false"/>
+						<line number="1197" hits="2" branch="false"/>
+						<line number="1198" hits="2" branch="false"/>
+						<line number="1199" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1200" hits="2" branch="false"/>
+						<line number="1202" hits="2" branch="false"/>
+						<line number="1203" hits="2" branch="false"/>
+						<line number="1216" hits="2" branch="false"/>
+						<line number="1237" hits="2" branch="false"/>
+						<line number="1282" hits="2638" branch="false"/>
+						<line number="1283" hits="2638" branch="false"/>
+						<line number="1286" hits="2636" branch="false"/>
+						<line number="1287" hits="2636" branch="false"/>
+						<line number="1288" hits="2636" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1292" hits="2636" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="1293" hits="2636" branch="false"/>
+						<line number="1463" hits="2" branch="false"/>
+						<line number="1466" hits="2" branch="false"/>
+						<line number="1469" hits="2" branch="false"/>
+						<line number="1474" hits="2" branch="false"/>
+						<line number="1476" hits="2" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.cli" line-rate="1.0" branch-rate="1.0" complexity="3.5">
+			<classes>
+				<class name="hudson.cli.ListJobsCommand" filename="hudson/cli/ListJobsCommand.java" line-rate="1.0" branch-rate="1.0" complexity="3.5">
+					<methods>
+					</methods>
+					<lines>
+						<line number="53" hits="5" branch="false"/>
+						<line number="57" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="58" hits="4" branch="false"/>
+						<line number="60" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="61" hits="2" branch="false"/>
+						<line number="65" hits="2" branch="false"/>
+						<line number="68" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="69" hits="1" branch="false"/>
+						<line number="73" hits="1" branch="false"/>
+						<line number="74" hits="1" branch="false"/>
+						<line number="77" hits="3" branch="false"/>
+						<line number="80" hits="1" branch="false"/>
+						<line number="84" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="85" hits="10" branch="false"/>
+						<line number="86" hits="10" branch="false"/>
+						<line number="88" hits="4" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.cli.handlers" line-rate="1.0" branch-rate="1.0" complexity="2.5">
+			<classes>
+				<class name="hudson.cli.handlers.ViewOptionHandler" filename="hudson/cli/handlers/ViewOptionHandler.java" line-rate="1.0" branch-rate="1.0" complexity="2.5">
+					<methods>
+					</methods>
+					<lines>
+						<line number="66" hits="11" branch="false"/>
+						<line number="67" hits="11" branch="false"/>
+						<line number="72" hits="11" branch="false"/>
+						<line number="73" hits="4" branch="false"/>
+						<line number="78" hits="11" branch="false"/>
+						<line number="79" hits="11" branch="false"/>
+						<line number="81" hits="11" branch="false"/>
+						<line number="82" hits="28" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="84" hits="24" branch="false"/>
+						<line number="86" hits="24" branch="false"/>
+						<line number="87" hits="24" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="92" hits="21" branch="false"/>
+						<line number="94" hits="18" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="95" hits="15" branch="false"/>
+						<line number="96" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="97" hits="1" branch="false"/>
+						<line number="101" hits="17" branch="false"/>
+						<line number="103" hits="4" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.console" line-rate="1.0" branch-rate="1.0" complexity="2.1176470588235294">
+			<classes>
+				<class name="hudson.console.ConsoleAnnotator" filename="hudson/console/ConsoleAnnotator.java" line-rate="1.0" branch-rate="1.0" complexity="3.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="69" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.console.ConsoleAnnotatorFactory" filename="hudson/console/ConsoleAnnotatorFactory.java" line-rate="1.0" branch-rate="1.0" complexity="1.25">
+					<methods>
+					</methods>
+					<lines>
+						<line number="70" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.console.UrlAnnotator" filename="hudson/console/UrlAnnotator.java" line-rate="1.0" branch-rate="1.0" complexity="2.5">
+					<methods>
+					</methods>
+					<lines>
+						<line number="15" hits="2" branch="false"/>
+						<line number="18" hits="2" branch="false"/>
+						<line number="21" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.console.UrlAnnotator$UrlConsoleAnnotator" filename="hudson/console/UrlAnnotator.java" line-rate="1.0" branch-rate="0.8333333333333334" complexity="2.5">
+					<methods>
+					</methods>
+					<lines>
+						<line number="21" hits="4" branch="false"/>
+						<line number="23" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="24" hits="12" branch="false"/>
+						<line number="25" hits="12" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="26" hits="12" branch="false"/>
+						<line number="27" hits="12" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="28" hits="10" branch="false"/>
+						<line number="30" hits="12" branch="false"/>
+						<line number="31" hits="12" branch="false"/>
+						<line number="32" hits="6" branch="false"/>
+						<line number="43" hits="1" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.model" line-rate="1.0" branch-rate="1.0" complexity="1.6471119133574008">
+			<classes>
+				<class name="hudson.model.AbstractCIBase" filename="hudson/model/AbstractCIBase.java" line-rate="1.0" branch-rate="1.0" complexity="2.076923076923077">
+					<methods>
+					</methods>
+					<lines>
+						<line number="47" hits="4" branch="false"/>
+						<line number="49" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.AbstractItem" filename="hudson/model/AbstractItem.java" line-rate="1.0" branch-rate="1.0" complexity="2.18">
+					<methods>
+					</methods>
+					<lines>
+						<line number="92" hits="1" branch="false"/>
+						<line number="735" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.AbstractModelObject" filename="hudson/model/AbstractModelObject.java" line-rate="1.0" branch-rate="1.0" complexity="1.8">
+					<methods>
+					</methods>
+					<lines>
+						<line number="45" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.BallColor" filename="hudson/model/BallColor.java" line-rate="1.0" branch-rate="1.0" complexity="1.4166666666666667">
+					<methods>
+					</methods>
+					<lines>
+						<line number="56" hits="2" branch="false"/>
+						<line number="57" hits="2" branch="false"/>
+						<line number="58" hits="2" branch="false"/>
+						<line number="59" hits="2" branch="false"/>
+						<line number="60" hits="2" branch="false"/>
+						<line number="61" hits="2" branch="false"/>
+						<line number="62" hits="2" branch="false"/>
+						<line number="64" hits="2" branch="false"/>
+						<line number="65" hits="2" branch="false"/>
+						<line number="67" hits="2" branch="false"/>
+						<line number="68" hits="2" branch="false"/>
+						<line number="69" hits="2" branch="false"/>
+						<line number="70" hits="2" branch="false"/>
+						<line number="71" hits="2" branch="false"/>
+						<line number="72" hits="2" branch="false"/>
+						<line number="81" hits="28" branch="false"/>
+						<line number="82" hits="28" branch="false"/>
+						<line number="83" hits="28" branch="false"/>
+						<line number="84" hits="28" branch="false"/>
+						<line number="87" hits="28" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="88" hits="28" branch="false"/>
+						<line number="89" hits="28" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Computer" filename="hudson/model/Computer.java" line-rate="1.0" branch-rate="1.0" complexity="1.962962962962963">
+					<methods>
+					</methods>
+					<lines>
+						<line number="134" hits="1" branch="false"/>
+						<line number="1091" hits="1" branch="false"/>
+						<line number="1396" hits="1" branch="false"/>
+						<line number="1397" hits="1" branch="false"/>
+						<line number="1401" hits="1" branch="false"/>
+						<line number="1402" hits="1" branch="false"/>
+						<line number="1403" hits="1" branch="false"/>
+						<line number="1404" hits="1" branch="false"/>
+						<line number="1405" hits="1" branch="false"/>
+						<line number="1406" hits="1" branch="false"/>
+						<line number="1408" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.EnvironmentContributor" filename="hudson/model/EnvironmentContributor.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="63" hits="1" branch="false"/>
+						<line number="126" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Items" filename="hudson/model/Items.java" line-rate="1.0" branch-rate="0.875" complexity="3.3">
+					<methods>
+					</methods>
+					<lines>
+						<line number="64" hits="2" branch="false"/>
+						<line number="71" hits="2" branch="false"/>
+						<line number="304" hits="1" branch="false"/>
+						<line number="305" hits="1" branch="false"/>
+						<line number="306" hits="1" branch="false"/>
+						<line number="309" hits="2" branch="false"/>
+						<line number="310" hits="2" branch="false"/>
+						<line number="322" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="323" hits="3" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="324" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="325" hits="2" branch="false"/>
+						<line number="328" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="329" hits="1" branch="false"/>
+						<line number="331" hits="3" branch="false"/>
+						<line number="332" hits="2" branch="false"/>
+						<line number="395" hits="2" branch="false"/>
+						<line number="400" hits="2" branch="false"/>
+						<line number="403" hits="2" branch="false"/>
+						<line number="404" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Items$1" filename="hudson/model/Items.java" line-rate="1.0" branch-rate="1.0" complexity="3.3">
+					<methods>
+					</methods>
+					<lines>
+						<line number="71" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Items$2" filename="hudson/model/Items.java" line-rate="1.0" branch-rate="1.0" complexity="3.3">
+					<methods>
+					</methods>
+					<lines>
+						<line number="310" hits="3" branch="false"/>
+						<line number="312" hits="1" branch="false"/>
+						<line number="315" hits="2" branch="false"/>
+						<line number="316" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="317" hits="1" branch="false"/>
+						<line number="319" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Job" filename="hudson/model/Job.java" line-rate="1.0" branch-rate="1.0" complexity="2.5">
+					<methods>
+					</methods>
+					<lines>
+						<line number="589" hits="1" branch="false"/>
+						<line number="1471" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Job$4" filename="hudson/model/Job.java" line-rate="1.0" branch-rate="1.0" complexity="2.5">
+					<methods>
+					</methods>
+					<lines>
+						<line number="589" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Label$ConverterImpl" filename="hudson/model/Label.java" line-rate="1.0" branch-rate="1.0" complexity="2.033333333333333">
+					<methods>
+					</methods>
+					<lines>
+						<line number="531" hits="9" branch="false"/>
+						<line number="532" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.ListView" filename="hudson/model/ListView.java" line-rate="1.0" branch-rate="0.5714285714285714" complexity="2.8333333333333335">
+					<methods>
+					</methods>
+					<lines>
+						<line number="72" hits="1" branch="false"/>
+						<line number="102" hits="1" branch="false"/>
+						<line number="103" hits="1" branch="false"/>
+						<line number="104" hits="1" branch="false"/>
+						<line number="105" hits="1" branch="false"/>
+						<line number="108" hits="1" branch="false"/>
+						<line number="109" hits="1" branch="false"/>
+						<line number="110" hits="1" branch="false"/>
+						<line number="130" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="131" hits="1" branch="false"/>
+						<line number="132" hits="1" branch="false"/>
+						<line number="135" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="136" hits="1" branch="false"/>
+						<line number="137" hits="1" branch="false"/>
+						<line number="147" hits="1" branch="false"/>
+						<line number="165" hits="1" branch="false"/>
+						<line number="167" hits="1" branch="false"/>
+						<line number="168" hits="1" branch="false"/>
+						<line number="169" hits="1" branch="false"/>
+						<line number="171" hits="1" branch="false"/>
+						<line number="172" hits="1" branch="false"/>
+						<line number="173" hits="1" branch="false"/>
+						<line number="175" hits="1" branch="false"/>
+						<line number="177" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="180" hits="1" branch="false"/>
+						<line number="182" hits="1" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="183" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="185" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="187" hits="1" branch="false"/>
+						<line number="188" hits="1" branch="false"/>
+						<line number="191" hits="1" branch="false"/>
+						<line number="192" hits="1" branch="false"/>
+						<line number="193" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="194" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="198" hits="1" branch="false"/>
+						<line number="200" hits="1" branch="false"/>
+						<line number="220" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="221" hits="1" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="222" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="226" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="227" hits="1" branch="false"/>
+						<line number="228" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="229" hits="1" branch="false"/>
+						<line number="232" hits="1" branch="false"/>
+						<line number="234" hits="1" branch="false"/>
+						<line number="394" hits="1" branch="false"/>
+						<line number="395" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="398" hits="1" branch="false"/>
+						<line number="399" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Messages" filename="hudson/model/Messages.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="14" hits="7" branch="false"/>
+						<line number="29" hits="3" branch="false"/>
+						<line number="189" hits="3" branch="false"/>
+						<line number="221" hits="2" branch="false"/>
+						<line number="237" hits="7" branch="false"/>
+						<line number="333" hits="4" branch="false"/>
+						<line number="397" hits="1" branch="false"/>
+						<line number="413" hits="4" branch="false"/>
+						<line number="429" hits="2" branch="false"/>
+						<line number="557" hits="3" branch="false"/>
+						<line number="1037" hits="1" branch="false"/>
+						<line number="1181" hits="2" branch="false"/>
+						<line number="1197" hits="2" branch="false"/>
+						<line number="1357" hits="2" branch="false"/>
+						<line number="1597" hits="2" branch="false"/>
+						<line number="1725" hits="2" branch="false"/>
+						<line number="1805" hits="2" branch="false"/>
+						<line number="1853" hits="2" branch="false"/>
+						<line number="1965" hits="4" branch="false"/>
+						<line number="2061" hits="7" branch="false"/>
+						<line number="2093" hits="2" branch="false"/>
+						<line number="2189" hits="2" branch="false"/>
+						<line number="2269" hits="1" branch="false"/>
+						<line number="2429" hits="2" branch="false"/>
+						<line number="2621" hits="2" branch="false"/>
+						<line number="2637" hits="1" branch="false"/>
+						<line number="2733" hits="2" branch="false"/>
+						<line number="2781" hits="2" branch="false"/>
+						<line number="2797" hits="1" branch="false"/>
+						<line number="2845" hits="2" branch="false"/>
+						<line number="2861" hits="2" branch="false"/>
+						<line number="2925" hits="1" branch="false"/>
+						<line number="2973" hits="2" branch="false"/>
+						<line number="3325" hits="3" branch="false"/>
+						<line number="3341" hits="2" branch="false"/>
+						<line number="3357" hits="2" branch="false"/>
+						<line number="3405" hits="1" branch="false"/>
+						<line number="3661" hits="14" branch="false"/>
+						<line number="3741" hits="2" branch="false"/>
+						<line number="3869" hits="2" branch="false"/>
+						<line number="3901" hits="1" branch="false"/>
+						<line number="3965" hits="4" branch="false"/>
+						<line number="4109" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Node" filename="hudson/model/Node.java" line-rate="1.0" branch-rate="1.0" complexity="2.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="93" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Node$Mode" filename="hudson/model/Node.java" line-rate="1.0" branch-rate="1.0" complexity="2.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="500" hits="8" branch="false"/>
+						<line number="501" hits="4" branch="false"/>
+						<line number="502" hits="4" branch="false"/>
+						<line number="514" hits="8" branch="false"/>
+						<line number="515" hits="8" branch="false"/>
+						<line number="516" hits="8" branch="false"/>
+						<line number="519" hits="4" branch="false"/>
+						<line number="520" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Result" filename="hudson/model/Result.java" line-rate="1.0" branch-rate="1.0" complexity="1.5789473684210527">
+					<methods>
+					</methods>
+					<lines>
+						<line number="52" hits="2" branch="false"/>
+						<line number="57" hits="2" branch="false"/>
+						<line number="61" hits="2" branch="false"/>
+						<line number="68" hits="2" branch="false"/>
+						<line number="75" hits="2" branch="false"/>
+						<line number="95" hits="10" branch="false"/>
+						<line number="96" hits="10" branch="false"/>
+						<line number="97" hits="10" branch="false"/>
+						<line number="98" hits="10" branch="false"/>
+						<line number="99" hits="10" branch="false"/>
+						<line number="100" hits="10" branch="false"/>
+						<line number="170" hits="2" branch="false"/>
+						<line number="172" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Result$1" filename="hudson/model/Result.java" line-rate="1.0" branch-rate="1.0" complexity="1.5789473684210527">
+					<methods>
+					</methods>
+					<lines>
+						<line number="172" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Run" filename="hudson/model/Run.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="269" hits="2" branch="false"/>
+						<line number="270" hits="2" branch="false"/>
+						<line number="1159" hits="2" branch="false"/>
+						<line number="1164" hits="2" branch="false"/>
+						<line number="2354" hits="2" branch="false"/>
+						<line number="2359" hits="2" branch="false"/>
+						<line number="2362" hits="2" branch="false"/>
+						<line number="2363" hits="2" branch="false"/>
+						<line number="2366" hits="2" branch="false"/>
+						<line number="2371" hits="2" branch="false"/>
+						<line number="2384" hits="2" branch="false"/>
+						<line number="2389" hits="2" branch="false"/>
+						<line number="2411" hits="2" branch="false"/>
+						<line number="2412" hits="2" branch="false"/>
+						<line number="2413" hits="2" branch="false"/>
+						<line number="2415" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Run$1" filename="hudson/model/Run.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2371" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Run$2" filename="hudson/model/Run.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2389" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Run$DefaultFeedAdapter" filename="hudson/model/Run.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="2418" hits="8" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Run$IDFormatterProvider" filename="hudson/model/Run.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="271" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.Saveable$1" filename="hudson/model/Saveable.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="55" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.View" filename="hudson/model/View.java" line-rate="1.0" branch-rate="1.0" complexity="2.3523809523809525">
+					<methods>
+					</methods>
+					<lines>
+						<line number="165" hits="1" branch="false"/>
+						<line number="167" hits="1" branch="false"/>
+						<line number="168" hits="1" branch="false"/>
+						<line number="169" hits="1" branch="false"/>
+						<line number="192" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="193" hits="1" branch="false"/>
+						<line number="195" hits="1" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="196" hits="2" branch="false"/>
+						<line number="197" hits="2" branch="false"/>
+						<line number="198" hits="1" branch="false"/>
+						<line number="200" hits="3" branch="false"/>
+						<line number="258" hits="2" branch="false"/>
+						<line number="351" hits="2" branch="false"/>
+						<line number="1116" hits="3" branch="false"/>
+						<line number="1133" hits="3" branch="false"/>
+						<line number="1139" hits="3" branch="false"/>
+						<line number="1143" hits="3" branch="false"/>
+						<line number="1144" hits="3" branch="false"/>
+						<line number="1145" hits="3" branch="false"/>
+						<line number="1146" hits="3" branch="false"/>
+						<line number="1259" hits="3" branch="false"/>
+						<line number="1261" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.View$3" filename="hudson/model/View.java" line-rate="1.0" branch-rate="1.0" complexity="2.3523809523809525">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1133" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.model.View$PropertyList" filename="hudson/model/View.java" line-rate="1.0" branch-rate="1.0" complexity="2.3523809523809525">
+					<methods>
+					</methods>
+					<lines>
+						<line number="1236" hits="1" branch="false"/>
+						<line number="1238" hits="1" branch="false"/>
+						<line number="1239" hits="1" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.org.apache.tools.tar" line-rate="1.0" branch-rate="1.0" complexity="2.7666666666666666">
+			<classes>
+				<class name="hudson.org.apache.tools.tar.TarInputStream" filename="hudson/org/apache/tools/tar/TarInputStream.java" line-rate="1.0" branch-rate="0.6666666666666666" complexity="3.4">
+					<methods>
+					</methods>
+					<lines>
+						<line number="67" hits="2" branch="false"/>
+						<line number="68" hits="2" branch="false"/>
+						<line number="86" hits="2" branch="false"/>
+						<line number="88" hits="2" branch="false"/>
+						<line number="89" hits="2" branch="false"/>
+						<line number="90" hits="2" branch="false"/>
+						<line number="91" hits="2" branch="false"/>
+						<line number="92" hits="2" branch="false"/>
+						<line number="93" hits="2" branch="false"/>
+						<line number="110" hits="2" branch="false"/>
+						<line number="111" hits="2" branch="false"/>
+						<line number="206" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="210" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="211" hits="2" branch="false"/>
+						<line number="213" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="221" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="225" hits="2" branch="false"/>
+						<line number="228" hits="4" branch="false"/>
+						<line number="230" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="235" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="236" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="239" hits="1" branch="false"/>
+						<line number="242" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="243" hits="1" branch="false"/>
+						<line number="245" hits="3" branch="false"/>
+						<line number="247" hits="3" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="254" hits="3" branch="false"/>
+						<line number="256" hits="3" branch="false"/>
+						<line number="259" hits="4" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="282" hits="4" branch="false"/>
+						<line number="312" hits="1" branch="false"/>
+						<line number="314" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="315" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.org.apache.tools.tar.TarOutputStream" filename="hudson/org/apache/tools/tar/TarOutputStream.java" line-rate="1.0" branch-rate="0.6" complexity="2.1333333333333333">
+					<methods>
+					</methods>
+					<lines>
+						<line number="60" hits="2" branch="false"/>
+						<line number="63" hits="2" branch="false"/>
+						<line number="70" hits="2" branch="false"/>
+						<line number="71" hits="2" branch="false"/>
+						<line number="89" hits="2" branch="false"/>
+						<line number="91" hits="2" branch="false"/>
+						<line number="92" hits="2" branch="false"/>
+						<line number="93" hits="2" branch="false"/>
+						<line number="94" hits="2" branch="false"/>
+						<line number="95" hits="2" branch="false"/>
+						<line number="96" hits="2" branch="false"/>
+						<line number="97" hits="2" branch="false"/>
+						<line number="107" hits="2" branch="false"/>
+						<line number="108" hits="2" branch="false"/>
+						<line number="137" hits="2" branch="false"/>
+						<line number="138" hits="2" branch="false"/>
+						<line number="139" hits="2" branch="false"/>
+						<line number="148" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="149" hits="2" branch="false"/>
+						<line number="150" hits="2" branch="false"/>
+						<line number="151" hits="2" branch="false"/>
+						<line number="152" hits="2" branch="false"/>
+						<line number="154" hits="2" branch="false"/>
+						<line number="178" hits="2634" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="199" hits="2634" branch="false"/>
+						<line number="200" hits="2634" branch="false"/>
+						<line number="202" hits="2634" branch="false"/>
+						<line number="204" hits="2634" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="207" hits="2634" branch="false"/>
+						<line number="209" hits="2634" branch="false"/>
+						<line number="210" hits="2634" branch="false"/>
+						<line number="223" hits="2633" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="234" hits="2633" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="240" hits="2633" branch="false"/>
+						<line number="283" hits="2632" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="298" hits="2632" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="327" hits="7896" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="328" hits="5264" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="337" hits="5264" branch="false"/>
+						<line number="339" hits="5264" branch="false"/>
+						<line number="341" hits="5264" branch="false"/>
+						<line number="342" hits="5264" branch="false"/>
+						<line number="343" hits="5264" branch="false"/>
+						<line number="344" hits="5264" branch="false"/>
+						<line number="345" hits="2632" branch="false"/>
+						<line number="352" hits="2052" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="353" hits="2048" branch="false"/>
+						<line number="356" hits="4" branch="false"/>
+						<line number="357" hits="4" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.os" line-rate="1.0" branch-rate="1.0" complexity="1.45">
+			<classes>
+				<class name="hudson.os.PosixAPI" filename="hudson/os/PosixAPI.java" line-rate="1.0" branch-rate="1.0" complexity="1.5294117647058822">
+					<methods>
+					</methods>
+					<lines>
+						<line number="29" hits="2845" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="30" hits="1" branch="false"/>
+						<line number="46" hits="2845" branch="false"/>
+						<line number="123" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.os.PosixAPI$1" filename="hudson/os/PosixAPI.java" line-rate="1.0" branch-rate="1.0" complexity="1.5294117647058822">
+					<methods>
+					</methods>
+					<lines>
+						<line number="30" hits="1" branch="false"/>
+						<line number="35" hits="1" branch="false"/>
+						<line number="39" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.os.PosixException" filename="hudson/os/PosixException.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="14" hits="1" branch="false"/>
+						<line number="15" hits="1" branch="false"/>
+						<line number="16" hits="1" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.security" line-rate="1.0" branch-rate="1.0" complexity="1.2736842105263158">
+			<classes>
+				<class name="hudson.security.Messages" filename="hudson/security/Messages.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="14" hits="7" branch="false"/>
+						<line number="93" hits="7" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.security.Permission" filename="hudson/security/Permission.java" line-rate="1.0" branch-rate="0.6666666666666666" complexity="1.7857142857142858">
+					<methods>
+					</methods>
+					<lines>
+						<line number="50" hits="7" branch="false"/>
+						<line number="55" hits="7" branch="false"/>
+						<line number="150" hits="109" branch="false"/>
+						<line number="151" hits="109" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="153" hits="109" branch="false"/>
+						<line number="154" hits="109" branch="false"/>
+						<line number="155" hits="109" branch="false"/>
+						<line number="156" hits="109" branch="false"/>
+						<line number="157" hits="109" branch="false"/>
+						<line number="158" hits="109" branch="false"/>
+						<line number="159" hits="109" branch="false"/>
+						<line number="161" hits="109" branch="false"/>
+						<line number="162" hits="109" branch="false"/>
+						<line number="163" hits="109" branch="false"/>
+						<line number="167" hits="102" branch="false"/>
+						<line number="168" hits="102" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="169" hits="102" branch="false"/>
+						<line number="184" hits="56" branch="false"/>
+						<line number="185" hits="56" branch="false"/>
+						<line number="271" hits="7" branch="false"/>
+						<line number="273" hits="7" branch="false"/>
+						<line number="287" hits="7" branch="false"/>
+						<line number="297" hits="7" branch="false"/>
+						<line number="307" hits="7" branch="false"/>
+						<line number="316" hits="7" branch="false"/>
+						<line number="321" hits="7" branch="false"/>
+						<line number="326" hits="7" branch="false"/>
+						<line number="331" hits="7" branch="false"/>
+						<line number="336" hits="7" branch="false"/>
+						<line number="341" hits="7" branch="false"/>
+						<line number="346" hits="7" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.security.Permission$1" filename="hudson/security/Permission.java" line-rate="1.0" branch-rate="1.0" complexity="1.7857142857142858">
+					<methods>
+					</methods>
+					<lines>
+						<line number="55" hits="7" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.security.PermissionGroup" filename="hudson/security/PermissionGroup.java" line-rate="1.0" branch-rate="1.0" complexity="1.9090909090909092">
+					<methods>
+					</methods>
+					<lines>
+						<line number="44" hits="33" branch="false"/>
+						<line number="45" hits="22" branch="false"/>
+						<line number="46" hits="22" branch="false"/>
+						<line number="55" hits="22" branch="false"/>
+						<line number="56" hits="22" branch="false"/>
+						<line number="57" hits="22" branch="false"/>
+						<line number="59" hits="22" branch="false"/>
+						<line number="60" hits="22" branch="false"/>
+						<line number="61" hits="22" branch="false"/>
+						<line number="62" hits="22" branch="false"/>
+						<line number="63" hits="22" branch="false"/>
+						<line number="64" hits="22" branch="false"/>
+						<line number="66" hits="22" branch="false"/>
+						<line number="67" hits="22" branch="false"/>
+						<line number="74" hits="109" branch="false"/>
+						<line number="75" hits="109" branch="false"/>
+						<line number="105" hits="33" branch="false"/>
+						<line number="106" hits="33" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="110" hits="14" branch="false"/>
+						<line number="114" hits="66" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="115" hits="47" branch="false"/>
+						<line number="126" hits="7" branch="false"/>
+						<line number="149" hits="7" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.security.PermissionScope" filename="hudson/security/PermissionScope.java" line-rate="1.0" branch-rate="1.0" complexity="3.5">
+					<methods>
+					</methods>
+					<lines>
+						<line number="68" hits="35" branch="false"/>
+						<line number="69" hits="35" branch="false"/>
+						<line number="70" hits="35" branch="false"/>
+						<line number="71" hits="35" branch="false"/>
+						<line number="95" hits="7" branch="false"/>
+						<line number="100" hits="7" branch="false"/>
+						<line number="105" hits="7" branch="false"/>
+						<line number="110" hits="7" branch="false"/>
+						<line number="115" hits="7" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.util" line-rate="1.0" branch-rate="1.0" complexity="1.7004716981132075">
+			<classes>
+				<class name="hudson.util.AbstractTaskListener" filename="hudson/util/AbstractTaskListener.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="12" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.AdaptedIterator" filename="hudson/util/AdaptedIterator.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="41" hits="5631" branch="false"/>
+						<line number="42" hits="5631" branch="false"/>
+						<line number="43" hits="5631" branch="false"/>
+						<line number="50" hits="5631" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.AlternativeUiTextProvider$Message" filename="hudson/util/AlternativeUiTextProvider.java" line-rate="1.0" branch-rate="1.0" complexity="1.8">
+					<methods>
+					</methods>
+					<lines>
+						<line number="100" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.CaseInsensitiveComparator" filename="hudson/util/CaseInsensitiveComparator.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="34" hits="81" branch="false"/>
+						<line number="35" hits="2" branch="false"/>
+						<line number="37" hits="2" branch="false"/>
+						<line number="40" hits="81" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.ColorPalette" filename="hudson/util/ColorPalette.java" line-rate="1.0" branch-rate="1.0" complexity="2.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="39" hits="2" branch="false"/>
+						<line number="40" hits="2" branch="false"/>
+						<line number="41" hits="2" branch="false"/>
+						<line number="42" hits="2" branch="false"/>
+						<line number="47" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.ConcurrentHashMapConverter" filename="hudson/util/ConcurrentHashMapConverter.java" line-rate="1.0" branch-rate="1.0" complexity="1.75">
+					<methods>
+					</methods>
+					<lines>
+						<line number="49" hits="9" branch="false"/>
+						<line number="50" hits="9" branch="false"/>
+						<line number="51" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.CopyOnWriteList" filename="hudson/util/CopyOnWriteList.java" line-rate="1.0" branch-rate="1.0" complexity="1.1923076923076923">
+					<methods>
+					</methods>
+					<lines>
+						<line number="63" hits="3" branch="false"/>
+						<line number="64" hits="3" branch="false"/>
+						<line number="65" hits="3" branch="false"/>
+						<line number="97" hits="1" branch="false"/>
+						<line number="98" hits="1" branch="false"/>
+						<line number="125" hits="1" branch="false"/>
+						<line number="126" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.CopyOnWriteList$1" filename="hudson/util/CopyOnWriteList.java" line-rate="1.0" branch-rate="1.0" complexity="1.1923076923076923">
+					<methods>
+					</methods>
+					<lines>
+						<line number="98" hits="1" branch="false"/>
+						<line number="101" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.CopyOnWriteList$ConverterImpl" filename="hudson/util/CopyOnWriteList.java" line-rate="1.0" branch-rate="1.0" complexity="1.1923076923076923">
+					<methods>
+					</methods>
+					<lines>
+						<line number="176" hits="9" branch="false"/>
+						<line number="177" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.CopyOnWriteMap$Tree$ConverterImpl" filename="hudson/util/CopyOnWriteMap.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="234" hits="9" branch="false"/>
+						<line number="235" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.DaemonThreadFactory" filename="hudson/util/DaemonThreadFactory.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="38" hits="2" branch="false"/>
+						<line number="39" hits="2" branch="false"/>
+						<line number="41" hits="2" branch="false"/>
+						<line number="42" hits="2" branch="false"/>
+						<line number="43" hits="2" branch="false"/>
+						<line number="46" hits="1" branch="false"/>
+						<line number="47" hits="1" branch="false"/>
+						<line number="48" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.DescribableList" filename="hudson/util/DescribableList.java" line-rate="1.0" branch-rate="1.0" complexity="2.0952380952380953">
+					<methods>
+					</methods>
+					<lines>
+						<line number="76" hits="2" branch="false"/>
+						<line number="77" hits="2" branch="false"/>
+						<line number="78" hits="2" branch="false"/>
+						<line number="81" hits="1" branch="false"/>
+						<line number="82" hits="1" branch="false"/>
+						<line number="83" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.DescribableList$ConverterImpl" filename="hudson/util/DescribableList.java" line-rate="1.0" branch-rate="1.0" complexity="2.0952380952380953">
+					<methods>
+					</methods>
+					<lines>
+						<line number="248" hits="9" branch="false"/>
+						<line number="249" hits="9" branch="false"/>
+						<line number="250" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.DescriptorList" filename="hudson/util/DescriptorList.java" line-rate="1.0" branch-rate="1.0" complexity="1.6428571428571428">
+					<methods>
+					</methods>
+					<lines>
+						<line number="89" hits="6" branch="false"/>
+						<line number="90" hits="6" branch="false"/>
+						<line number="91" hits="6" branch="false"/>
+						<line number="92" hits="6" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.DirScanner" filename="hudson/util/DirScanner.java" line-rate="1.0" branch-rate="1.0" complexity="2.5555555555555554">
+					<methods>
+					</methods>
+					<lines>
+						<line number="23" hits="6" branch="false"/>
+						<line number="33" hits="2640" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="37" hits="2637" branch="false"/>
+						<line number="40" hits="2637" branch="false"/>
+						<line number="41" hits="2637" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="42" hits="1" branch="false"/>
+						<line number="43" hits="1" branch="false"/>
+						<line number="47" hits="2636" branch="false"/>
+						<line number="49" hits="2639" branch="false"/>
+						<line number="50" hits="2638" branch="false"/>
+						<line number="102" hits="6" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.DirScanner$Filter" filename="hudson/util/DirScanner.java" line-rate="1.0" branch-rate="1.0" complexity="2.5555555555555554">
+					<methods>
+					</methods>
+					<lines>
+						<line number="83" hits="1" branch="false"/>
+						<line number="84" hits="1" branch="false"/>
+						<line number="85" hits="1" branch="false"/>
+						<line number="89" hits="1" branch="false"/>
+						<line number="90" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.DirScanner$Full" filename="hudson/util/DirScanner.java" line-rate="1.0" branch-rate="0.8333333333333334" complexity="2.5555555555555554">
+					<methods>
+					</methods>
+					<lines>
+						<line number="58" hits="1" branch="false"/>
+						<line number="60" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="61" hits="2" branch="false"/>
+						<line number="62" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="63" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="64" hits="1" branch="false"/>
+						<line number="67" hits="2" branch="false"/>
+						<line number="70" hits="1" branch="false"/>
+						<line number="71" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.DirScanner$Glob" filename="hudson/util/DirScanner.java" line-rate="1.0" branch-rate="0.6666666666666666" complexity="2.5555555555555554">
+					<methods>
+					</methods>
+					<lines>
+						<line number="105" hits="5" branch="false"/>
+						<line number="107" hits="5" branch="false"/>
+						<line number="108" hits="5" branch="false"/>
+						<line number="109" hits="5" branch="false"/>
+						<line number="110" hits="5" branch="false"/>
+						<line number="118" hits="5" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="124" hits="5" branch="false"/>
+						<line number="125" hits="5" branch="false"/>
+						<line number="127" hits="5" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="128" hits="5" branch="false"/>
+						<line number="129" hits="2642" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="130" hits="2638" branch="false"/>
+						<line number="131" hits="2638" branch="false"/>
+						<line number="134" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.EnumConverter" filename="hudson/util/EnumConverter.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="32" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.ExceptionCatchingThreadFactory" filename="hudson/util/ExceptionCatchingThreadFactory.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="45" hits="2" branch="false"/>
+						<line number="46" hits="2" branch="false"/>
+						<line number="47" hits="2" branch="false"/>
+						<line number="50" hits="1" branch="false"/>
+						<line number="51" hits="1" branch="false"/>
+						<line number="52" hits="1" branch="false"/>
+						<line number="59" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.FileVisitor" filename="hudson/util/FileVisitor.java" line-rate="1.0" branch-rate="0.5" complexity="1.7142857142857142">
+					<methods>
+					</methods>
+					<lines>
+						<line number="14" hits="6" branch="false"/>
+						<line number="44" hits="3" branch="false"/>
+						<line number="51" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="55" hits="6" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.HeadBufferingStream" filename="hudson/util/HeadBufferingStream.java" line-rate="1.0" branch-rate="0.5" complexity="2.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="46" hits="1" branch="false"/>
+						<line number="47" hits="1" branch="false"/>
+						<line number="48" hits="1" branch="false"/>
+						<line number="49" hits="1" branch="false"/>
+						<line number="61" hits="1" branch="false"/>
+						<line number="62" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="63" hits="1" branch="false"/>
+						<line number="64" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="65" hits="1" branch="false"/>
+						<line number="67" hits="1" branch="false"/>
+						<line number="74" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.IOUtils" filename="hudson/util/IOUtils.java" line-rate="1.0" branch-rate="0.5" complexity="1.280701754385965">
+					<methods>
+					</methods>
+					<lines>
+						<line number="38" hits="4" branch="false"/>
+						<line number="40" hits="3" branch="false"/>
+						<line number="42" hits="3" branch="false"/>
+						<line number="43" hits="3" branch="false"/>
+						<line number="44" hits="3" branch="false"/>
+						<line number="127" hits="2741" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="128" hits="2741" branch="false"/>
+						<line number="162" hits="1" branch="false"/>
+						<line number="181" hits="1" branch="false"/>
+						<line number="182" hits="1" branch="false"/>
+						<line number="183" hits="1" branch="false"/>
+						<line number="184" hits="1" branch="false"/>
+						<line number="523" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.Iterators" filename="hudson/util/Iterators.java" line-rate="1.0" branch-rate="1.0" complexity="1.3928571428571428">
+					<methods>
+					</methods>
+					<lines>
+						<line number="289" hits="5631" branch="false"/>
+						<line number="364" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.Iterators$5" filename="hudson/util/Iterators.java" line-rate="1.0" branch-rate="1.0" complexity="1.3928571428571428">
+					<methods>
+					</methods>
+					<lines>
+						<line number="289" hits="5631" branch="false"/>
+						<line number="291" hits="5631" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.Iterators$9" filename="hudson/util/Iterators.java" line-rate="1.0" branch-rate="0.9" complexity="1.3928571428571428">
+					<methods>
+					</methods>
+					<lines>
+						<line number="364" hits="4" branch="false"/>
+						<line number="367" hits="4" branch="false"/>
+						<line number="369" hits="10" branch="false"/>
+						<line number="370" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="374" hits="6" branch="false"/>
+						<line number="375" hits="6" branch="false"/>
+						<line number="376" hits="6" branch="false"/>
+						<line number="377" hits="6" branch="false"/>
+						<line number="381" hits="16" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="382" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="383" hits="8" branch="false"/>
+						<line number="384" hits="8" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="385" hits="2" branch="false"/>
+						<line number="386" hits="2" branch="false"/>
+						<line number="389" hits="2" branch="false"/>
+						<line number="392" hits="16" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.Memoizer" filename="hudson/util/Memoizer.java" line-rate="1.0" branch-rate="0.75" complexity="2.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="38" hits="1" branch="false"/>
+						<line number="39" hits="1" branch="false"/>
+						<line number="42" hits="5631" branch="false"/>
+						<line number="43" hits="5631" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="47" hits="1" branch="false"/>
+						<line number="48" hits="1" branch="false"/>
+						<line number="49" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="51" hits="1" branch="false"/>
+						<line number="52" hits="1" branch="false"/>
+						<line number="53" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.NamingThreadFactory" filename="hudson/util/NamingThreadFactory.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="37" hits="2" branch="false"/>
+						<line number="46" hits="2" branch="false"/>
+						<line number="47" hits="2" branch="false"/>
+						<line number="48" hits="2" branch="false"/>
+						<line number="49" hits="2" branch="false"/>
+						<line number="52" hits="1" branch="false"/>
+						<line number="53" hits="1" branch="false"/>
+						<line number="54" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.NullStream" filename="hudson/util/NullStream.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="32" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.PersistedList" filename="hudson/util/PersistedList.java" line-rate="1.0" branch-rate="1.0" complexity="1.7241379310344827">
+					<methods>
+					</methods>
+					<lines>
+						<line number="51" hits="3" branch="false"/>
+						<line number="52" hits="3" branch="false"/>
+						<line number="54" hits="2" branch="false"/>
+						<line number="55" hits="2" branch="false"/>
+						<line number="57" hits="1" branch="false"/>
+						<line number="58" hits="1" branch="false"/>
+						<line number="59" hits="1" branch="false"/>
+						<line number="66" hits="3" branch="false"/>
+						<line number="67" hits="3" branch="false"/>
+						<line number="166" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.RobustCollectionConverter" filename="hudson/util/RobustCollectionConverter.java" line-rate="1.0" branch-rate="1.0" complexity="2.6">
+					<methods>
+					</methods>
+					<lines>
+						<line number="57" hits="9" branch="false"/>
+						<line number="58" hits="9" branch="false"/>
+						<line number="59" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.RobustMapConverter" filename="hudson/util/RobustMapConverter.java" line-rate="1.0" branch-rate="1.0" complexity="3.3333333333333335">
+					<methods>
+					</methods>
+					<lines>
+						<line number="40" hits="7" branch="false"/>
+						<line number="43" hits="9" branch="false"/>
+						<line number="44" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.RobustReflectionConverter" filename="hudson/util/RobustReflectionConverter.java" line-rate="1.0" branch-rate="0.75" complexity="3.88">
+					<methods>
+					</methods>
+					<lines>
+						<line number="69" hits="7" branch="false"/>
+						<line number="77" hits="9" branch="false"/>
+						<line number="82" hits="9" branch="false"/>
+						<line number="83" hits="9" branch="false"/>
+						<line number="84" hits="9" branch="false"/>
+						<line number="85" hits="9" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="86" hits="9" branch="false"/>
+						<line number="87" hits="9" branch="false"/>
+						<line number="88" hits="9" branch="false"/>
+						<line number="91" hits="8" branch="false"/>
+						<line number="92" hits="8" branch="false"/>
+						<line number="447" hits="7" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.RunList" filename="hudson/util/RunList.java" line-rate="1.0" branch-rate="1.0" complexity="1.4871794871794872">
+					<methods>
+					</methods>
+					<lines>
+						<line number="91" hits="2" branch="false"/>
+						<line number="92" hits="2" branch="false"/>
+						<line number="93" hits="2" branch="false"/>
+						<line number="97" hits="4" branch="false"/>
+						<line number="106" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="107" hits="2" branch="false"/>
+						<line number="108" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="109" hits="2" branch="false"/>
+						<line number="110" hits="2" branch="false"/>
+						<line number="111" hits="2" branch="false"/>
+						<line number="112" hits="2" branch="false"/>
+						<line number="114" hits="4" branch="false"/>
+						<line number="173" hits="2" branch="false"/>
+						<line number="174" hits="2" branch="false"/>
+						<line number="184" hits="2" branch="false"/>
+						<line number="193" hits="2" branch="false"/>
+						<line number="194" hits="2" branch="false"/>
+						<line number="195" hits="2" branch="false"/>
+						<line number="196" hits="2" branch="false"/>
+						<line number="205" hits="2" branch="false"/>
+						<line number="206" hits="2" branch="false"/>
+						<line number="207" hits="2" branch="false"/>
+						<line number="208" hits="2" branch="false"/>
+						<line number="218" hits="2" branch="false"/>
+						<line number="305" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.RunList$10" filename="hudson/util/RunList.java" line-rate="1.0" branch-rate="1.0" complexity="1.4871794871794872">
+					<methods>
+					</methods>
+					<lines>
+						<line number="306" hits="10" branch="false"/>
+						<line number="308" hits="8" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+					</lines>
+				</class>
+				<class name="hudson.util.RunList$2" filename="hudson/util/RunList.java" line-rate="1.0" branch-rate="1.0" complexity="1.4871794871794872">
+					<methods>
+					</methods>
+					<lines>
+						<line number="208" hits="2" branch="false"/>
+						<line number="210" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.RunList$9" filename="hudson/util/RunList.java" line-rate="1.0" branch-rate="1.0" complexity="1.4871794871794872">
+					<methods>
+					</methods>
+					<lines>
+						<line number="310" hits="8" branch="false"/>
+						<line number="312" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+					</lines>
+				</class>
+				<class name="hudson.util.StreamTaskListener" filename="hudson/util/StreamTaskListener.java" line-rate="1.0" branch-rate="0.5" complexity="1.45">
+					<methods>
+					</methods>
+					<lines>
+						<line number="73" hits="2" branch="false"/>
+						<line number="74" hits="2" branch="false"/>
+						<line number="76" hits="2" branch="false"/>
+						<line number="78" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="79" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="82" hits="2" branch="false"/>
+						<line number="86" hits="2" branch="false"/>
+						<line number="87" hits="2" branch="false"/>
+						<line number="190" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.XStream2" filename="hudson/util/XStream2.java" line-rate="1.0" branch-rate="1.0" complexity="2.4411764705882355">
+					<methods>
+					</methods>
+					<lines>
+						<line number="79" hits="9" branch="false"/>
+						<line number="81" hits="9" branch="false"/>
+						<line number="88" hits="9" branch="false"/>
+						<line number="89" hits="9" branch="false"/>
+						<line number="90" hits="9" branch="false"/>
+						<line number="91" hits="9" branch="false"/>
+						<line number="124" hits="9" branch="false"/>
+						<line number="125" hits="9" branch="false"/>
+						<line number="135" hits="8" branch="false"/>
+						<line number="136" hits="8" branch="false"/>
+						<line number="145" hits="9" branch="false"/>
+						<line number="147" hits="9" branch="false"/>
+						<line number="148" hits="9" branch="false"/>
+						<line number="149" hits="9" branch="false"/>
+						<line number="150" hits="9" branch="false"/>
+						<line number="151" hits="9" branch="false"/>
+						<line number="152" hits="9" branch="false"/>
+						<line number="153" hits="9" branch="false"/>
+						<line number="154" hits="9" branch="false"/>
+						<line number="155" hits="9" branch="false"/>
+						<line number="156" hits="9" branch="false"/>
+						<line number="160" hits="9" branch="false"/>
+						<line number="162" hits="9" branch="false"/>
+						<line number="170" hits="9" branch="false"/>
+						<line number="174" hits="9" branch="false"/>
+						<line number="185" hits="9" branch="false"/>
+						<line number="187" hits="9" branch="false"/>
+						<line number="189" hits="9" branch="false"/>
+						<line number="191" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.XStream2$1" filename="hudson/util/XStream2.java" line-rate="1.0" branch-rate="1.0" complexity="2.4411764705882355">
+					<methods>
+					</methods>
+					<lines>
+						<line number="162" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.XStream2$2" filename="hudson/util/XStream2.java" line-rate="1.0" branch-rate="1.0" complexity="2.4411764705882355">
+					<methods>
+					</methods>
+					<lines>
+						<line number="174" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.XStream2$AssociatedConverterImpl" filename="hudson/util/XStream2.java" line-rate="1.0" branch-rate="1.0" complexity="2.4411764705882355">
+					<methods>
+					</methods>
+					<lines>
+						<line number="298" hits="9" branch="false"/>
+						<line number="300" hits="9" branch="false"/>
+						<line number="303" hits="9" branch="false"/>
+						<line number="304" hits="9" branch="false"/>
+						<line number="305" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.XStream2$CompatibilityMapper" filename="hudson/util/XStream2.java" line-rate="1.0" branch-rate="1.0" complexity="2.4411764705882355">
+					<methods>
+					</methods>
+					<lines>
+						<line number="269" hits="9" branch="false"/>
+						<line number="270" hits="9" branch="false"/>
+						<line number="271" hits="9" branch="false"/>
+						<line number="272" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.XStream2$MapperInjectionPoint" filename="hudson/util/XStream2.java" line-rate="1.0" branch-rate="1.0" complexity="2.4411764705882355">
+					<methods>
+					</methods>
+					<lines>
+						<line number="232" hits="9" branch="false"/>
+						<line number="233" hits="9" branch="false"/>
+						<line number="234" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.XStream2$PluginClassOwnership" filename="hudson/util/XStream2.java" line-rate="1.0" branch-rate="1.0" complexity="2.4411764705882355">
+					<methods>
+					</methods>
+					<lines>
+						<line number="412" hits="9" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.util.io" line-rate="1.0" branch-rate="1.0" complexity="2.2666666666666666">
+			<classes>
+				<class name="hudson.util.io.Archiver" filename="hudson/util/io/Archiver.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="37" hits="4" branch="false"/>
+						<line number="38" hits="4" branch="false"/>
+						<line number="44" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.io.ArchiverFactory" filename="hudson/util/io/ArchiverFactory.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="39" hits="3" branch="false"/>
+						<line number="48" hits="1" branch="false"/>
+						<line number="53" hits="1" branch="false"/>
+						<line number="58" hits="1" branch="false"/>
+						<line number="76" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.io.ArchiverFactory$TarArchiverFactory" filename="hudson/util/io/ArchiverFactory.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="62" hits="2" branch="false"/>
+						<line number="65" hits="2" branch="false"/>
+						<line number="66" hits="2" branch="false"/>
+						<line number="67" hits="2" branch="false"/>
+						<line number="70" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.io.ArchiverFactory$ZipArchiverFactory" filename="hudson/util/io/ArchiverFactory.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="76" hits="2" branch="false"/>
+						<line number="78" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.io.TarArchiver" filename="hudson/util/io/TarArchiver.java" line-rate="1.0" branch-rate="0.5714285714285714" complexity="3.142857142857143">
+					<methods>
+					</methods>
+					<lines>
+						<line number="49" hits="2" branch="false"/>
+						<line number="52" hits="2" branch="false"/>
+						<line number="53" hits="2" branch="false"/>
+						<line number="62" hits="2" branch="false"/>
+						<line number="63" hits="2" branch="false"/>
+						<line number="67" hits="1" branch="false"/>
+						<line number="69" hits="1" branch="false"/>
+						<line number="70" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="71" hits="1" branch="false"/>
+						<line number="75" hits="1" branch="false"/>
+						<line number="78" hits="1" branch="false"/>
+						<line number="79" hits="1" branch="false"/>
+						<line number="80" hits="1" branch="false"/>
+						<line number="83" hits="1" branch="false"/>
+						<line number="85" hits="1" branch="false"/>
+						<line number="86" hits="1" branch="false"/>
+						<line number="87" hits="1" branch="false"/>
+						<line number="91" hits="2635" branch="false"/>
+						<line number="95" hits="2634" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="98" hits="2634" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="100" hits="2634" branch="false"/>
+						<line number="101" hits="2634" branch="false"/>
+						<line number="102" hits="2633" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="103" hits="2633" branch="false"/>
+						<line number="104" hits="2633" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="105" hits="2633" branch="false"/>
+						<line number="107" hits="2633" branch="false"/>
+						<line number="109" hits="2633" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="110" hits="2633" branch="false"/>
+						<line number="113" hits="5265" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="114" hits="2632" branch="false"/>
+						<line number="116" hits="2633" branch="false"/>
+						<line number="117" hits="2633" branch="false"/>
+						<line number="120" hits="2633" branch="false"/>
+						<line number="121" hits="2633" branch="false"/>
+						<line number="122" hits="2633" branch="false"/>
+						<line number="125" hits="2" branch="false"/>
+						<line number="126" hits="2" branch="false"/>
+						<line number="128" hits="1" branch="false"/>
+						<line number="132" hits="1" branch="false"/>
+						<line number="133" hits="1" branch="false"/>
+						<line number="134" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.io.TarArchiver$1" filename="hudson/util/io/TarArchiver.java" line-rate="1.0" branch-rate="1.0" complexity="3.142857142857143">
+					<methods>
+					</methods>
+					<lines>
+						<line number="53" hits="2" branch="false"/>
+						<line number="60" hits="400" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.io.ZipArchiver" filename="hudson/util/io/ZipArchiver.java" line-rate="1.0" branch-rate="0.625" complexity="2.3333333333333335">
+					<methods>
+					</methods>
+					<lines>
+						<line number="43" hits="2" branch="false"/>
+						<line number="46" hits="2" branch="false"/>
+						<line number="47" hits="2" branch="false"/>
+						<line number="48" hits="2" branch="false"/>
+						<line number="49" hits="2" branch="false"/>
+						<line number="52" hits="3" branch="false"/>
+						<line number="57" hits="3" branch="false"/>
+						<line number="59" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="60" hits="1" branch="false"/>
+						<line number="62" hits="1" branch="false"/>
+						<line number="63" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="64" hits="1" branch="false"/>
+						<line number="65" hits="1" branch="false"/>
+						<line number="66" hits="1" branch="false"/>
+						<line number="67" hits="1" branch="false"/>
+						<line number="68" hits="2" branch="false"/>
+						<line number="69" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="70" hits="2" branch="false"/>
+						<line number="71" hits="2" branch="false"/>
+						<line number="72" hits="2" branch="false"/>
+						<line number="75" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="78" hits="2" branch="false"/>
+						<line number="79" hits="2" branch="false"/>
+						<line number="80" hits="2" branch="false"/>
+						<line number="82" hits="3" branch="false"/>
+						<line number="83" hits="3" branch="false"/>
+						<line number="86" hits="2" branch="false"/>
+						<line number="87" hits="2" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.util.xstream" line-rate="1.0" branch-rate="1.0" complexity="1.1590909090909092">
+			<classes>
+				<class name="hudson.util.xstream.ImmutableListConverter" filename="hudson/util/xstream/ImmutableListConverter.java" line-rate="1.0" branch-rate="1.0" complexity="2.2">
+					<methods>
+					</methods>
+					<lines>
+						<line number="56" hits="9" branch="false"/>
+						<line number="57" hits="9" branch="false"/>
+						<line number="58" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.xstream.ImmutableMapConverter" filename="hudson/util/xstream/ImmutableMapConverter.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="52" hits="9" branch="false"/>
+						<line number="53" hits="9" branch="false"/>
+						<line number="54" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.xstream.ImmutableSetConverter" filename="hudson/util/xstream/ImmutableSetConverter.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="26" hits="9" branch="false"/>
+						<line number="27" hits="9" branch="false"/>
+						<line number="28" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.xstream.ImmutableSortedSetConverter" filename="hudson/util/xstream/ImmutableSortedSetConverter.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="26" hits="9" branch="false"/>
+						<line number="27" hits="9" branch="false"/>
+						<line number="28" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.util.xstream.MapperDelegate" filename="hudson/util/xstream/MapperDelegate.java" line-rate="1.0" branch-rate="0.5" complexity="1.0416666666666667">
+					<methods>
+					</methods>
+					<lines>
+						<line number="34" hits="9" branch="false"/>
+						<line number="35" hits="9" branch="false"/>
+						<line number="36" hits="9" branch="false"/>
+						<line number="116" hits="108" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.views" line-rate="1.0" branch-rate="1.0" complexity="2.6">
+			<classes>
+				<class name="hudson.views.ListViewColumn" filename="hudson/views/ListViewColumn.java" line-rate="1.0" branch-rate="1.0" complexity="2.6">
+					<methods>
+					</methods>
+					<lines>
+						<line number="97" hits="1" branch="false"/>
+						<line number="161" hits="1" branch="false"/>
+						<line number="171" hits="1" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="jenkins" line-rate="1.0" branch-rate="1.0" complexity="1.9">
+			<classes>
+				<class name="jenkins.FilePathFilter" filename="jenkins/FilePathFilter.java" line-rate="1.0" branch-rate="1.0" complexity="1.2857142857142858">
+					<methods>
+					</methods>
+					<lines>
+						<line number="28" hits="2" branch="false"/>
+						<line number="108" hits="5636" branch="false"/>
+						<line number="109" hits="5636" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="111" hits="5632" branch="false"/>
+						<line number="117" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.FilePathFilter$1" filename="jenkins/FilePathFilter.java" line-rate="1.0" branch-rate="1.0" complexity="1.2857142857142858">
+					<methods>
+					</methods>
+					<lines>
+						<line number="117" hits="1" branch="false"/>
+						<line number="120" hits="31207" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.FilePathFilterAggregator" filename="jenkins/FilePathFilterAggregator.java" line-rate="1.0" branch-rate="0.5" complexity="3.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="20" hits="1" branch="false"/>
+						<line number="21" hits="1" branch="false"/>
+						<line number="23" hits="1" branch="false"/>
+						<line number="77" hits="2733" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="81" hits="2733" branch="false"/>
+						<line number="86" hits="107" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="90" hits="107" branch="false"/>
+						<line number="95" hits="12815" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="99" hits="12815" branch="false"/>
+						<line number="113" hits="10220" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="117" hits="10220" branch="false"/>
+						<line number="122" hits="5010" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="126" hits="5010" branch="false"/>
+						<line number="131" hits="322" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="135" hits="322" branch="false"/>
+						<line number="142" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.MasterToSlaveFileCallable" filename="jenkins/MasterToSlaveFileCallable.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="12" hits="10" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.SlaveToMasterFileCallable" filename="jenkins/SlaveToMasterFileCallable.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="12" hits="10951" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.SoloFilePathFilter" filename="jenkins/SoloFilePathFilter.java" line-rate="1.0" branch-rate="0.75" complexity="1.4">
+					<methods>
+					</methods>
+					<lines>
+						<line number="17" hits="1" branch="false"/>
+						<line number="18" hits="1" branch="false"/>
+						<line number="19" hits="1" branch="false"/>
+						<line number="25" hits="5631" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="26" hits="1" branch="false"/>
+						<line number="30" hits="31207" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="32" hits="31207" branch="false"/>
+						<line number="37" hits="2733" branch="false"/>
+						<line number="42" hits="12813" branch="false"/>
+						<line number="47" hits="2" branch="false"/>
+						<line number="52" hits="107" branch="false"/>
+						<line number="57" hits="10220" branch="false"/>
+						<line number="62" hits="5010" branch="false"/>
+						<line number="67" hits="322" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="jenkins.model" line-rate="1.0" branch-rate="1.0" complexity="2.40251572327044">
+			<classes>
+				<class name="jenkins.model.Configuration" filename="jenkins/model/Configuration.java" line-rate="1.0" branch-rate="0.5" complexity="2.5">
+					<methods>
+					</methods>
+					<lines>
+						<line number="32" hits="16" branch="false"/>
+						<line number="33" hits="16" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="37" hits="20" branch="false"/>
+						<line number="38" hits="20" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="39" hits="20" branch="false"/>
+						<line number="40" hits="20" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+					</lines>
+				</class>
+				<class name="jenkins.model.CoreEnvironmentContributor" filename="jenkins/model/CoreEnvironmentContributor.java" line-rate="1.0" branch-rate="0.5" complexity="4.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="24" hits="1" branch="false"/>
+						<line number="43" hits="1" branch="false"/>
+						<line number="44" hits="1" branch="false"/>
+						<line number="45" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="51" hits="1" branch="false"/>
+						<line number="52" hits="1" branch="false"/>
+						<line number="53" hits="1" branch="false"/>
+						<line number="55" hits="1" branch="false"/>
+						<line number="56" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="68" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.model.Jenkins" filename="jenkins/model/Jenkins.java" line-rate="1.0" branch-rate="1.0" complexity="2.3917197452229297">
+					<methods>
+					</methods>
+					<lines>
+						<line number="307" hits="4" branch="false"/>
+						<line number="308" hits="5634" branch="false"/>
+						<line number="680" hits="4" branch="false"/>
+						<line number="710" hits="5634" branch="false"/>
+						<line number="3730" hits="4" branch="false"/>
+						<line number="4064" hits="4" branch="false"/>
+						<line number="4069" hits="4" branch="false"/>
+						<line number="4074" hits="4" branch="false"/>
+						<line number="4076" hits="4" branch="false"/>
+						<line number="4120" hits="4" branch="false"/>
+						<line number="4168" hits="4" branch="false"/>
+						<line number="4177" hits="4" branch="false"/>
+						<line number="4179" hits="4" branch="false"/>
+						<line number="4180" hits="4" branch="false"/>
+						<line number="4184" hits="4" branch="false"/>
+						<line number="4195" hits="4" branch="false"/>
+						<line number="4200" hits="4" branch="false"/>
+						<line number="4205" hits="4" branch="false"/>
+						<line number="4207" hits="4" branch="false"/>
+						<line number="4209" hits="4" branch="false"/>
+						<line number="4210" hits="4" branch="false"/>
+						<line number="4211" hits="4" branch="false"/>
+						<line number="4212" hits="4" branch="false"/>
+						<line number="4221" hits="4" branch="false"/>
+						<line number="4225" hits="4" branch="false"/>
+						<line number="4226" hits="4" branch="false"/>
+						<line number="4227" hits="4" branch="false"/>
+						<line number="4229" hits="4" branch="false"/>
+						<line number="4230" hits="4" branch="false"/>
+						<line number="4231" hits="4" branch="false"/>
+						<line number="4232" hits="4" branch="false"/>
+						<line number="4234" hits="4" branch="false"/>
+						<line number="4237" hits="4" branch="false"/>
+						<line number="4238" hits="4" branch="false"/>
+						<line number="4239" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.model.Jenkins$5" filename="jenkins/model/Jenkins.java" line-rate="1.0" branch-rate="1.0" complexity="2.3917197452229297">
+					<methods>
+					</methods>
+					<lines>
+						<line number="680" hits="4" branch="false"/>
+						<line number="682" hits="5634" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="jenkins.security" line-rate="1.0" branch-rate="1.0" complexity="2.142857142857143">
+			<classes>
+				<class name="jenkins.security.ConfidentialKey" filename="jenkins/security/ConfidentialKey.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+						<line number="42" hits="1" branch="false"/>
+						<line number="43" hits="1" branch="false"/>
+						<line number="44" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.security.HexStringConfidentialKey" filename="jenkins/security/HexStringConfidentialKey.java" line-rate="1.0" branch-rate="0.5" complexity="3.6666666666666665">
+					<methods>
+					</methods>
+					<lines>
+						<line number="27" hits="1" branch="false"/>
+						<line number="28" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="30" hits="1" branch="false"/>
+						<line number="31" hits="1" branch="false"/>
+						<line number="34" hits="1" branch="false"/>
+						<line number="35" hits="1" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="jenkins.util" line-rate="1.0" branch-rate="1.0" complexity="1.1111111111111112">
+			<classes>
+				<class name="jenkins.util.ContextResettingExecutorService" filename="jenkins/util/ContextResettingExecutorService.java" line-rate="1.0" branch-rate="1.0" complexity="1.2">
+					<methods>
+					</methods>
+					<lines>
+						<line number="16" hits="2" branch="false"/>
+						<line number="17" hits="2" branch="false"/>
+						<line number="39" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.util.ContextResettingExecutorService$2" filename="jenkins/util/ContextResettingExecutorService.java" line-rate="1.0" branch-rate="1.0" complexity="1.2">
+					<methods>
+					</methods>
+					<lines>
+						<line number="39" hits="1" branch="false"/>
+						<line number="42" hits="1" branch="false"/>
+						<line number="43" hits="1" branch="false"/>
+						<line number="44" hits="1" branch="false"/>
+						<line number="46" hits="1" branch="false"/>
+						<line number="48" hits="1" branch="false"/>
+						<line number="49" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="jenkins.util.InterceptingExecutorService" filename="jenkins/util/InterceptingExecutorService.java" line-rate="1.0" branch-rate="1.0" complexity="1.0769230769230769">
+					<methods>
+					</methods>
+					<lines>
+						<line number="24" hits="2" branch="false"/>
+						<line number="25" hits="2" branch="false"/>
+						<line number="26" hits="2" branch="false"/>
+						<line number="34" hits="1" branch="false"/>
+						<line number="39" hits="1" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
