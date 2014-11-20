@@ -227,7 +227,7 @@ public class gitInspectorParser {
 			e.printStackTrace();
 		}
 
-		// testing
+		// for debugging - print outputArray
 		for (int i = 0; i < outputArray.length; i++) {
 			for (int j = 0; j < outputArray[i].length; j++) {
 				System.out.print(outputArray[i][j]);
@@ -238,7 +238,6 @@ public class gitInspectorParser {
 		}
 
 		return outputArray;
-
 	}
 
 }
