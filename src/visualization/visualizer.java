@@ -37,7 +37,8 @@ public class visualizer extends PApplet {
 			Object[][] gitInspectorParserOutputElasticSearch = gitInspectorParser.giveElasticSearchOutputArray(gitInspectorElasticSearchFilepath);
 			Object[][] gitInspectorParserOutputJenkins = gitInspectorParser.giveJenkinsOutputArray(gitInspectorJenkinsFilepath);
 			
-			String[] elasticSearchFilepaths = new String[gitInspectorParser.maxAuthorNum * gitInspectorParser.maxFileNum];
+			String[] elasticSearchFilepaths = new String[(gitInspectorParser.maxAuthorNum) * gitInspectorParser.maxFileNum];
+			
 			for (int i=0; i<gitInspectorParserOutputElasticSearch.length; i++) {
 				for (int j=0; j<gitInspectorParserOutputElasticSearch[i].length; i++) {
 					elasticSearchFilepaths[i*gitInspectorParserOutputElasticSearch[i].length + j] = 
