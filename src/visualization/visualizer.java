@@ -51,7 +51,7 @@ public class Visualizer extends PApplet {
 		    //Cobertura
 		    CoberturaXMLParser cobParser = new CoberturaXMLParser();
 		    //cobParser.parseXML();
-		    Hashtable<String, Double> coberturaParseOutput = cobParser.parseXML("gitinspectorOutput/coverage.xml");
+		    Hashtable<String, Double> coberturaParseOutput = cobParser.parseXML("coberturaOutput/coverage.xml");
 		    
 		    //Fuser
 			Fuser resultFuser = new Fuser();
