@@ -1,6 +1,7 @@
 package cs410;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.Hashtable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,12 +34,12 @@ public class CoberturaXMLParser {
 		return this.outputTable;
 	}
 	
-	public Hashtable<String, Double> parseXML() {
+	public Hashtable<String, Double> parseXML(String url) {
 
 		try {
 			// Initialization code modified from tutorial
 			// http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/
-			File crapFile = new File("codebase/elasticSearch/target/site/cobertura/coverage.xml");
+			File crapFile = new File(url);
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder dBuilder = docFactory.newDocumentBuilder();
@@ -55,7 +56,7 @@ public class CoberturaXMLParser {
 						&& (cNode.getNodeName() == "packages")) {
 
 					cMethods = cNode.getChildNodes();
-					System.out.println("getting packages nodes");
+					//System.out.println("getting packages nodes");
 					processPackageList(cMethods);
 				}
 				
@@ -77,7 +78,7 @@ public class CoberturaXMLParser {
 				if ((pNode instanceof Element)
 						&& (pNode.getNodeName() == "package")) {
 
-					System.out.println("getting package nodes");
+					//System.out.println("getting package nodes");
 					processClassesNodes(pNode.getChildNodes());
 				}
 			}
@@ -96,7 +97,7 @@ public class CoberturaXMLParser {
 				if ((classesNode instanceof Element)
 						&& (classesNode.getNodeName() == "classes")) {
 
-					System.out.println("getting classes nodes");
+					//System.out.println("getting classes nodes");
 					processClassNodes(classesNode.getChildNodes());
 				}
 			}
@@ -115,7 +116,7 @@ public class CoberturaXMLParser {
 				if ((classNode instanceof Element)
 						&& (classNode.getNodeName() == "class")) {
 
-					System.out.println("getting class nodes");
+					//System.out.println("getting class nodes");
 					NamedNodeMap classAttributes = classNode.getAttributes();
 					addToHash(classAttributes);
 				}
@@ -133,15 +134,14 @@ public class CoberturaXMLParser {
 	 * @param classAtts
 	 */
 	public void addToHash(NamedNodeMap classAtts){
-		String className = classAtts.getNamedItem("filename").getNodeValue();
-		String patternString = "(?<=[\\\\/])w+\\.java";
-		Pattern pattern = Pattern.compile(patternString);
-		Matcher matcher = pattern.matcher(className);
-		while (matcher.find()) {
-		    className = matcher.group(1);
-		}
 		
-		System.out.println(className);
+ 	    String className = classAtts.getNamedItem("filename").getNodeValue();
+		String patternString = "[\\\\/]";
+		String[] result = className.split(patternString);
+		int resultLen = result.length - 1;
+		className = result[resultLen];
+		
+		//System.out.println(className);
 
 		String classComplexityString = classAtts.getNamedItem("complexity").getNodeValue().toString();
 		Double classComplexity = Double.parseDouble(classComplexityString);

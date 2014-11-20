@@ -44,16 +44,16 @@ public class visualizer extends PApplet {
 			
 			//GitInspector
 			gitInspectorParser gitParser = new gitInspectorParser();
-		    Object[][] gitParserOutput = gitParser.giveElasticSearchOutputArray("//");
+		    Object[][] gitParserOutput = gitParser.returnParsedArray("/Documents/eclipse_java/elasticsearchtest2.xml");
 		    
 		    //Cobertura
 		    CoberturaXMLParser cobParser = new CoberturaXMLParser();
-		    cobParser.parseXML();
-		    Hashtable<String, Double> cobertuaPaseOutput = cobParser.parseXML();
+		    //cobParser.parseXML();
+		    Hashtable<String, Double> coberturaParseOutput = cobParser.parseXML("codebase/elasticSearch/target/site/cobertura/coverage.xml");
 		    
 		    //Fuser
 			fuser resultFuser = new fuser();
-			Node drawGraph = resultFuser.makeAPINode("Project", cobertuaPaseOutput, gitParserOutput);
+			Node drawGraph = resultFuser.makeAPINode("Project", coberturaParseOutput, gitParserOutput);
 			graph = drawGraph;
 
 			//Visualization

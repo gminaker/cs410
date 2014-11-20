@@ -61,10 +61,11 @@ public class fuser {
 	 */
 	public Node makeAPINode(String apiName, Hashtable<String, Double> locTable,
 			Object[][] gitTable) {
+		Object[][] cleanedTable = cleanTable(gitTable); 
 		Node apiNode = new Node(apiName);
-		for (int i = 0; i < gitTable.length; i++) {
-			apiNode.addEdge(makeAuthorNode((String) gitTable[i][0], apiNode,
-					locTable, gitTable, i));
+		for (int i = 0; i < cleanedTable.length; i++) {
+			apiNode.addEdge(makeAuthorNode((String) cleanedTable[i][0], apiNode,
+					locTable, cleanedTable, i));
 		}
 		apiNode.setColor(API_COLOUR);
 		apiNode.setDepth(1);
@@ -86,6 +87,7 @@ public class fuser {
 	 */
 	public Node makeAuthorNode(String authName, Node parent,
 			Hashtable<String, Double> locTable, Object[][] gitTable, int row) {
+		
 		Node authNode = new Node(authName, parent);
 
 		for (int i = 1; i < gitTable[row].length; i++) {
@@ -133,5 +135,31 @@ public class fuser {
 
 		classNode.setDepth(3);
 		return classNode;
+	}
+	
+	
+	/**
+	 * strips file path data from file names
+	 * @param dirtyTable
+	 * @return 
+	 */
+	public Object[][] cleanTable(Object[][] dirtyTable){
+		    String tempClassName;
+		    String patternString = "[\\\\/]";
+		    String[] result;
+		    int resultLen; 
+		    for(int i = 0; i < dirtyTable.length; i++){
+		    	for(int j = 1; j < dirtyTable[i].length; j++){
+		    		result = ((String) dirtyTable[i][j]).split(patternString);
+		    		resultLen = result.length - 1;
+		    		tempClassName = result[resultLen];
+		    		dirtyTable[i][j] = tempClassName;
+		    	}
+		    }
+		    
+			return dirtyTable;
+			
+			
+		
 	}
 }

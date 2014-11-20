@@ -49,7 +49,12 @@ public class gitInspectorParser {
 		}
 	}
 	*/
-	
+	/**
+	 * 
+	 * @param doc
+	 * @param xpath
+	 * @return
+	 */
     private static TreeMap<String, Double> getAuthors(Document doc, XPath xpath) {
         
     	TreeMap<String, Double> AuthorTable = new TreeMap<String, Double>();
@@ -78,6 +83,12 @@ public class gitInspectorParser {
         return AuthorTable;
     }
    
+    /**
+     * 
+     * @param doc
+     * @param xpath
+     * @return
+     */
     private static ArrayList<String> getTop6Authors(Document doc, XPath xpath) {
         
     	ArrayList<String> top6Authors = new ArrayList<String>();
@@ -122,6 +133,13 @@ public class gitInspectorParser {
         //return AuthorTable;
         return top6Authors;
     }
+    
+    /**
+     * 
+     * @param doc
+     * @param xpath
+     * @return
+     */
     private static List<String> getFileNames(Document doc, XPath xpath) {
         List<String> list = new ArrayList<>();
         try {
@@ -143,6 +161,13 @@ public class gitInspectorParser {
         return list;
     }
     
+    /**
+     * 
+     * @param doc
+     * @param xpath
+     * @param topSixAuthorsList
+     * @return
+     */
     private static List<String> getTop6FileNamesForTopAuthors(Document doc, XPath xpath, ArrayList<String> topSixAuthorsList) {
         
     	List<String> list = new ArrayList<>();
@@ -188,67 +213,73 @@ public class gitInspectorParser {
         return list;
     }
     
-    /*************old*************/
-	public static Object[][] giveOutputArray(String filepath) throws Exception {	
-		
-	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	        factory.setNamespaceAware(true);
-	        DocumentBuilder builder = null;
-	        
-	        try {
-				builder = factory.newDocumentBuilder();
+//    /*************old*************/
+//	public static Object[][] giveOutputArray(String filepath) throws Exception {	
+//		
+//	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//	        factory.setNamespaceAware(true);
+//	        DocumentBuilder builder = null;
+//	        
+//	        try {
+//				builder = factory.newDocumentBuilder();
+//
+//		        Document doc = builder.parse(filepath);
+//		        
+//		        XPathFactory xpathfactory = XPathFactory.newInstance();
+//		        XPath xpath = xpathfactory.newXPath();
+//		        
+//		        TreeMap<String, Double> authorTable = new TreeMap<String, Double>();
+//		        List<String> fileNameTable = getFileNames(doc, xpath);
+//		        
+//		        getTop6Authors(doc, xpath);
+//		        
+//		        authorTable = getAuthors(doc, xpath);
+//		        
+//				for (int temp = 0; temp < maxAuthorNum; temp++) {
+//
+//					outputArray[temp][0] = authorTable.keySet();
+//
+//					for (int i=1; i < maxFileNum+1; i++)
+//					{
+//						String content;
+//						
+//						if (fileNameTable != null)
+//						{
+//							content = fileNameTable.get(i);
+//						}
+//						else
+//						{
+//							content = "";
+//						}
+//						System.out.println(content +":"+ temp +":"+ i);
+//						outputArray[temp][i] = content;
+//					}
+//				}
+//				
+//	        } catch (ParserConfigurationException | SAXException | IOException e) {
+//	        e.printStackTrace();
+//	        }
+//			
+//			//testing
+//			for(int i = 0; i < outputArray.length; i++)
+//			{
+//			    for(int j = 0; j < outputArray[i].length; j++)
+//			    {
+//			        System.out.print(outputArray[i][j]);
+//			        if(j < outputArray[i].length - 1) System.out.print(" ");
+//			    }
+//			    System.out.println();
+//			}
+//			
+//	return outputArray;
+//	}
 
-		        Document doc = builder.parse(filepath);
-		        
-		        XPathFactory xpathfactory = XPathFactory.newInstance();
-		        XPath xpath = xpathfactory.newXPath();
-		        
-		        TreeMap<String, Double> authorTable = new TreeMap<String, Double>();
-		        List<String> fileNameTable = getFileNames(doc, xpath);
-		        
-		        getTop6Authors(doc, xpath);
-		        
-		        authorTable = getAuthors(doc, xpath);
-		        
-				for (int temp = 0; temp < maxAuthorNum; temp++) {
-
-					outputArray[temp][0] = authorTable.keySet();
-
-					for (int i=1; i < maxFileNum+1; i++)
-					{
-						String content;
-						
-						if (fileNameTable != null)
-						{
-							content = fileNameTable.get(i);
-						}
-						else
-						{
-							content = "";
-						}
-						
-						outputArray[temp][i] = content;
-					}
-				}
-				
-	        } catch (ParserConfigurationException | SAXException | IOException e) {
-	        e.printStackTrace();
-	        }
-			
-			//testing
-			for(int i = 0; i < outputArray.length; i++)
-			{
-			    for(int j = 0; j < outputArray[i].length; j++)
-			    {
-			        System.out.print(outputArray[i][j]);
-			        if(j < outputArray[i].length - 1) System.out.print(" ");
-			    }
-			    System.out.println();
-			}
-			
-	return outputArray;
-	}
-
+	/**
+	 * 
+	 * @param filepath
+	 * @return
+	 * @throws Exception
+	 */
 	public static Object[][] returnParsedArray(String filepath) throws Exception {	
 		
 	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -268,14 +299,17 @@ public class gitInspectorParser {
 		        
 		        ArrayList<String> top6Authors = getTop6Authors(doc, xpath);
 				List<String> authorAndFileList = getTop6FileNamesForTopAuthors(doc, xpath, top6Authors);
-
+				String tempString;
 				int count = 0;
 				
 					for (int temp = 0; temp < maxAuthorNum; temp++) {
 
 						for (int i=0; i < maxFileNum+1; i++)
 						{
+							
+							
 							outputArray[temp][i] = authorAndFileList.get(count);
+							System.out.println(temp + ":" + ":"+ i+ outputArray[temp][i]);
 							count++;
 						}
 					}
@@ -300,129 +334,129 @@ public class gitInspectorParser {
 	}
 	
 	
-    /*************old*************/
-	
-	
-	public static Object[][] giveElasticSearchOutputArray(String filepath) throws Exception {	
-		
-	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	        factory.setNamespaceAware(true);
-	        DocumentBuilder builder = null;
-	        
-	        //temp for debugging fusing
-	        Object[][] tempArray = new Object[maxFileNum][maxAuthorNum+1];
-	    	
-	    	tempArray[0][0] = "kimchy";
-	    	tempArray[1][0] = "Martijn van Groningen";
-	    	tempArray[2][0] = "Simon Willnauer";
-	    	tempArray[3][0] = "Luca Cavanna";
-	    	tempArray[4][0] = "uboness";
-	    	tempArray[5][0] = "Martijn van Groningen";
-
-	    	tempArray[0][1] = "src/test/java/org/elasticsearch/index/query/SimpleIndexQueryParserTests.java";
-	    	tempArray[0][2] = "src/main/java/org/elasticsearch/common/Base64.java";
-	    	tempArray[0][3] = "src/main/java/org/elasticsearch/common/xcontent/XContentBuilder.java";
-	    	tempArray[0][4] = "src/test/java/org/elasticsearch/transport/AbstractSimpleTransportTests.java";
-	    	tempArray[0][5] = "src/main/java/org/elasticsearch/monitor/jvm/JvmStats.java";
-	    	tempArray[0][6] = "src/main/java/org/elasticsearch/index/engine/internal/InternalEngine.java";
-	    	
-	    	tempArray[1][1] = "src/test/java/org/elasticsearch/search/child/SimpleChildQuerySearchTests.java";
-	    	tempArray[1][2] = "src/test/java/org/elasticsearch/percolator/PercolatorTests.java";
-	    	tempArray[1][3] = "src/test/java/org/elasticsearch/search/aggregations/bucket/TopHitsTests.java";
-	    	tempArray[1][4] = "src/test/java/org/elasticsearch/nested/SimpleNestedTests.java";
-	    	tempArray[1][5] = "src/test/java/org/elasticsearch/indices/IndicesOptionsIntegrationTests.java";
-	    	tempArray[1][6] = "src/main/java/org/elasticsearch/percolator/PercolatorService.java";
-	    	
-	    	tempArray[2][1] = "src/test/java/org/elasticsearch/test/InternalTestCluster.java";
-	    	tempArray[2][2] = "src/main/java/org/elasticsearch/cluster/routing/allocation/allocator/BalancedShardsAllocator.java";
-	    	tempArray[2][3] = "src/test/java/org/elasticsearch/index/store/StoreTest.java";
-	    	tempArray[2][4] = "src/test/java/org/elasticsearch/search/sort/SimpleSortTests.java";
-	    	tempArray[2][5] = "src/test/java/org/elasticsearch/test/ElasticsearchIntegrationTest.java";
-	    	tempArray[2][6] = "src/test/java/org/elasticsearch/search/query/MultiMatchQueryTests.java";
-	    	
-	    	tempArray[3][1] = "src/test/java/org/apache/lucene/search/postingshighlight/XPostingsHighlighterTests.java";
-	    	tempArray[3][2] = "src/test/java/org/elasticsearch/search/highlight/HighlighterSearchTests.java";
-	    	tempArray[3][3] = "src/test/java/org/elasticsearch/search/query/SimpleQueryTests.java";
-	    	tempArray[3][4] = "src/test/java/org/elasticsearch/action/IndicesRequestTests.java";
-	    	tempArray[3][5] = "src/test/java/org/elasticsearch/count/query/SimpleQueryTests.java";
-	    	tempArray[3][6] = "src/main/java/org/apache/lucene/search/postingshighlight/XPostingsHighlighter.java";
-
-	    	tempArray[4][1] = "src/test/java/org/elasticsearch/search/aggregations/bucket/DateHistogramTests.java";
-	    	tempArray[4][2] = "src/test/java/org/elasticsearch/search/aggregations/bucket/StringTermsTests.java";
-	    	tempArray[4][3] = "src/test/java/org/elasticsearch/search/aggregations/bucket/DateRangeTests.java";
-	    	tempArray[4][4] = "src/test/java/org/elasticsearch/search/aggregations/bucket/LongTermsTests.java";
-	    	tempArray[4][5] = "src/test/java/org/elasticsearch/search/aggregations/bucket/DoubleTermsTests.java";
-	    	tempArray[4][6] = "src/test/java/org/elasticsearch/search/aggregations/bucket/RangeTests.java";
-	    	
-	    	tempArray[5][1] = "src/test/java/org/elasticsearch/search/child/SimpleChildQuerySearchTests.java";
-	    	tempArray[5][2] = "src/test/java/org/elasticsearch/percolator/PercolatorTests.java";
-	    	tempArray[5][3] = "src/test/java/org/elasticsearch/search/aggregations/bucket/TopHitsTests.java";
-	    	tempArray[5][4] = "src/test/java/org/elasticsearch/nested/SimpleNestedTests.java";
-	    	tempArray[5][5] = "src/test/java/org/elasticsearch/indices/IndicesOptionsIntegrationTests.java";
-	    	tempArray[5][6] = "src/main/java/org/elasticsearch/percolator/PercolatorService.java";
-	
-		return tempArray;
-	}
-	
-	public static Object[][] giveJenkinsOutputArray(String filepath) throws Exception {	
-		
-	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	        factory.setNamespaceAware(true);
-	        DocumentBuilder builder = null;
-	        
-	        //temp for debugging fusing
-	        Object[][] tempArray = new Object[maxFileNum][maxAuthorNum+1];
-	    	
-	    	tempArray[0][0] = "kohsuke";
-	    	tempArray[1][0] = "Kohsuke Kawaguchi";
-	    	tempArray[2][0] = "Jesse Glick";
-	    	tempArray[3][0] = "Stephen Connolly";
-	    	tempArray[4][0] = "Nigel Magnay";
-	    	tempArray[5][0] = "mindless";
-
-	    	tempArray[0][1] = "core/src/main/java/hudson/FilePath.java";
-	    	tempArray[0][2] = "test/src/main/java/org/jvnet/hudson/test/HudsonTestCase.java";
-	    	tempArray[0][3] = "core/src/main/java/hudson/util/ProcessTree.java";
-	    	tempArray[0][4] = "core/src/main/java/hudson/model/Run.java";
-	    	tempArray[0][5] = "core/src/main/java/hudson/model/AbstractProject.java";
-	    	tempArray[0][6] = "core/src/main/java/hudson/Functions.java";
-	    	
-	    	tempArray[1][1] = "core/src/main/java/jenkins/util/AntClassLoader.java";
-	    	tempArray[1][2] = "core/src/main/java/hudson/FilePath.java";
-	    	tempArray[1][3] = "core/src/main/java/jenkins/model/lazy/AbstractLazyLoadRunMap.java";
-	    	tempArray[1][4] = "core/src/main/java/jenkins/model/Jenkins.java";
-	    	tempArray[1][5] = "core/src/main/java/jenkins/util/xstream/XStreamDOM.java";
-	    	tempArray[1][6] = "core/src/main/java/hudson/model/Queue.java";
-	    	
-	    	tempArray[2][1] = "core/src/main/java/jenkins/model/lazy/LazyBuildMixIn.java";
-	    	tempArray[2][2] = "core/src/main/java/hudson/model/Run.java";
-	    	tempArray[2][3] = "test/src/main/java/org/jvnet/hudson/test/JenkinsRule.java";
-	    	tempArray[2][4] = "test/src/main/java/org/jvnet/hudson/test/MockFolder.java";
-	    	tempArray[2][5] = "core/src/main/java/jenkins/triggers/ReverseBuildTrigger.java";
-	    	tempArray[2][6] = "core/src/main/java/jenkins/util/VirtualFile.java";
-	    	
-	    	tempArray[3][1] = "test/src/main/java/org/jvnet/hudson/test/JenkinsRule.java";
-	    	tempArray[3][2] = "test/src/main/java/org/jvnet/hudson/test/JenkinsMatchers.java";
-	    	tempArray[3][3] = "core/src/main/java/hudson/slaves/NodeProvisioner.java";
-	    	tempArray[3][4] = "core/src/main/java/jenkins/model/IdStrategy.java";
-	    	tempArray[3][5] = "core/src/main/java/hudson/model/User.java";
-	    	tempArray[3][6] = "core/src/main/java/hudson/model/View.java";
-
-	    	tempArray[4][1] = "core/src/main/java/jenkins/model/Jenkins.java";
-	    	tempArray[4][2] = "core/src/main/java/hudson/model/Hudson.java";
-	    	tempArray[4][3] = "core/src/main/java/hudson/model/AbstractCIBase.java";
-	    	tempArray[4][4] = "core/src/main/java/jenkins/model/Configuration.java";
-	    	tempArray[4][5] = "core/src/main/java/hudson/model/AbstractProject.java";
-	    	tempArray[4][6] = "core/src/main/java/hudson/Functions.java";
-	    	
-	    	tempArray[5][1] = "test/src/test/java/lib/form/RepeatableTest.java";
-	    	tempArray[5][2] = "core/src/main/java/hudson/diagnosis/OldDataMonitor.java";
-	    	tempArray[5][3] = "test/src/test/java/hudson/tasks/BuildTriggerTest.java";
-	    	tempArray[5][4] = "core/src/main/java/hudson/Functions.java";
-	    	tempArray[5][5] = "core/src/test/java/hudson/util/CopyOnWriteMapTest.java";
-	    	tempArray[5][6] = "core/src/main/java/hudson/util/XStream2.java";
-	
-		return tempArray;
-	}
+//    /*************old*************/
+//	
+//	
+//	public static Object[][] giveElasticSearchOutputArray(String filepath) throws Exception {	
+//		
+//	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//	        factory.setNamespaceAware(true);
+//	        DocumentBuilder builder = null;
+//	        
+//	        //temp for debugging fusing
+//	        Object[][] tempArray = new Object[maxFileNum][maxAuthorNum+1];
+//	    	
+//	    	tempArray[0][0] = "kimchy";
+//	    	tempArray[1][0] = "Martijn van Groningen";
+//	    	tempArray[2][0] = "Simon Willnauer";
+//	    	tempArray[3][0] = "Luca Cavanna";
+//	    	tempArray[4][0] = "uboness";
+//	    	tempArray[5][0] = "Martijn van Groningen";
+//
+//	    	tempArray[0][1] = "src/test/java/org/elasticsearch/index/query/SimpleIndexQueryParserTests.java";
+//	    	tempArray[0][2] = "src/main/java/org/elasticsearch/common/Base64.java";
+//	    	tempArray[0][3] = "src/main/java/org/elasticsearch/common/xcontent/XContentBuilder.java";
+//	    	tempArray[0][4] = "src/test/java/org/elasticsearch/transport/AbstractSimpleTransportTests.java";
+//	    	tempArray[0][5] = "src/main/java/org/elasticsearch/monitor/jvm/JvmStats.java";
+//	    	tempArray[0][6] = "src/main/java/org/elasticsearch/index/engine/internal/InternalEngine.java";
+//	    	
+//	    	tempArray[1][1] = "src/test/java/org/elasticsearch/search/child/SimpleChildQuerySearchTests.java";
+//	    	tempArray[1][2] = "src/test/java/org/elasticsearch/percolator/PercolatorTests.java";
+//	    	tempArray[1][3] = "src/test/java/org/elasticsearch/search/aggregations/bucket/TopHitsTests.java";
+//	    	tempArray[1][4] = "src/test/java/org/elasticsearch/nested/SimpleNestedTests.java";
+//	    	tempArray[1][5] = "src/test/java/org/elasticsearch/indices/IndicesOptionsIntegrationTests.java";
+//	    	tempArray[1][6] = "src/main/java/org/elasticsearch/percolator/PercolatorService.java";
+//	    	
+//	    	tempArray[2][1] = "src/test/java/org/elasticsearch/test/InternalTestCluster.java";
+//	    	tempArray[2][2] = "src/main/java/org/elasticsearch/cluster/routing/allocation/allocator/BalancedShardsAllocator.java";
+//	    	tempArray[2][3] = "src/test/java/org/elasticsearch/index/store/StoreTest.java";
+//	    	tempArray[2][4] = "src/test/java/org/elasticsearch/search/sort/SimpleSortTests.java";
+//	    	tempArray[2][5] = "src/test/java/org/elasticsearch/test/ElasticsearchIntegrationTest.java";
+//	    	tempArray[2][6] = "src/test/java/org/elasticsearch/search/query/MultiMatchQueryTests.java";
+//	    	
+//	    	tempArray[3][1] = "src/test/java/org/apache/lucene/search/postingshighlight/XPostingsHighlighterTests.java";
+//	    	tempArray[3][2] = "src/test/java/org/elasticsearch/search/highlight/HighlighterSearchTests.java";
+//	    	tempArray[3][3] = "src/test/java/org/elasticsearch/search/query/SimpleQueryTests.java";
+//	    	tempArray[3][4] = "src/test/java/org/elasticsearch/action/IndicesRequestTests.java";
+//	    	tempArray[3][5] = "src/test/java/org/elasticsearch/count/query/SimpleQueryTests.java";
+//	    	tempArray[3][6] = "src/main/java/org/apache/lucene/search/postingshighlight/XPostingsHighlighter.java";
+//
+//	    	tempArray[4][1] = "src/test/java/org/elasticsearch/search/aggregations/bucket/DateHistogramTests.java";
+//	    	tempArray[4][2] = "src/test/java/org/elasticsearch/search/aggregations/bucket/StringTermsTests.java";
+//	    	tempArray[4][3] = "src/test/java/org/elasticsearch/search/aggregations/bucket/DateRangeTests.java";
+//	    	tempArray[4][4] = "src/test/java/org/elasticsearch/search/aggregations/bucket/LongTermsTests.java";
+//	    	tempArray[4][5] = "src/test/java/org/elasticsearch/search/aggregations/bucket/DoubleTermsTests.java";
+//	    	tempArray[4][6] = "src/test/java/org/elasticsearch/search/aggregations/bucket/RangeTests.java";
+//	    	
+//	    	tempArray[5][1] = "src/test/java/org/elasticsearch/search/child/SimpleChildQuerySearchTests.java";
+//	    	tempArray[5][2] = "src/test/java/org/elasticsearch/percolator/PercolatorTests.java";
+//	    	tempArray[5][3] = "src/test/java/org/elasticsearch/search/aggregations/bucket/TopHitsTests.java";
+//	    	tempArray[5][4] = "src/test/java/org/elasticsearch/nested/SimpleNestedTests.java";
+//	    	tempArray[5][5] = "src/test/java/org/elasticsearch/indices/IndicesOptionsIntegrationTests.java";
+//	    	tempArray[5][6] = "src/main/java/org/elasticsearch/percolator/PercolatorService.java";
+//	
+//		return tempArray;
+//	}
+//	
+//	public static Object[][] giveJenkinsOutputArray(String filepath) throws Exception {	
+//		
+//	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//	        factory.setNamespaceAware(true);
+//	        DocumentBuilder builder = null;
+//	        
+//	        //temp for debugging fusing
+//	        Object[][] tempArray = new Object[maxFileNum][maxAuthorNum+1];
+//	    	
+//	    	tempArray[0][0] = "kohsuke";
+//	    	tempArray[1][0] = "Kohsuke Kawaguchi";
+//	    	tempArray[2][0] = "Jesse Glick";
+//	    	tempArray[3][0] = "Stephen Connolly";
+//	    	tempArray[4][0] = "Nigel Magnay";
+//	    	tempArray[5][0] = "mindless";
+//
+//	    	tempArray[0][1] = "core/src/main/java/hudson/FilePath.java";
+//	    	tempArray[0][2] = "test/src/main/java/org/jvnet/hudson/test/HudsonTestCase.java";
+//	    	tempArray[0][3] = "core/src/main/java/hudson/util/ProcessTree.java";
+//	    	tempArray[0][4] = "core/src/main/java/hudson/model/Run.java";
+//	    	tempArray[0][5] = "core/src/main/java/hudson/model/AbstractProject.java";
+//	    	tempArray[0][6] = "core/src/main/java/hudson/Functions.java";
+//	    	
+//	    	tempArray[1][1] = "core/src/main/java/jenkins/util/AntClassLoader.java";
+//	    	tempArray[1][2] = "core/src/main/java/hudson/FilePath.java";
+//	    	tempArray[1][3] = "core/src/main/java/jenkins/model/lazy/AbstractLazyLoadRunMap.java";
+//	    	tempArray[1][4] = "core/src/main/java/jenkins/model/Jenkins.java";
+//	    	tempArray[1][5] = "core/src/main/java/jenkins/util/xstream/XStreamDOM.java";
+//	    	tempArray[1][6] = "core/src/main/java/hudson/model/Queue.java";
+//	    	
+//	    	tempArray[2][1] = "core/src/main/java/jenkins/model/lazy/LazyBuildMixIn.java";
+//	    	tempArray[2][2] = "core/src/main/java/hudson/model/Run.java";
+//	    	tempArray[2][3] = "test/src/main/java/org/jvnet/hudson/test/JenkinsRule.java";
+//	    	tempArray[2][4] = "test/src/main/java/org/jvnet/hudson/test/MockFolder.java";
+//	    	tempArray[2][5] = "core/src/main/java/jenkins/triggers/ReverseBuildTrigger.java";
+//	    	tempArray[2][6] = "core/src/main/java/jenkins/util/VirtualFile.java";
+//	    	
+//	    	tempArray[3][1] = "test/src/main/java/org/jvnet/hudson/test/JenkinsRule.java";
+//	    	tempArray[3][2] = "test/src/main/java/org/jvnet/hudson/test/JenkinsMatchers.java";
+//	    	tempArray[3][3] = "core/src/main/java/hudson/slaves/NodeProvisioner.java";
+//	    	tempArray[3][4] = "core/src/main/java/jenkins/model/IdStrategy.java";
+//	    	tempArray[3][5] = "core/src/main/java/hudson/model/User.java";
+//	    	tempArray[3][6] = "core/src/main/java/hudson/model/View.java";
+//
+//	    	tempArray[4][1] = "core/src/main/java/jenkins/model/Jenkins.java";
+//	    	tempArray[4][2] = "core/src/main/java/hudson/model/Hudson.java";
+//	    	tempArray[4][3] = "core/src/main/java/hudson/model/AbstractCIBase.java";
+//	    	tempArray[4][4] = "core/src/main/java/jenkins/model/Configuration.java";
+//	    	tempArray[4][5] = "core/src/main/java/hudson/model/AbstractProject.java";
+//	    	tempArray[4][6] = "core/src/main/java/hudson/Functions.java";
+//	    	
+//	    	tempArray[5][1] = "test/src/test/java/lib/form/RepeatableTest.java";
+//	    	tempArray[5][2] = "core/src/main/java/hudson/diagnosis/OldDataMonitor.java";
+//	    	tempArray[5][3] = "test/src/test/java/hudson/tasks/BuildTriggerTest.java";
+//	    	tempArray[5][4] = "core/src/main/java/hudson/Functions.java";
+//	    	tempArray[5][5] = "core/src/test/java/hudson/util/CopyOnWriteMapTest.java";
+//	    	tempArray[5][6] = "core/src/main/java/hudson/util/XStream2.java";
+//	
+//		return tempArray;
+//	}
 	
 }
