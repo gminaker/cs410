@@ -87,7 +87,7 @@ public class visualizer extends PApplet {
 		fill(rgb[0], rgb[1], rgb[2]);
 		
 		if(node.getDepth() ==  1){
-			
+			// Draw the very center for the proect
 			width = 150;
 			PImage img = loadImage("soil.png");
 			img.resize(width, width);
@@ -100,19 +100,17 @@ public class visualizer extends PApplet {
 			
 			//ellipse(node.getLat(), node.getLongt(), width, 25);
 			
-			
 		}else if(node.getDepth() ==  2){
+			// draw center of flower
 			width = 100;
 			PImage img = loadImage("flower-2.png");
 			img.resize(width, width);
 			image(img, node.getLat() - (width/2), node.getLongt() - (width/2), width, width);
-			//fill(250,250,250);
-			//textSize(15); 
+
 			text(node.getName(), (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
-			//fill(50);
-			//textSize(14); 
 			
 		}else{
+			// draw the pedals
 			ellipse(node.getLat(), node.getLongt(), width, width);	
 			fill(50);
 			text(node.getName(), (float) (node.getLat() - (node.getName().length() * 3.8)), node.getLongt() + 5);
@@ -145,7 +143,7 @@ public class visualizer extends PApplet {
 	 * @return
 	 */
 	public static int calculateNodeWidth(Node node) {
-		return 25 + (node.getName().length() * 7);
+		return 100;
 	}
 
 	/**

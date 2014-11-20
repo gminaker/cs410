@@ -29,8 +29,8 @@ public class fuser {
 			{ "author_ddd","c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, { "author_eee", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, 
 			{ "author_fff", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" } };
 
-	static Object[][] locTablesssss = { { "c1", 2 }, { "class_22222", 7 },
-			{ "class_33333", 5 }, { "class_44444", 2 }, { "class_55555", 4 }, { "class_66666", 7 }};
+	static Object[][] locTablesssss = { { "c1", 28 }, { "class_22222", 7 },
+			{ "class_33333", 15 }, { "class_44444", 2 }, { "class_55555", 40 }, { "class_66666", 22 }};
 
 	// public static void main(String[] args) {
 	// fuse("api", locTablesssss, gitNamesssssss);
