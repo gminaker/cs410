@@ -26,10 +26,7 @@ public class gitInspectorParser {
 	public static int maxAuthorNum = 6;
 	public static int maxFileNum = 6;
 	
-	static Object[][] outputArray = new Object[maxFileNum][maxAuthorNum+1];
-	
-	static Hashtable<String, String> responsibilities = new Hashtable<String, String>();
-		
+	static Object[][] outputArray = new Object[maxFileNum][maxAuthorNum+1];	
 
 	public static void main(String [ ] args)
 	{
@@ -122,7 +119,6 @@ public class gitInspectorParser {
             e.printStackTrace();
         }
         
-        //return AuthorTable;
         return top6Authors;
     }
     
