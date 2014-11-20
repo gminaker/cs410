@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -7,11 +7,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import visualization.Node;
-import cs410.fuser;
+import cs410.Fuser;
 
-public class fuserTest {
+public class FuserTest {
 
-	private static fuser testFuser;
+	private static Fuser testFuser;
 	private Object[][] xmlParserOutput;
 	private Object[][] htmlParserOutput;
 
@@ -29,7 +29,7 @@ public class fuserTest {
 	// create test objects
 	@BeforeClass
 	public static void setup() {
-		testFuser = new fuser();
+		testFuser = new Fuser();
 
 	}
 

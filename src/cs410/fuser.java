@@ -5,7 +5,7 @@ import java.util.Hashtable;
 import visualization.Node;
 
 //contains methods for creating the graph to be used by the visualizer using the output from the parsers
-public class fuser {
+public class Fuser {
 
 	// constants
 	private int[] AUTH_COLOUR = { 255, 255, 0 };

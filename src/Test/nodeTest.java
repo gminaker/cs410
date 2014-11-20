@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import visualization.Node;
 
-public class nodeTest {
+public class NodeTest {
 	private Node testNode;
 
 	@Before

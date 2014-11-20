@@ -9,12 +9,11 @@ import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PImage;
 import cs410.CoberturaXMLParser;
-import cs410.HTMLParser;
-import cs410.fuser;
-import cs410.gitInspectorParser;
+import cs410.Fuser;
+import cs410.GitInspectorParser;
 
 //Draws a graph given the parent node
-public class visualizer extends PApplet {
+public class Visualizer extends PApplet {
 
 	PGraphics pg;
 	public static final int SIZE_WIDTH = 1100;
@@ -43,7 +42,7 @@ public class visualizer extends PApplet {
 		try {
 			
 			//GitInspector
-			gitInspectorParser gitParser = new gitInspectorParser();
+			GitInspectorParser gitParser = new GitInspectorParser();
 		    Object[][] gitParserOutput = gitParser.returnParsedArray("/Documents/eclipse_java/elasticsearchtest2.xml");
 		    
 		    //Cobertura
@@ -52,7 +51,7 @@ public class visualizer extends PApplet {
 		    Hashtable<String, Double> coberturaParseOutput = cobParser.parseXML("codebase/elasticSearch/target/site/cobertura/coverage.xml");
 		    
 		    //Fuser
-			fuser resultFuser = new fuser();
+			Fuser resultFuser = new Fuser();
 			Node drawGraph = resultFuser.makeAPINode("Project", coberturaParseOutput, gitParserOutput);
 			graph = drawGraph;
 

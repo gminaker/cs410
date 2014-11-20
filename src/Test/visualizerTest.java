@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import static org.junit.Assert.*;
 
@@ -8,9 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import visualization.Node;
-import visualization.visualizer;
+import visualization.Visualizer;
 
-public class visualizerTest {
+public class VisualizerTest {
 
 	Node parentNode;
 	ArrayList<Node> subNodes;
@@ -49,7 +49,7 @@ public class visualizerTest {
 	public void testCalculateNodeWidth() {
 		int actual, expected;
 		
-		actual = visualizer.calculateNodeWidth(parentNode);
+		actual = Visualizer.calculateNodeWidth(parentNode);
 		expected = 25    // base width
 				   + (6  // length of node name "parent" 
 				   * 7); // multiplier per letter in name
@@ -63,7 +63,7 @@ public class visualizerTest {
 		expected.setLat(WIDTH/2);
 		expected.setLongt(HEIGHT/2);
 		
-		visualizer.generateCoordinate(parentNode, WIDTH/2, HEIGHT/2);
+		Visualizer.generateCoordinate(parentNode, WIDTH/2, HEIGHT/2);
 		
 		float actual_lat = parentNode.getLat();
 		float hopeful_lat = expected.getLat();
@@ -88,7 +88,7 @@ public class visualizerTest {
 	public void testGenerateCoordinates(){
 		
 		// call method on a list of 4 Nodes given the parent node's x and y
-		visualizer.generateCoordinates(subNodes, 4, WIDTH/2, HEIGHT/2);
+		Visualizer.generateCoordinates(subNodes, 4, WIDTH/2, HEIGHT/2);
 		
 		float child1Lat = subNodes.get(0).getLat();
 		float child1Long = subNodes.get(0).getLongt();
@@ -102,7 +102,7 @@ public class visualizerTest {
 		float child4Lat = subNodes.get(3).getLat();
 		float child4Long = subNodes.get(3).getLongt();
 		
-		float expectedChildLat = (float) (visualizer.generateRadius(subNodes.get(0), subNodes.size())
+		float expectedChildLat = (float) (Visualizer.generateRadius(subNodes.get(0), subNodes.size())
 								  * processing.core.PApplet.cos((360 / 4) * 1) // degrees per node
 							      + WIDTH/2);
 		
@@ -132,7 +132,7 @@ public class visualizerTest {
 							 // from node.getNumNodes(node) method
 					  * 30); // multiplier of each node
 		
-		int actual = visualizer.generateRadius(parentNode, parentNode.getEdges().size());
+		int actual = Visualizer.generateRadius(parentNode, parentNode.getEdges().size());
 		
 		assertEquals(expected, actual);
 	}
