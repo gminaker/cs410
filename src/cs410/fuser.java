@@ -36,19 +36,14 @@ public class fuser {
 	// fuse("api", locTablesssss, gitNamesssssss);
 	// }
 
-	public fuser() {
-		this.htmlParserOutput = gitNamesssssss;
-		this.xmlParserOutput = locTablesssss;
-
-	}
 
 	/**
 	 * Test method for using test objects (not to be called for other purposes)
 	 * 
 	 * @return Node
 	 */
-	public Node fuse() {
-		return makeAPINode("API", this.xmlParserOutput, this.htmlParserOutput);
+	public Node fuse(String apiName, Object[][] xmlParserOutput, Object[][] htmlParserOutput) {
+		return makeAPINode("API", xmlParserOutput, htmlParserOutput);
 
 	}
 

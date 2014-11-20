@@ -6,10 +6,9 @@ import java.util.Random;
 import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PImage;
-
 import cs410.HTMLParser;
 import cs410.fuser;
-import cs410.xmlParser;
+import cs410.gitInspectorParser;
 
 //Draws a graph given the parent node
 public class visualizer extends PApplet {
@@ -19,21 +18,12 @@ public class visualizer extends PApplet {
 	public static final int SIZE_HEIGHT = 1000;
 	public Node graph;
 	public PApplet p;
-	public static String xmlFilepath;
-	public static String htmlFilepath;
+	public static String gitInspectorElasticSearchFilepath = "cs410/GitInspectorElasticSearch.xml";
+	public static String gitInspectorJenkinsFilepath = "cs410/GitInspectorJenkins.xml";
+	public static String coberturaElasticSearchFilepath = "codebase/elasticSearch/target/site/cobertura";
+	public static String coberturaJenkinsFilepath = "codebase/jenkins/core/target/site/cobertura";
 
-	// main method to allow us to run as an application instead of a applet
-	public static void main(String args[]) {
-
-		// if (args.length == 2) {
-		// xmlFilepath = args[0];
-		// htmlFilepath = args[1];
-		// } else {
-		// System.out
-		// .println("Incorrect number of arguments correct number is 2");
-		// return;
-		// }
-
+	public static void main() {
 		PApplet.main(new String[] { "--present", "visualization.visualizer" });
 	}
 
@@ -43,13 +33,36 @@ public class visualizer extends PApplet {
 	public void setup() {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
-		//xmlParser xParser = new xmlParser();
-		//String[] filepaths = new String[4];
-		//Object[][] htmlParserOutput = HTMLParser.complexityAndClassNamesForFilepaths(filepaths);
-		fuser resultFuser = new fuser();
-		Node drawGraph = resultFuser.fuse();
-		graph = drawGraph;
-		frameRate(30);
+		try {
+			Object[][] gitInspectorParserOutputElasticSearch = gitInspectorParser.giveElasticSearchOutputArray(gitInspectorElasticSearchFilepath);
+			Object[][] gitInspectorParserOutputJenkins = gitInspectorParser.giveJenkinsOutputArray(gitInspectorJenkinsFilepath);
+			
+			String[] elasticSearchFilepaths = new String[gitInspectorParser.maxAuthorNum * gitInspectorParser.maxFileNum];
+			for (int i=0; i<gitInspectorParserOutputElasticSearch.length; i++) {
+				for (int j=0; j<gitInspectorParserOutputElasticSearch[i].length; i++) {
+					elasticSearchFilepaths[i*gitInspectorParserOutputElasticSearch[i].length + j] = 
+							(String) gitInspectorParserOutputElasticSearch[i][j];
+				}
+			}
+			
+			String[] jenkinsFilepaths = new String[gitInspectorParser.maxAuthorNum * gitInspectorParser.maxFileNum];
+			for (int i=0; i<gitInspectorParserOutputJenkins.length; i++) {
+				for (int j=0; j<gitInspectorParserOutputJenkins[i].length; i++) {
+					jenkinsFilepaths[i*gitInspectorParserOutputJenkins[i].length + j] = 
+							(String) gitInspectorParserOutputJenkins[i][j];
+				}
+			}
+			
+			Object[][] htmlParserOutputElasticSearch = HTMLParser.complexityAndClassNamesForFilepathsAndFolder(elasticSearchFilepaths, coberturaElasticSearchFilepath);
+			Object[][] htmlParserOutputJenkins = HTMLParser.complexityAndClassNamesForFilepathsAndFolder(jenkinsFilepaths, coberturaJenkinsFilepath);
+			fuser resultFuser = new fuser();
+			Node drawGraph = resultFuser.fuse("ElasticSearch", gitInspectorParserOutputElasticSearch, htmlParserOutputElasticSearch);
+			graph = drawGraph;
+			frameRate(30);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
