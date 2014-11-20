@@ -112,14 +112,24 @@ public class fuser {
 	 */
 	public Node makeClassNode(String className, Node parent, Hashtable<String, Double> locTable) {
 		Node classNode = new Node(className, parent);
-
-		double tempComplexity = locTable.get(className);
+		double tempComplexity;
+		boolean inTable = locTable.containsKey(className);
+		
+		if(inTable){
+			tempComplexity = locTable.get(className);
+		}else{
+			tempComplexity = -1;
+		}
+		
 
 		classNode.setComplexity(tempComplexity);
 
 		int[] tempColour;
+		int[] white = { 255, 255, 255 };
 
-		if (tempComplexity < 5) {
+		if (tempComplexity < 0) {
+			tempColour = white;
+		}else if (tempComplexity < 5) {
 			tempColour = LEAF_COLOURS[0];
 		} else if (tempComplexity < 10) {
 			tempColour = LEAF_COLOURS[1];
