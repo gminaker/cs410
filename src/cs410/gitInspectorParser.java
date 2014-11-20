@@ -28,15 +28,6 @@ public class gitInspectorParser {
 
 	static Object[][] outputArray = new Object[maxFileNum][maxAuthorNum + 1];
 
-	public static void main(String[] args) {
-		try {
-			Object[][] helloArray = returnParsedArray("C:/Git/cs410/bin/cs410/GitInspectorJenkins.xml");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	/**
 	 * 
 	 * @param doc
@@ -63,10 +54,6 @@ public class gitInspectorParser {
 			for (int i = 0; i < nodesAuthor.getLength(); i++) {
 				AuthorTable.put(nodesAuthor.item(i).getNodeValue(),
 						Double.valueOf(nodesRow.item(i).getNodeValue()));
-			}
-
-			for (String key : AuthorTable.keySet()) {
-				// System.out.println(key + ":" + AuthorTable.get(key));
 			}
 
 		} catch (XPathExpressionException e) {
@@ -107,16 +94,7 @@ public class gitInspectorParser {
 						nodesAuthor.item(i).getNodeValue());
 			}
 
-			/*
-			 * System.out.println("..........................."); for (Double
-			 * key : AuthorTable.keySet()) { System.out.println(key + ":" +
-			 * AuthorTable.get(key)); }
-			 */
 			int size = AuthorTable.size();
-			/*
-			 * System.out.println(size); System.out.println("HI" + (String)
-			 * AuthorTable.values().toArray()[size-1]);
-			 */
 
 			for (int i = 1; i < 7; i++) {
 				top6Authors.add((String) AuthorTable.values().toArray()[size
@@ -146,10 +124,8 @@ public class gitInspectorParser {
 					XPathConstants.NODESET);
 			NodeList nodes = (NodeList) result;
 
-			// System.out.println(nodes.getLength());
 			for (int i = 0; i < nodes.getLength(); i++) {
 				list.add(nodes.item(i).getNodeValue());
-				// System.out.println(nodes.item(i).getNodeValue());
 			}
 
 		} catch (XPathExpressionException e) {
@@ -184,10 +160,6 @@ public class gitInspectorParser {
 					XPathConstants.NODESET);
 			NodeList nodesFile = (NodeList) resultFile;
 
-			/*
-			 * System.out.println("******************************");
-			 * System.out.println(nodesName.getLength());
-			 */
 			for (int j = 0; j < topSixAuthorsList.size(); j++) {
 				for (int i = 0; i < nodesName.getLength(); i++) {
 					String ii = nodesName.item(i).getNodeValue();
@@ -204,9 +176,6 @@ public class gitInspectorParser {
 					}
 				}
 			}
-
-			// for ( String listContent : list)
-			// System.out.println(listContent);
 
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();
@@ -250,8 +219,6 @@ public class gitInspectorParser {
 				for (int i = 0; i < maxFileNum + 1; i++) {
 
 					outputArray[temp][i] = authorAndFileList.get(count);
-					System.out.println(temp + ":" + ":" + i
-							+ outputArray[temp][i]);
 					count++;
 				}
 			}
