@@ -37,6 +37,19 @@ public class gitInspectorParser {
 	
 	static Hashtable<String, String> responsibilities = new Hashtable<String, String>();
 		
+	/*
+	public static void main(String [ ] args)
+	{
+		try {
+			Object[][] helloArray = returnParsedArray("C:/Git/cs410/bin/cs410/GitInspectorElasticSearch.xml");
+			String hi;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	*/
+	
     private static TreeMap<String, Double> getAuthors(Document doc, XPath xpath) {
         
     	TreeMap<String, Double> AuthorTable = new TreeMap<String, Double>();
@@ -64,29 +77,233 @@ public class gitInspectorParser {
         
         return AuthorTable;
     }
-    
-    
+   
+    private static ArrayList<String> getTop6Authors(Document doc, XPath xpath) {
+        
+    	ArrayList<String> top6Authors = new ArrayList<String>();
+    	
+    	TreeMap<Double, String> AuthorTable = new TreeMap<Double, String>();
+    	
+        try {
+	        XPathExpression exprAuthor = xpath.compile("/gitinspector/blame/authors/author/name/text()");
+	        Object resultAuthor = (NodeList) exprAuthor.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodesAuthor = (NodeList) resultAuthor;
+	        
+	        XPathExpression exprRow = xpath.compile("/gitinspector/blame/authors/author/rows/text()");
+	        Object resultRow = (NodeList) exprRow.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodesRow = (NodeList) resultRow;
+	        
+	        for (int i = 0; i < nodesAuthor.getLength(); i++) {
+	        	AuthorTable.put(Double.valueOf(nodesRow.item(i).getNodeValue()), nodesAuthor.item(i).getNodeValue());
+	        }
+	       
+	        /*
+	        System.out.println("...........................");
+	        for (Double key : AuthorTable.keySet()) {
+	            System.out.println(key + ":" + AuthorTable.get(key));
+	        }
+	        */
+	        int size = AuthorTable.size();
+	        /*
+	        System.out.println(size);
+	        System.out.println("HI" + (String) AuthorTable.values().toArray()[size-1]); 
+	        */
+	        
+	        for (int i=1; i<7; i++)
+	        {
+	        	top6Authors.add((String) AuthorTable.values().toArray()[size-i]);
+	        }
+	        
+
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        //return AuthorTable;
+        return top6Authors;
+    }
     private static List<String> getFileNames(Document doc, XPath xpath) {
         List<String> list = new ArrayList<>();
         try {
         	
-	        // 7) Get all writers
 	        XPathExpression expr = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/name/text()");
 	        Object result = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
 	        NodeList nodes = (NodeList) result;
-	        System.out.println(nodes.getLength());
+	        
+	        //System.out.println(nodes.getLength());
 	        for (int i = 0; i < nodes.getLength(); i++) {
 	        	list.add(nodes.item(i).getNodeValue());
-	            System.out.println(nodes.item(i).getNodeValue());
+	            //System.out.println(nodes.item(i).getNodeValue());
 	        }
+	        
         } catch (XPathExpressionException e) {
             e.printStackTrace();
         }
+        
         return list;
     }
     
+    private static List<String> getTop6FileNamesForTopAuthors(Document doc, XPath xpath, ArrayList<String> topSixAuthorsList) {
+        
+    	List<String> list = new ArrayList<>();
+        try {
+        	
+        	XPathExpression exprName = xpath.compile("/gitinspector/responsibilities/authors/author/name/text()");
+	        Object resultName = (NodeList) exprName.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodesName = (NodeList) resultName;
+	       
+	        XPathExpression exprFile = xpath.compile("/gitinspector/responsibilities/authors/author/files/file/name/text()");
+	        Object resultFile = (NodeList) exprFile.evaluate(doc, XPathConstants.NODESET);
+	        NodeList nodesFile = (NodeList) resultFile;
+	        
+	        /*
+	        System.out.println("******************************");
+	        System.out.println(nodesName.getLength());
+	        */
+	        for (int j= 0; j < topSixAuthorsList.size(); j++) {
+		        for (int i = 0; i < nodesName.getLength(); i++) {
+		        	String ii = nodesName.item(i).getNodeValue();
+		        	String jj = topSixAuthorsList.get(j);
+		        	
+		        	if (ii.equals(jj))
+		        	{
+		        		list.add(ii);
+		        		list.add(nodesFile.item(i).getNodeValue());		
+		        		list.add(nodesFile.item(i+1).getNodeValue());		
+		        		list.add(nodesFile.item(i+2).getNodeValue());		
+		        		list.add(nodesFile.item(i+3).getNodeValue());		
+		        		list.add(nodesFile.item(i+4).getNodeValue());		
+		        		list.add(nodesFile.item(i+5).getNodeValue());		
+		        	}
+		        }        	
+	        }			
+	        
+	        //for ( String listContent : list)
+	        	//System.out.println(listContent);
+	        
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
     
+    /*************old*************/
 	public static Object[][] giveOutputArray(String filepath) throws Exception {	
+		
+	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	        factory.setNamespaceAware(true);
+	        DocumentBuilder builder = null;
+	        
+	        try {
+				builder = factory.newDocumentBuilder();
+
+		        Document doc = builder.parse(filepath);
+		        
+		        XPathFactory xpathfactory = XPathFactory.newInstance();
+		        XPath xpath = xpathfactory.newXPath();
+		        
+		        TreeMap<String, Double> authorTable = new TreeMap<String, Double>();
+		        List<String> fileNameTable = getFileNames(doc, xpath);
+		        
+		        getTop6Authors(doc, xpath);
+		        
+		        authorTable = getAuthors(doc, xpath);
+		        
+				for (int temp = 0; temp < maxAuthorNum; temp++) {
+
+					outputArray[temp][0] = authorTable.keySet();
+
+					for (int i=1; i < maxFileNum+1; i++)
+					{
+						String content;
+						
+						if (fileNameTable != null)
+						{
+							content = fileNameTable.get(i);
+						}
+						else
+						{
+							content = "";
+						}
+						
+						outputArray[temp][i] = content;
+					}
+				}
+				
+	        } catch (ParserConfigurationException | SAXException | IOException e) {
+	        e.printStackTrace();
+	        }
+			
+			//testing
+			for(int i = 0; i < outputArray.length; i++)
+			{
+			    for(int j = 0; j < outputArray[i].length; j++)
+			    {
+			        System.out.print(outputArray[i][j]);
+			        if(j < outputArray[i].length - 1) System.out.print(" ");
+			    }
+			    System.out.println();
+			}
+			
+	return outputArray;
+	}
+
+	public static Object[][] returnParsedArray(String filepath) throws Exception {	
+		
+	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	        factory.setNamespaceAware(true);
+	        DocumentBuilder builder = null;
+	        
+	        try {
+				builder = factory.newDocumentBuilder();
+
+		        Document doc = builder.parse(filepath);
+		        
+		        XPathFactory xpathfactory = XPathFactory.newInstance();
+		        XPath xpath = xpathfactory.newXPath();
+		        
+		        TreeMap<String, Double> authorTable = new TreeMap<String, Double>();
+		        List<String> fileNameTable = getFileNames(doc, xpath);
+		        
+		        ArrayList<String> top6Authors = getTop6Authors(doc, xpath);
+				List<String> authorAndFileList = getTop6FileNamesForTopAuthors(doc, xpath, top6Authors);
+
+				int count = 0;
+				
+					for (int temp = 0; temp < maxAuthorNum; temp++) {
+
+						for (int i=0; i < maxFileNum+1; i++)
+						{
+							outputArray[temp][i] = authorAndFileList.get(count);
+							count++;
+						}
+					}
+			
+	        } catch (ParserConfigurationException | SAXException | IOException e) {
+	        e.printStackTrace();
+	        }
+	
+			//testing
+			for(int i = 0; i < outputArray.length; i++)
+			{
+			    for(int j = 0; j < outputArray[i].length; j++)
+			    {
+			        System.out.print(outputArray[i][j]);
+			        if(j < outputArray[i].length - 1) System.out.print(" ");
+			    }
+			    System.out.println();
+			}
+			
+			return outputArray;
+
+	}
+	
+	
+    /*************old*************/
+	
+	
+	public static Object[][] giveElasticSearchOutputArray(String filepath) throws Exception {	
 		
 	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	        factory.setNamespaceAware(true);
@@ -143,62 +360,69 @@ public class gitInspectorParser {
 	    	tempArray[5][4] = "src/test/java/org/elasticsearch/nested/SimpleNestedTests.java";
 	    	tempArray[5][5] = "src/test/java/org/elasticsearch/indices/IndicesOptionsIntegrationTests.java";
 	    	tempArray[5][6] = "src/main/java/org/elasticsearch/percolator/PercolatorService.java";
-	    /*	
-	        try {
-				builder = factory.newDocumentBuilder();
-
-		        Document doc = builder.parse(filepath);
-		        
-		        XPathFactory xpathfactory = XPathFactory.newInstance();
-		        XPath xpath = xpathfactory.newXPath();
-		        
-		        TreeMap<String, Double> authorTable = new TreeMap<String, Double>();
-		        List<String> fileNameTable = getFileNames(doc, xpath);
-		        
-		        authorTable = getAuthors(doc, xpath);
-		        
-		       	                
-		        
-		        
-				for (int temp = 0; temp < maxAuthorNum; temp++) {
-
-					outputArray[temp][0] = authorTable.keySet();
-
-					for (int i=1; i < maxFileNum+1; i++)
-					{
-						String content;
-						
-						if (fileNameTable != null)
-						{
-							content = fileNameTable.get(i);
-						}
-						else
-						{
-							content = "";
-						}
-						
-						outputArray[temp][i] = content;
-					}
-				}
-				
-				
-	        } catch (ParserConfigurationException | SAXException | IOException e) {
-	        e.printStackTrace();
-	        }
-	        
-			
-			//testing
-			for(int i = 0; i < outputArray.length; i++)
-			{
-			    for(int j = 0; j < outputArray[i].length; j++)
-			    {
-			        System.out.print(outputArray[i][j]);
-			        if(j < outputArray[i].length - 1) System.out.print(" ");
-			    }
-			    System.out.println();
-			}
-*/
+	
 		return tempArray;
 	}
+	
+	public static Object[][] giveJenkinsOutputArray(String filepath) throws Exception {	
+		
+	       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	        factory.setNamespaceAware(true);
+	        DocumentBuilder builder = null;
+	        
+	        //temp for debugging fusing
+	        Object[][] tempArray = new Object[maxFileNum][maxAuthorNum+1];
+	    	
+	    	tempArray[0][0] = "kohsuke";
+	    	tempArray[1][0] = "Kohsuke Kawaguchi";
+	    	tempArray[2][0] = "Jesse Glick";
+	    	tempArray[3][0] = "Stephen Connolly";
+	    	tempArray[4][0] = "Nigel Magnay";
+	    	tempArray[5][0] = "mindless";
 
+	    	tempArray[0][1] = "core/src/main/java/hudson/FilePath.java";
+	    	tempArray[0][2] = "test/src/main/java/org/jvnet/hudson/test/HudsonTestCase.java";
+	    	tempArray[0][3] = "core/src/main/java/hudson/util/ProcessTree.java";
+	    	tempArray[0][4] = "core/src/main/java/hudson/model/Run.java";
+	    	tempArray[0][5] = "core/src/main/java/hudson/model/AbstractProject.java";
+	    	tempArray[0][6] = "core/src/main/java/hudson/Functions.java";
+	    	
+	    	tempArray[1][1] = "core/src/main/java/jenkins/util/AntClassLoader.java";
+	    	tempArray[1][2] = "core/src/main/java/hudson/FilePath.java";
+	    	tempArray[1][3] = "core/src/main/java/jenkins/model/lazy/AbstractLazyLoadRunMap.java";
+	    	tempArray[1][4] = "core/src/main/java/jenkins/model/Jenkins.java";
+	    	tempArray[1][5] = "core/src/main/java/jenkins/util/xstream/XStreamDOM.java";
+	    	tempArray[1][6] = "core/src/main/java/hudson/model/Queue.java";
+	    	
+	    	tempArray[2][1] = "core/src/main/java/jenkins/model/lazy/LazyBuildMixIn.java";
+	    	tempArray[2][2] = "core/src/main/java/hudson/model/Run.java";
+	    	tempArray[2][3] = "test/src/main/java/org/jvnet/hudson/test/JenkinsRule.java";
+	    	tempArray[2][4] = "test/src/main/java/org/jvnet/hudson/test/MockFolder.java";
+	    	tempArray[2][5] = "core/src/main/java/jenkins/triggers/ReverseBuildTrigger.java";
+	    	tempArray[2][6] = "core/src/main/java/jenkins/util/VirtualFile.java";
+	    	
+	    	tempArray[3][1] = "test/src/main/java/org/jvnet/hudson/test/JenkinsRule.java";
+	    	tempArray[3][2] = "test/src/main/java/org/jvnet/hudson/test/JenkinsMatchers.java";
+	    	tempArray[3][3] = "core/src/main/java/hudson/slaves/NodeProvisioner.java";
+	    	tempArray[3][4] = "core/src/main/java/jenkins/model/IdStrategy.java";
+	    	tempArray[3][5] = "core/src/main/java/hudson/model/User.java";
+	    	tempArray[3][6] = "core/src/main/java/hudson/model/View.java";
+
+	    	tempArray[4][1] = "core/src/main/java/jenkins/model/Jenkins.java";
+	    	tempArray[4][2] = "core/src/main/java/hudson/model/Hudson.java";
+	    	tempArray[4][3] = "core/src/main/java/hudson/model/AbstractCIBase.java";
+	    	tempArray[4][4] = "core/src/main/java/jenkins/model/Configuration.java";
+	    	tempArray[4][5] = "core/src/main/java/hudson/model/AbstractProject.java";
+	    	tempArray[4][6] = "core/src/main/java/hudson/Functions.java";
+	    	
+	    	tempArray[5][1] = "test/src/test/java/lib/form/RepeatableTest.java";
+	    	tempArray[5][2] = "core/src/main/java/hudson/diagnosis/OldDataMonitor.java";
+	    	tempArray[5][3] = "test/src/test/java/hudson/tasks/BuildTriggerTest.java";
+	    	tempArray[5][4] = "core/src/main/java/hudson/Functions.java";
+	    	tempArray[5][5] = "core/src/test/java/hudson/util/CopyOnWriteMapTest.java";
+	    	tempArray[5][6] = "core/src/main/java/hudson/util/XStream2.java";
+	
+		return tempArray;
+	}
+	
 }
