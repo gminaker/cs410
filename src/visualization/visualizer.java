@@ -29,8 +29,11 @@ public class Visualizer extends PApplet {
 //	public static String coberturaElasticSearchFilepath = "codebase/elasticSearch/target/site/cobertura";
 //	public static String coberturaJenkinsFilepath = "codebase/jenkins/core/target/site/cobertura";
 
+	public static String gitInspectorElasticSearchFilepath = "gitinspectorOutput/elasticsearchtest2.xml";
+	public static String coberturaElasticSearchFilepath = "codebase/elasticSearch/target/site/cobertura/coverage.xml";
+	
 	public static void main(String[] args) {
-		PApplet.main(new String[] { "--present", "visualization.visualizer" });
+		PApplet.main(new String[] { "--present", "visualization.Visualizer" });
 	}
 
 	/**
@@ -43,12 +46,12 @@ public class Visualizer extends PApplet {
 			
 			//GitInspector
 			GitInspectorParser gitParser = new GitInspectorParser();
-		    Object[][] gitParserOutput = gitParser.returnParsedArray("/Documents/eclipse_java/elasticsearchtest2.xml");
+		    Object[][] gitParserOutput = gitParser.returnParsedArray("gitinspectorOutput/jenkinstest2.xml");
 		    
 		    //Cobertura
 		    CoberturaXMLParser cobParser = new CoberturaXMLParser();
 		    //cobParser.parseXML();
-		    Hashtable<String, Double> coberturaParseOutput = cobParser.parseXML("codebase/elasticSearch/target/site/cobertura/coverage.xml");
+		    Hashtable<String, Double> coberturaParseOutput = cobParser.parseXML("gitinspectorOutput/coverage.xml");
 		    
 		    //Fuser
 			Fuser resultFuser = new Fuser();
