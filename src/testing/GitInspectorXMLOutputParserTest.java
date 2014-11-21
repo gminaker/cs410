@@ -23,14 +23,11 @@ import cs410.GitInspectorXMLOutputParser;
 
 public class GitInspectorXMLOutputParserTest {
 
-	private static GitInspectorXMLOutputParser GitInspectorParser;
-
-	private static String filePath = "C:/Git/cs410/src/Test/TestGitInspectorOutput.xml";
+	private static String filePath = "./src/testing/TestGitInspectorOutput.xml";
 
 	private static int expectedMaxFileNum = GitInspectorXMLOutputParser.maxFileNum;
 	private static int expectedMaxauthorNum = GitInspectorXMLOutputParser.maxAuthorNum;
-	private static int expectedFilePathsNum = 35; // based on
-	// TestGitInspectorOutput.xml
+	private static int expectedFilePathsNum = 35; // based on TestGitInspectorOutput.xml
 
 	private ArrayList<String> expectedAllAuthorNames = new ArrayList<String>();
 	private ArrayList<String> expectedTop6AuthorNames = new ArrayList<String>();
@@ -125,7 +122,6 @@ public class GitInspectorXMLOutputParserTest {
 			Assert.assertEquals(expectedFilePathsNum, allFileNames.size());
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
