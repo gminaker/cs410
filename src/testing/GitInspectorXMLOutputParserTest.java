@@ -1,4 +1,4 @@
-package Test;
+package testing;
 
 import static org.junit.Assert.*;
 
@@ -19,16 +19,16 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import cs410.gitInspectorParser;
+import cs410.GitInspectorXMLOutputParser;
 
-public class gitInspectorXMLParserTest {
+public class GitInspectorXMLOutputParserTest {
 
-	private static gitInspectorParser GitInspectorParser;
+	private static GitInspectorXMLOutputParser GitInspectorParser;
 
 	private static String filePath = "C:/Git/cs410/src/Test/TestGitInspectorOutput.xml";
 
-	private static int expectedMaxFileNum = gitInspectorParser.maxFileNum;
-	private static int expectedMaxauthorNum = gitInspectorParser.maxAuthorNum;
+	private static int expectedMaxFileNum = GitInspectorXMLOutputParser.maxFileNum;
+	private static int expectedMaxauthorNum = GitInspectorXMLOutputParser.maxAuthorNum;
 	private static int expectedFilePathsNum = 35; // based on
 	// TestGitInspectorOutput.xml
 
@@ -44,7 +44,7 @@ public class gitInspectorXMLParserTest {
 	// Output array is not null and correctly formatted as an 6 x 7 array
 	public void returnParsedArray_OutputArrayFormat_HappyPath() {
 		try {
-			testOutputArray = gitInspectorParser.returnParsedArray(filePath);
+			testOutputArray = GitInspectorXMLOutputParser.returnParsedArray(filePath);
 			Assert.assertNotNull(testOutputArray);
 
 			Assert.assertEquals(expectedMaxFileNum, testOutputArray.length);
@@ -58,7 +58,7 @@ public class gitInspectorXMLParserTest {
 	// All content stored in output array should be convertible to Strings
 	public void returnParsedArray_OutputArrayFormat_ContainsOnlystrings() {
 		try {
-			testOutputArray = gitInspectorParser.returnParsedArray(filePath);
+			testOutputArray = GitInspectorXMLOutputParser.returnParsedArray(filePath);
 			Assert.assertNotNull(testOutputArray);
 
 			for (Object[] arrayElement : testOutputArray) {
@@ -83,7 +83,7 @@ public class gitInspectorXMLParserTest {
 		setUpExpectedData();
 
 		TreeMap<String, Double> AuthorTable = new TreeMap<String, Double>();
-		AuthorTable = gitInspectorParser.getAuthors(testDoc, testXPath);
+		AuthorTable = GitInspectorXMLOutputParser.getAuthors(testDoc, testXPath);
 
 		Assert.assertEquals(AuthorTable.size(), 8);
 
@@ -101,7 +101,7 @@ public class gitInspectorXMLParserTest {
 		setUpExpectedData();
 
 		ArrayList<String> Top6AuthorList = new ArrayList<String>();
-		Top6AuthorList = gitInspectorParser.getTop6Authors(testDoc, testXPath);
+		Top6AuthorList = GitInspectorXMLOutputParser.getTop6Authors(testDoc, testXPath);
 
 		Assert.assertEquals(Top6AuthorList.size(), 6);
 
@@ -119,7 +119,7 @@ public class gitInspectorXMLParserTest {
 		List<String> allFileNames = null;
 
 		try {
-			allFileNames = gitInspectorParser.getFileNames(testDoc, testXPath);
+			allFileNames = GitInspectorXMLOutputParser.getFileNames(testDoc, testXPath);
 			Assert.assertNotNull(allFileNames);
 
 			Assert.assertEquals(expectedFilePathsNum, allFileNames.size());

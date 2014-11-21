@@ -21,7 +21,7 @@ import javax.xml.xpath.XPathFactory;
 
 import org.xml.sax.SAXException;
 
-public class gitInspectorParser {
+public class GitInspectorXMLOutputParser {
 
 	public static int maxAuthorNum = 6;
 	public static int maxFileNum = 6;

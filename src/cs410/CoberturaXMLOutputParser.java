@@ -15,7 +15,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class CoberturaXMLParser {
+public class CoberturaXMLOutputParser {
 
 	String cMethodClass = null;
 	NodeList cMethodChildren = null;
@@ -26,7 +26,7 @@ public class CoberturaXMLParser {
 	double updateClassMethodCount;
 	double updateClassCrapCount;
 
-	public CoberturaXMLParser(){
+	public CoberturaXMLOutputParser(){
 		this.outputTable = new Hashtable<String, Double>();
 	}
 	

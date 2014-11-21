@@ -2,10 +2,10 @@ package cs410;
 
 import java.util.Hashtable;
 
-import visualization.Node;
+import visualization.FlowerNode;
 
 //contains methods for creating the graph to be used by the visualizer using the output from the parsers
-public class Fuser {
+public class OutputFuser {
 
 	// constants
 	private int[] AUTH_COLOUR = { 255, 255, 0 };
@@ -59,10 +59,10 @@ public class Fuser {
 	 *            classes they have worked on)
 	 * @return - a DAG nodes with the codebase name being the root node
 	 */
-	public Node makeAPINode(String apiName, Hashtable<String, Double> locTable,
+	public FlowerNode makeAPINode(String apiName, Hashtable<String, Double> locTable,
 			Object[][] gitTable) {
 		Object[][] cleanedTable = cleanTable(gitTable); 
-		Node apiNode = new Node(apiName);
+		FlowerNode apiNode = new FlowerNode(apiName);
 		for (int i = 0; i < cleanedTable.length; i++) {
 			apiNode.addEdge(makeAuthorNode((String) cleanedTable[i][0], apiNode,
 					locTable, cleanedTable, i));
@@ -85,10 +85,10 @@ public class Fuser {
 	 * @param row
 	 * @return
 	 */
-	public Node makeAuthorNode(String authName, Node parent,
+	public FlowerNode makeAuthorNode(String authName, FlowerNode parent,
 			Hashtable<String, Double> locTable, Object[][] gitTable, int row) {
 		
-		Node authNode = new Node(authName, parent);
+		FlowerNode authNode = new FlowerNode(authName, parent);
 
 		for (int i = 1; i < gitTable[row].length; i++) {
 			authNode.addEdge(makeClassNode((String) gitTable[row][i], authNode,
@@ -110,8 +110,8 @@ public class Fuser {
 	 *            - table containing classes and their associated compleities
 	 * @return - a Node reprenting a class
 	 */
-	public Node makeClassNode(String className, Node parent, Hashtable<String, Double> locTable) {
-		Node classNode = new Node(className, parent);
+	public FlowerNode makeClassNode(String className, FlowerNode parent, Hashtable<String, Double> locTable) {
+		FlowerNode classNode = new FlowerNode(className, parent);
 		double tempComplexity;
 		boolean inTable = locTable.containsKey(className);
 		

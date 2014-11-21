@@ -8,17 +8,17 @@ import java.util.Random;
 import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PImage;
-import cs410.CoberturaXMLParser;
-import cs410.Fuser;
-import cs410.GitInspectorParser;
+import cs410.CoberturaXMLOutputParser;
+import cs410.OutputFuser;
+import cs410.GitInspectorXMLOutputParser;
 
 //Draws a graph given the parent node
-public class Visualizer extends PApplet {
+public class FlowerVisualizer extends PApplet {
 
 	PGraphics pg;
 	public static final int SIZE_WIDTH = 1100;
 	public static final int SIZE_HEIGHT = 1000;
-	public Node graph;
+	public FlowerNode graph;
 	public PApplet p;
 	public String APIname;
 	public String coFilePath;
@@ -33,7 +33,7 @@ public class Visualizer extends PApplet {
 	public static String coberturaElasticSearchFilepath = "codebase/elasticSearch/target/site/cobertura/coverage.xml";
 	
 	public static void main(String[] args) {
-		PApplet.main(new String[] { "--present", "visualization.Visualizer" });
+		PApplet.main(new String[] { "--present", "visualization.FlowerVisualizer" });
 	}
 
 	/**
@@ -45,17 +45,17 @@ public class Visualizer extends PApplet {
 		try {
 			
 			//GitInspector
-			GitInspectorParser gitParser = new GitInspectorParser();
+			GitInspectorXMLOutputParser gitParser = new GitInspectorXMLOutputParser();
 		    Object[][] gitParserOutput = gitParser.returnParsedArray("gitinspectorOutput/jenkinstest2.xml");
 		    
 		    //Cobertura
-		    CoberturaXMLParser cobParser = new CoberturaXMLParser();
+		    CoberturaXMLOutputParser cobParser = new CoberturaXMLOutputParser();
 		    //cobParser.parseXML();
 		    Hashtable<String, Double> coberturaParseOutput = cobParser.parseXML("coberturaOutput/coverage.xml");
 		    
 		    //Fuser
-			Fuser resultFuser = new Fuser();
-			Node drawGraph = resultFuser.makeAPINode("Project", coberturaParseOutput, gitParserOutput);
+			OutputFuser resultFuser = new OutputFuser();
+			FlowerNode drawGraph = resultFuser.makeAPINode("Project", coberturaParseOutput, gitParserOutput);
 			graph = drawGraph;
 
 			//Visualization
@@ -94,7 +94,7 @@ public class Visualizer extends PApplet {
 	 * 
 	 * @param node
 	 */
-	public void drawNode(Node node) {
+	public void drawNode(FlowerNode node) {
 		int rgb[] = node.getColor();
 		int width = calculateNodeWidth(node);
 		String truncatedName = truncateName(node.getName());
@@ -179,7 +179,7 @@ public class Visualizer extends PApplet {
 		if (n == 0) {
 			return;
 		} else {
-			drawNode((Node) edges.get(n - 1));
+			drawNode((FlowerNode) edges.get(n - 1));
 			drawNodes(edges, n - 1);
 		}
 	}
@@ -191,7 +191,7 @@ public class Visualizer extends PApplet {
 	 * @param node
 	 * @return
 	 */
-	public static int calculateNodeWidth(Node node) {
+	public static int calculateNodeWidth(FlowerNode node) {
 		return 100;
 	}
 
@@ -200,7 +200,7 @@ public class Visualizer extends PApplet {
 	 * 
 	 * @param node
 	 */
-	public void drawLine(Node node) {
+	public void drawLine(FlowerNode node) {
 		int[] rgb_white = { 250, 250, 250 };
 		int[] rgb_green = { 45, 186, 73 };
 		if (node.getParent() != null) {
@@ -237,7 +237,7 @@ public class Visualizer extends PApplet {
 		if (n == 0) {
 			return;
 		} else {
-			drawLine((Node) edges.get(n - 1));
+			drawLine((FlowerNode) edges.get(n - 1));
 			drawLines(edges, n - 1);
 		}
 
@@ -247,7 +247,7 @@ public class Visualizer extends PApplet {
 	 * Mutually recursive with generateCoordinates to traverse nodes and
 	 * generate coordinates at each one.
 	 */
-	public static void generateCoordinate(Node node, float x, float y) {
+	public static void generateCoordinate(FlowerNode node, float x, float y) {
 		Random rand = new Random();
 		float next_x = rand.nextFloat();
 		float random_x = (float) x + next_x * 1;
@@ -270,7 +270,7 @@ public class Visualizer extends PApplet {
 	 * @param n
 	 *            - the length of the array of nodes
 	 */
-	public static void generateCoordinates(ArrayList<Node> nodes, int n,
+	public static void generateCoordinates(ArrayList<FlowerNode> nodes, int n,
 			float x, float y) {
 		if (n == 0) {
 			return;
@@ -298,7 +298,7 @@ public class Visualizer extends PApplet {
 	 * @param node
 	 * @return distance
 	 */
-	public static int generateRadius(Node node, int siblingCount) {
+	public static int generateRadius(FlowerNode node, int siblingCount) {
 		
 		if (node.getParent().getDepth() == 1){
 		return 250 + (node.getNumNodes() * 20);

@@ -3,29 +3,29 @@ package visualization;
 import java.util.ArrayList;
 
 //a class to enable the drawing of directed graphs
-public class Node {
+public class FlowerNode {
 
 	private String key;
-	private Node parent;
-	private ArrayList<Node> edges;
+	private FlowerNode parent;
+	private ArrayList<FlowerNode> edges;
 	private int[] rgb = new int[3];
 	private float lat;
 	private float longt;
 	private double complexity;
 	private int depth;
 
-	// node constructor for constructing a parentless node
-	public Node(String name) {
+	// FlowerNode constructor for constructing a parentless FlowerNode
+	public FlowerNode(String name) {
 		this.parent = null;
 		this.key = name;
-		this.edges = new ArrayList<Node>();
+		this.edges = new ArrayList<FlowerNode>();
 
 	}
 
-	// constructor for constructing a node with a parent
-	public Node(String name, Node nodeParent) {
+	// constructor for constructing a FlowerNode with a parent
+	public FlowerNode(String name, FlowerNode nodeParent) {
 		this.key = name;
-		this.edges = new ArrayList<Node>();
+		this.edges = new ArrayList<FlowerNode>();
 		this.parent = nodeParent;
 
 	}
@@ -38,11 +38,11 @@ public class Node {
 		this.rgb = c;
 	}
 
-	public Node getParent() {
+	public FlowerNode getParent() {
 		return parent;
 	}
 
-	public void setParent(Node parent) {
+	public void setParent(FlowerNode parent) {
 		this.parent = parent;
 	}
 
@@ -51,8 +51,8 @@ public class Node {
 		return this.key;
 	}
 
-	// gets the Node at index i in the arraylist of edges
-	public Node getNode(int i) {
+	// gets the FlowerNode at index i in the arraylist of edges
+	public FlowerNode getFlowerNode(int i) {
 		return edges.get(i);
 
 	}
@@ -64,7 +64,7 @@ public class Node {
 	}
 
 	// adds an edge to the node
-	public void addEdge(Node node) {
+	public void addEdge(FlowerNode node) {
 		this.edges.add(node);
 
 	}
