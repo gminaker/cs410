@@ -1,10 +1,7 @@
 package cs410;
 
 import java.io.File;
-import java.lang.reflect.Array;
 import java.util.Hashtable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,6 +12,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+//parses xml output from cobertura 
 public class CoberturaXMLOutputParser {
 
 	String cMethodClass = null;
@@ -34,6 +32,7 @@ public class CoberturaXMLOutputParser {
 		return this.outputTable;
 	}
 	
+	//returns a hash table containing the names of classes and their associated complexities 
 	public Hashtable<String, Double> parseXML(String url) {
 
 		try {
@@ -45,6 +44,7 @@ public class CoberturaXMLOutputParser {
 			DocumentBuilder dBuilder = docFactory.newDocumentBuilder();
 			// creates the DOM object
 			Document doc = dBuilder.parse(crapFile);
+			//end initialization 
 
 			Element cElement = doc.getDocumentElement();
 			NodeList cNodes = cElement.getChildNodes();
@@ -56,10 +56,8 @@ public class CoberturaXMLOutputParser {
 						&& (cNode.getNodeName() == "packages")) {
 
 					cMethods = cNode.getChildNodes();
-					//System.out.println("getting packages nodes");
 					processPackageList(cMethods);
 				}
-				
 			}
 			
 		} catch (Exception e) {
@@ -70,6 +68,7 @@ public class CoberturaXMLOutputParser {
 
 	}
 	
+	//helper method to process nodes within packages tags
 	public void processPackageList(NodeList packageList){
 		try{
 			
@@ -78,7 +77,6 @@ public class CoberturaXMLOutputParser {
 				if ((pNode instanceof Element)
 						&& (pNode.getNodeName() == "package")) {
 
-					//System.out.println("getting package nodes");
 					processClassesNodes(pNode.getChildNodes());
 				}
 			}
@@ -89,6 +87,8 @@ public class CoberturaXMLOutputParser {
 			
 	}
 	
+	
+	//helper method to process nodes within package tags
 	public void processClassesNodes(NodeList classesList){
 		try{
 			
@@ -97,7 +97,6 @@ public class CoberturaXMLOutputParser {
 				if ((classesNode instanceof Element)
 						&& (classesNode.getNodeName() == "classes")) {
 
-					//System.out.println("getting classes nodes");
 					processClassNodes(classesNode.getChildNodes());
 				}
 			}
@@ -108,6 +107,7 @@ public class CoberturaXMLOutputParser {
 			
 	}
 	
+	//helper method to process nodes within class tags
 	public void processClassNodes(NodeList classList){
 		try{
 			
@@ -116,7 +116,6 @@ public class CoberturaXMLOutputParser {
 				if ((classNode instanceof Element)
 						&& (classNode.getNodeName() == "class")) {
 
-					//System.out.println("getting class nodes");
 					NamedNodeMap classAttributes = classNode.getAttributes();
 					addToHash(classAttributes);
 				}
@@ -128,11 +127,7 @@ public class CoberturaXMLOutputParser {
 			
 	}
 	
-	/**
-	 * adds classname (key) and class complexity to hashtable
-	 * 
-	 * @param classAtts
-	 */
+   //adds classname (key) and class complexity to hashtable
 	public void addToHash(NamedNodeMap classAtts){
 		
  	    String className = classAtts.getNamedItem("filename").getNodeValue();

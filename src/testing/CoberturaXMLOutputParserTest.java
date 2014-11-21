@@ -1,65 +1,30 @@
 package testing;
 
-import java.io.File;
-import java.io.IOException;
+import static org.junit.Assert.assertEquals;
+
 import java.util.Hashtable;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.junit.*;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+import org.junit.Test;
 
 import cs410.CoberturaXMLOutputParser;
 
+
 public class CoberturaXMLOutputParserTest {
 	
-	Document testDoc;
-	Element testElement;
-	NodeList testNodes;
-	NodeList testMethods;
-	
-	@Before
-	public void initialization() {
-		
-//		CoberturaXMLOutputParser.outputTable = new Hashtable<String, Double>();
-		
-		File testFile = new File("test/test.xml");
-		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder;
-		try {
-			dBuilder = docFactory.newDocumentBuilder();
-			testDoc = dBuilder.parse(testFile);
-			
-			testElement = testDoc.getDocumentElement();
-			testNodes = testElement.getChildNodes();
-			testMethods = null;
-			for (int i = 0; i < testNodes.getLength(); i++) {
-
-				Node cNode = testNodes.item(i);
-				if ((cNode instanceof Element)
-						&& (cNode.getNodeName() == "packages")) {
-
-					testMethods = cNode.getChildNodes();
-					System.out.println("getting packages nodes");
-				}
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
+	Hashtable<String, Double> outputTable = new Hashtable<String, Double>();
+	String testFilepath = "src/testing/test.xml";
+	CoberturaXMLOutputParser outputParser = new CoberturaXMLOutputParser();
+	int expectedTableSize = 1;
+	String expectedClassName = "CoverageTest.java";
+	Double expectedComplexity = 0.0;
 	
 	@Test
-	public void testAddToHash() {
-//		NamedNodeMap input = new NamedNodeMap();
+	// Tests output of parser for mock XML file
+	public void testParseXML() {
+		outputTable = outputParser.parseXML(testFilepath);
+		assertEquals(expectedTableSize, outputTable.size());
+		assertEquals(expectedComplexity, outputTable.get(expectedClassName));
 	}
+	
 
 }

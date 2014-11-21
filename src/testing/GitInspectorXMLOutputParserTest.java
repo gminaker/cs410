@@ -1,10 +1,10 @@
 package testing;
 
-import static org.junit.Assert.*;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.TreeMap;
 
@@ -23,7 +23,6 @@ import cs410.GitInspectorXMLOutputParser;
 
 public class GitInspectorXMLOutputParserTest {
 
-	private static GitInspectorXMLOutputParser GitInspectorParser;
 
 	private static String filePath = "C:/Git/cs410/src/Test/TestGitInspectorOutput.xml";
 
@@ -147,7 +146,7 @@ public class GitInspectorXMLOutputParserTest {
 
 	// helper method to force assert to true. Always evaluates to true
 	private void ForceAssertSuccess() {
-		Assert.assertTrue(1 == 1);
+		Assert.assertTrue(true);
 	}
 
 	// helper method to force assert to false. Always evaluates to false

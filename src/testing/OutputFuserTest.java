@@ -1,7 +1,8 @@
 package testing;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+
+import java.util.Hashtable;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -12,8 +13,6 @@ import cs410.OutputFuser;
 public class OutputFuserTest {
 
 	private static OutputFuser testFuser;
-	private Object[][] xmlParserOutput;
-	private Object[][] htmlParserOutput;
 
 	// test objects representing sample output from the parsers
 	public Object[][] gitNamessssss = { { "a", "c1", "c3", "c8" },
@@ -25,18 +24,28 @@ public class OutputFuserTest {
 	public Object[][] locTablessss = { { "c1", 2 }, { "c2", 7 }, { "c3", 5 },
 			{ "c4", 2 }, { "c5", 4 }, { "c6", 7 }, { "c7", 3 }, { "c8", 1 },
 			{ "c9", 2 }, { "c10", 3 } };
+	
+	public static Hashtable<String, Double> testHash;
 
 	// create test objects
 	@BeforeClass
 	public static void setup() {
 		testFuser = new OutputFuser();
+		testHash = new Hashtable<String, Double>();
+		testHash.put("c1", 2.0);
+		testHash.put("c2", 7.0);
+		testHash.put("c3", 5.0);
+		testHash.put("c4", 2.0);
+		testHash.put("c5", 4.0);
+		testHash.put("c6", 7.0);
+		testHash.put("c7", 3.0);
+		testHash.put("c8", 1.0);
+		testHash.put("c9", 2.0);
+		testHash.put("c10", 3.0);
+		
 
 	}
 
-	@Test
-	public void makeAPINodeTest() {
-		fail("Not yet implemented");
-	}
 
 	// tests the makeAuthorNode method
 	@Test
@@ -50,17 +59,11 @@ public class OutputFuserTest {
 		compareAuthorNode.addEdge(child3);
 
 		FlowerNode testParentNode = new FlowerNode("api");
-//		FlowerNode testAuthorNode = testFuser.makeAuthorNode("b", testParentNode,
-//				locTablessss, gitNamessssss, 1);
-//		assertEquals("Ensuring correct number of children are created",
-//				compareAuthorNode.getEdges().size(), testAuthorNode.getEdges()
-//						.size(), 0);
-//
-//		FlowerNode testChildNode;
-//		FlowerNode compareChildNode;
-//
-//		testChildNode = (FlowerNode) testAuthorNode.getEdges().get(1);
-//		compareChildNode = (FlowerNode) compareAuthorNode.getEdges().get(1);
+		FlowerNode testAuthorNode = testFuser.makeAuthorNode("b", testParentNode,
+				testHash, gitNamessssss, 1);
+		assertEquals("Ensuring correct number of children are created",
+				compareAuthorNode.getEdges().size(), testAuthorNode.getEdges()
+						.size(), 0);
 
 	}
 
@@ -70,12 +73,12 @@ public class OutputFuserTest {
 		FlowerNode parentNode = new FlowerNode("b");
 		FlowerNode compareClassNode = new FlowerNode("c4");
 		compareClassNode.setComplexity(2);
-//		FlowerNode testClassNode = testFuser.makeClassNode("c4", parentNode,
-//				locTablessss);
-//		assertEquals(compareClassNode.getName(), testClassNode.getName());
-//		assertEquals("Comparing class node complexity values with test node",
-//				compareClassNode.getComplexity(),
-//				testClassNode.getComplexity(), 0);
+		FlowerNode testClassNode = testFuser.makeClassNode("c4", parentNode,
+				testHash);
+		assertEquals(compareClassNode.getName(), testClassNode.getName());
+		assertEquals("Comparing class node complexity values with test node",
+				compareClassNode.getComplexity(),
+				testClassNode.getComplexity(), 0);
 	}
 
 }
