@@ -1,4 +1,4 @@
-package test;
+package testing;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -9,14 +9,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import visualization.Node;
+import visualization.FlowerNode;
 
-public class NodeTest {
-	private Node testNode;
+public class FlowerNodeTest {
+	private FlowerNode testNode;
 
 	@Before
 	public void createTestNode() {
-		testNode = new Node("testNode");
+		testNode = new FlowerNode("testNode");
 	}
 
 	@After
@@ -61,9 +61,9 @@ public class NodeTest {
 	// tests methods associated with node and graph creation
 	@Test
 	public void testCreateMethods() {
-		Node parentNode = new Node("parent");
-		Node childNode = new Node("child", parentNode);
-		Node childNode2 = new Node("child2", parentNode);
+		FlowerNode parentNode = new FlowerNode("parent");
+		FlowerNode childNode = new FlowerNode("child", parentNode);
+		FlowerNode childNode2 = new FlowerNode("child2", parentNode);
 		parentNode.addEdge(childNode);
 
 		assertNull(parentNode.getParent());

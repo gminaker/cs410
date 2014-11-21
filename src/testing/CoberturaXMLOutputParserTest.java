@@ -1,4 +1,4 @@
-package test;
+package testing;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +16,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import cs410.CoberturaXMLParser;
+import cs410.CoberturaXMLOutputParser;
 
-public class CoberturaXMLParserTest {
+public class CoberturaXMLOutputParserTest {
 	
 	Document testDoc;
 	Element testElement;
@@ -28,7 +28,7 @@ public class CoberturaXMLParserTest {
 	@Before
 	public void initialization() {
 		
-		CoberturaXMLParser.outputTable = new Hashtable<String, Double>();
+//		CoberturaXMLOutputParser.outputTable = new Hashtable<String, Double>();
 		
 		File testFile = new File("test/test.xml");
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -59,7 +59,7 @@ public class CoberturaXMLParserTest {
 	
 	@Test
 	public void testAddToHash() {
-		NamedNodeMap input = new NamedNodeMap();
+//		NamedNodeMap input = new NamedNodeMap();
 	}
 
 }

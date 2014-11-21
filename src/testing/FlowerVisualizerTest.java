@@ -1,4 +1,4 @@
-package test;
+package testing;
 
 import static org.junit.Assert.*;
 
@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import visualization.Node;
-import visualization.Visualizer;
+import visualization.FlowerNode;
+import visualization.FlowerVisualizer;
 
-public class VisualizerTest {
+public class FlowerVisualizerTest {
 
-	Node parentNode;
-	ArrayList<Node> subNodes;
-	Node childNode1;
-	Node childNode2;
-	Node childNode3;
-	Node childNode4;
+	FlowerNode parentNode;
+	ArrayList<FlowerNode> subNodes;
+	FlowerNode childNode1;
+	FlowerNode childNode2;
+	FlowerNode childNode3;
+	FlowerNode childNode4;
 	
 	int WIDTH;
 	int HEIGHT;
@@ -26,19 +26,19 @@ public class VisualizerTest {
     public void initialize() {
     	WIDTH = 750;
     	HEIGHT = 750;
-        parentNode = new Node("Parent");
+        parentNode = new FlowerNode("Parent");
         
-        childNode1 = new Node("Child 1");
-        childNode2 = new Node("Child 2");
-        childNode3 = new Node("Child 3");
-        childNode4 = new Node("Child 4");
+        childNode1 = new FlowerNode("Child 1");
+        childNode2 = new FlowerNode("Child 2");
+        childNode3 = new FlowerNode("Child 3");
+        childNode4 = new FlowerNode("Child 4");
         
         parentNode.addEdge(childNode1);
         parentNode.addEdge(childNode2);
         parentNode.addEdge(childNode3);
         parentNode.addEdge(childNode4);
         
-        subNodes = new ArrayList<Node>();
+        subNodes = new ArrayList<FlowerNode>();
         subNodes.add(childNode1);
         subNodes.add(childNode2);
         subNodes.add(childNode3);
@@ -49,7 +49,7 @@ public class VisualizerTest {
 	public void testCalculateNodeWidth() {
 		int actual, expected;
 		
-		actual = Visualizer.calculateNodeWidth(parentNode);
+		actual = FlowerVisualizer.calculateNodeWidth(parentNode);
 		expected = 25    // base width
 				   + (6  // length of node name "parent" 
 				   * 7); // multiplier per letter in name
@@ -59,11 +59,11 @@ public class VisualizerTest {
 	
 	@Test
 	public void testGenerateCoordinate(){
-		Node expected = new Node("Parent");
+		FlowerNode expected = new FlowerNode("Parent");
 		expected.setLat(WIDTH/2);
 		expected.setLongt(HEIGHT/2);
 		
-		Visualizer.generateCoordinate(parentNode, WIDTH/2, HEIGHT/2);
+		FlowerVisualizer.generateCoordinate(parentNode, WIDTH/2, HEIGHT/2);
 		
 		float actual_lat = parentNode.getLat();
 		float hopeful_lat = expected.getLat();
@@ -88,7 +88,7 @@ public class VisualizerTest {
 	public void testGenerateCoordinates(){
 		
 		// call method on a list of 4 Nodes given the parent node's x and y
-		Visualizer.generateCoordinates(subNodes, 4, WIDTH/2, HEIGHT/2);
+		FlowerVisualizer.generateCoordinates(subNodes, 4, WIDTH/2, HEIGHT/2);
 		
 		float child1Lat = subNodes.get(0).getLat();
 		float child1Long = subNodes.get(0).getLongt();
@@ -102,7 +102,7 @@ public class VisualizerTest {
 		float child4Lat = subNodes.get(3).getLat();
 		float child4Long = subNodes.get(3).getLongt();
 		
-		float expectedChildLat = (float) (Visualizer.generateRadius(subNodes.get(0), subNodes.size())
+		float expectedChildLat = (float) (FlowerVisualizer.generateRadius(subNodes.get(0), subNodes.size())
 								  * processing.core.PApplet.cos((360 / 4) * 1) // degrees per node
 							      + WIDTH/2);
 		
@@ -132,7 +132,7 @@ public class VisualizerTest {
 							 // from node.getNumNodes(node) method
 					  * 30); // multiplier of each node
 		
-		int actual = Visualizer.generateRadius(parentNode, parentNode.getEdges().size());
+		int actual = FlowerVisualizer.generateRadius(parentNode, parentNode.getEdges().size());
 		
 		assertEquals(expected, actual);
 	}
