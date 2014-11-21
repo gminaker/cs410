@@ -16,7 +16,7 @@ python $gitinspectordir/gitinspector.py -x file:test  -r -f, --file-types=java -
 
 cd $basedir
 
-java -jar visualization.jar elasticsearch $basedir/codebase/elasticSearch/target/site/cobertura/coverage.xml $basedir/gitinspectorOutput/elasticSearch.xml
+java -jar visualization.jar $codebasename $basedir/codebase/$codebasename/target/site/cobertura/coverage.xml $basedir/gitinspectorOutput/$codebasename.xml
 
 #<>
 
