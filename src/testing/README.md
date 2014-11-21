@@ -1,10 +1,13 @@
 # Test cases
 
 ### Overview
-JUnit tests were created for each class within our projects for unit test and also as a regression test method after intergration. Test files are seperated by each components in the architecture diagram.
+JUnit tests were created for each class within our projects for unit testing and regression test after intergration. Test files corresponds to tests are seperated by each components in the architecture diagram. Mock data for testing are in a sample XML files for CorberturaXMLOutPutParserTest.java and GitInspectorXMLOutputParserTest.java. For other test classes, the mock data is set up within the code. In order to run the tests, ensure that the mock files specified are located within the same directory and run the unit test within Eclipse. 
 
 ### 1. GitInspectorXMLOutputParserTest.java
-Test cases verified that the output array resulting from the GitInspectorXMLOutputParsers were correctly formatted and contained the correct values. TestGitInspectorOutput.xml file with known number of authors, file names were created for testing. Test cases verified that :
+Test cases verified that the output array resulting from the GitInspectorXMLOutputParsers were correctly formatted and contained the correct values. 
+- Mock file: TestGitInspectorOutput.xml file with known number of authors, file names were created for testing. 
+
+Test cases verified that :
 - the output array is not null and contains correct dimensions
 - all contents in output array is convertible to strings
 - GetAuthors returns correct number and list of authors in XML
