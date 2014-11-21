@@ -15,7 +15,7 @@ python $gitinspectordir/gitinspector.py -x file:test  -r -f, --file-types=java -
 
 cd $basedir
 
-java -jar visualization.jar $codebasename /Documents/eclipse_java/cs410/codebase/$codebasename/target/site/cobertura/coverage.xml /Documents/eclipse_java/cs410/gitinspectorOutput/$codebasename.xml
+java -jar visualization.jar $basedir/codebase/$codebasename/target/site/cobertura/coverage.xml $basedir/gitinspectorOutput/$codebasename.xml
 
 #<>
 
