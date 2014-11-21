@@ -89,7 +89,7 @@ public class GitInspectorXMLOutputParserTest {
 
 	@Test
 	// GetAuthors method correctly grabs all top 6 authors listed in the XML.
-	// Expected number of authors is 6.
+	// Expected number of authors is 35.
 	public void returnParsedArray_GetTop6Authors_HappyPath()
 			throws ParserConfigurationException, SAXException, IOException {
 		setUpDocument();
@@ -106,6 +106,8 @@ public class GitInspectorXMLOutputParserTest {
 	}
 
 	@Test
+	// GetFileNames method correctly grabs all edited file names listed in the XML.
+	// Expected number of authors is 6.	
 	public void returnParsedArray_GetFileNames_HappyPath()
 			throws ParserConfigurationException, SAXException, IOException {
 
