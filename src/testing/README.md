@@ -40,6 +40,6 @@ Test cases:
 
 ### 6. Visualization manual test
 There was manual testing done for visualization as it was difficult to automate the vizualization. Using test XML output files containing multiple authors and varying complexity values, we ran the visualizer and verified that
-1. correct maximum number of authors are disaplyed
-2. correct number of files are displayed as petals
-3. more complex files had a darker color displayed 
+- correct maximum number of authors are disaplyed
+- correct number of files are displayed as petals
+- more complex files had a darker color displayed 
