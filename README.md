@@ -21,6 +21,7 @@ Our project analyzes a given code base to determine the top six contributors, an
   * For ElasticSearch, use the command `sh StartElasticSearch.sh`
   * For Jsoup, use the command `sh StartJsoup.sh`
   * The scripts run Cobertura and GitInspector on the specified codebase, and then run our compiled .jar with arguments pointing to the output of the tools.
+  * This process may take several minutes!
 
 6. Bask in the glory of the visualization.
 
