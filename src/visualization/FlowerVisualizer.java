@@ -20,9 +20,9 @@ public class FlowerVisualizer extends PApplet {
 	public static final int SIZE_HEIGHT = 1000;
 	public FlowerNode graph;
 	public PApplet p;
-	public String APIname;
-	public String coFilePath;
-	public String gIFilePath;
+	public static String codeBasename;
+	public static String coberturaFilePath;
+	public static String gitInspectorFilePath;
 	
 //	public static String gitInspectorElasticSearchFilepath = "cs410/GitInspectorElasticSearch.xml";
 //	public static String gitInspectorJenkinsFilepath = "cs410/GitInspectorJenkins.xml";
@@ -31,31 +31,43 @@ public class FlowerVisualizer extends PApplet {
 
 	public static String gitInspectorElasticSearchFilepath = "gitinspectorOutput/elasticsearchtest2.xml";
 	public static String coberturaElasticSearchFilepath = "codebase/elasticSearch/target/site/cobertura/coverage.xml";
+
 	
 	public static void main(String[] args) {
+		codeBasename = args[0];
+		coberturaFilePath = args[1];
+		gitInspectorFilePath = args[2];
 		PApplet.main(new String[] { "--present", "visualization.FlowerVisualizer" });
+		
 	}
 
 	/**
 	 * Function to get processing going.
 	 */
 	public void setup() {
+		System.out.println(codeBasename);
+		System.out.println(coberturaFilePath);
+		System.out.println(gitInspectorFilePath);
+			
 		size(SIZE_WIDTH, SIZE_HEIGHT);
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
 		try {
 			
+			
+
+			
 			//GitInspector
 			GitInspectorXMLOutputParser gitParser = new GitInspectorXMLOutputParser();
-		    Object[][] gitParserOutput = gitParser.returnParsedArray("gitinspectorOutput/jenkinstest2.xml");
+		    Object[][] gitParserOutput = gitParser.returnParsedArray(gitInspectorFilePath);
 		    
 		    //Cobertura
 		    CoberturaXMLOutputParser cobParser = new CoberturaXMLOutputParser();
 		    //cobParser.parseXML();
-		    Hashtable<String, Double> coberturaParseOutput = cobParser.parseXML("coberturaOutput/coverage.xml");
+		    Hashtable<String, Double> coberturaParseOutput = cobParser.parseXML(coberturaFilePath);
 		    
 		    //Fuser
 			OutputFuser resultFuser = new OutputFuser();
-			FlowerNode drawGraph = resultFuser.makeAPINode("Project", coberturaParseOutput, gitParserOutput);
+			FlowerNode drawGraph = resultFuser.makeAPINode(codeBasename, coberturaParseOutput, gitParserOutput);
 			graph = drawGraph;
 
 			//Visualization
@@ -71,6 +83,8 @@ public class FlowerVisualizer extends PApplet {
 	 */
 	public void draw() {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
+		translate(100,100);
+		scale((float) 0.8);
 		PImage img = loadImage("sky.jpg");
 		img.resize(SIZE_WIDTH, SIZE_HEIGHT);
 		background(img);
