@@ -58,7 +58,7 @@ public class FlowerNode {
 	}
 
 	// returns the edges associated with the node
-	public ArrayList getEdges() {
+	public ArrayList<FlowerNode> getEdges() {
 		return this.edges;
 
 	}

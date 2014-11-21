@@ -27,11 +27,22 @@ public class FlowerVisualizerTest {
     	WIDTH = 750;
     	HEIGHT = 750;
         parentNode = new FlowerNode("Parent");
+        parentNode.setDepth(1);
         
         childNode1 = new FlowerNode("Child 1");
         childNode2 = new FlowerNode("Child 2");
         childNode3 = new FlowerNode("Child 3");
         childNode4 = new FlowerNode("Child 4");
+        
+        childNode1.setParent(parentNode);
+        childNode2.setParent(parentNode);
+        childNode3.setParent(parentNode);
+        childNode4.setParent(parentNode);
+        
+        childNode1.setDepth(2);
+        childNode2.setDepth(2);
+        childNode3.setDepth(2);
+        childNode4.setDepth(2);
         
         parentNode.addEdge(childNode1);
         parentNode.addEdge(childNode2);
@@ -43,6 +54,7 @@ public class FlowerVisualizerTest {
         subNodes.add(childNode2);
         subNodes.add(childNode3);
         subNodes.add(childNode4);
+        
     }
     
 	@Test
@@ -50,9 +62,7 @@ public class FlowerVisualizerTest {
 		int actual, expected;
 		
 		actual = FlowerVisualizer.calculateNodeWidth(parentNode);
-		expected = 25    // base width
-				   + (6  // length of node name "parent" 
-				   * 7); // multiplier per letter in name
+		expected = 100;
 		
 		assertEquals(actual, expected);
 	}
@@ -70,17 +80,17 @@ public class FlowerVisualizerTest {
 		
 		// check that generateCoordinate is setting lat & long
 		// using proper set method
-		assertEquals(actual_lat, hopeful_lat, 0);
+		assertEquals(actual_lat, hopeful_lat, 1);
 	
 		float actual_long = parentNode.getLongt();
 		float hopeful_long = expected.getLongt();
 		
-		assertEquals(actual_long, hopeful_long, 0);
+		assertEquals(actual_long, hopeful_long, 1);
 		
 		// check that the actual lat & long is set
 		// to the proper values.
-		assertEquals(actual_long, HEIGHT/2, 0);
-		assertEquals(actual_lat, WIDTH/2, 0);
+		assertEquals(actual_long, HEIGHT/2, 1);
+		assertEquals(actual_lat, WIDTH/2, 1);
 		
 	}
 	
@@ -102,17 +112,13 @@ public class FlowerVisualizerTest {
 		float child4Lat = subNodes.get(3).getLat();
 		float child4Long = subNodes.get(3).getLongt();
 		
-		float expectedChildLat = (float) (FlowerVisualizer.generateRadius(subNodes.get(0), subNodes.size())
-								  * processing.core.PApplet.cos((360 / 4) * 1) // degrees per node
-							      + WIDTH/2);
-		
 		float expectedChild1Lat = 375;
-		float expectedChild1Long = 420;
-		float expectedChild2Lat = 330;
+		float expectedChild1Long = 625;
+		float expectedChild2Lat = 125;
 		float expectedChild2Long = 375;
 		float expectedChild3Lat = 375;
-		float expectedChild3Long = 330;
-		float expectedChild4Lat = 420;
+		float expectedChild3Long = 125;
+		float expectedChild4Lat = 625;
 		float expectedChild4Long = 375;
 		
 		assertEquals(child1Lat, expectedChild1Lat, 1);
@@ -127,14 +133,13 @@ public class FlowerVisualizerTest {
 	
 	@Test
 	public void testGenerateRadius(){
-		int expected = 15    // constant
-					  + (5   // total nodes from parent
-							 // from node.getNumNodes(node) method
-					  * 30); // multiplier of each node
 		
-		int actual = FlowerVisualizer.generateRadius(parentNode, parentNode.getEdges().size());
+		int depth1Expected = 250 + (20*0); // 250 + (number of child nodes * 20)
 		
-		assertEquals(expected, actual);
+		int authorNodeActual = FlowerVisualizer.generateRadius(childNode1, 4);
+		
+		assertEquals(depth1Expected, authorNodeActual);
+
 	}
 
 	
