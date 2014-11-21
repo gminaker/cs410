@@ -2,7 +2,6 @@ package cs410;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -29,11 +28,12 @@ public class GitInspectorXMLOutputParser {
 	static Object[][] outputArray = new Object[maxFileNum][maxAuthorNum + 1];
 
 	/**
-	 * 
+	 * Get a list of all authors in the repository from the XML file
 	 * @param doc
 	 * @param xpath
 	 * @return
 	 */
+	
 	public static TreeMap<String, Double> getAuthors(Document doc, XPath xpath) {
 
 		TreeMap<String, Double> AuthorTable = new TreeMap<String, Double>();
@@ -59,12 +59,11 @@ public class GitInspectorXMLOutputParser {
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();
 		}
-
 		return AuthorTable;
 	}
 
 	/**
-	 * 
+	 * Gets a list of top 6 contributing authors from the XML file 
 	 * @param doc
 	 * @param xpath
 	 * @return
@@ -109,7 +108,7 @@ public class GitInspectorXMLOutputParser {
 	}
 
 	/**
-	 * 
+	 * Gets the list of all file names edited from the XML file
 	 * @param doc
 	 * @param xpath
 	 * @return
@@ -131,12 +130,11 @@ public class GitInspectorXMLOutputParser {
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();
 		}
-
 		return list;
 	}
 
 	/**
-	 * 
+	 * Gets a list of top 6 file names for each top 6 authors
 	 * @param doc
 	 * @param xpath
 	 * @param topSixAuthorsList
@@ -180,12 +178,11 @@ public class GitInspectorXMLOutputParser {
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();
 		}
-
 		return list;
 	}
 
 	/**
-	 * 
+	 * Returns the final output array that contains top 6 authors and their top 6 edited files
 	 * @param filepath
 	 * @return
 	 * @throws Exception
@@ -205,13 +202,10 @@ public class GitInspectorXMLOutputParser {
 			XPathFactory xpathfactory = XPathFactory.newInstance();
 			XPath xpath = xpathfactory.newXPath();
 
-			TreeMap<String, Double> authorTable = new TreeMap<String, Double>();
-			List<String> fileNameTable = getFileNames(doc, xpath);
-
 			ArrayList<String> top6Authors = getTop6Authors(doc, xpath);
 			List<String> authorAndFileList = getTop6FileNamesForTopAuthors(doc,
 					xpath, top6Authors);
-			String tempString;
+
 			int count = 0;
 
 			for (int temp = 0; temp < maxAuthorNum; temp++) {
@@ -227,7 +221,7 @@ public class GitInspectorXMLOutputParser {
 			e.printStackTrace();
 		}
 
-		// for debugging - print outputArray
+		/* for debugging - print outputArray
 		for (int i = 0; i < outputArray.length; i++) {
 			for (int j = 0; j < outputArray[i].length; j++) {
 				System.out.print(outputArray[i][j]);
@@ -236,6 +230,7 @@ public class GitInspectorXMLOutputParser {
 			}
 			System.out.println();
 		}
+		*/
 
 		return outputArray;
 	}
