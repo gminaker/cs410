@@ -24,15 +24,10 @@ public class FlowerVisualizer extends PApplet {
 	public static String coberturaFilePath;
 	public static String gitInspectorFilePath;
 	
-//	public static String gitInspectorElasticSearchFilepath = "cs410/GitInspectorElasticSearch.xml";
-//	public static String gitInspectorJenkinsFilepath = "cs410/GitInspectorJenkins.xml";
-//	public static String coberturaElasticSearchFilepath = "codebase/elasticSearch/target/site/cobertura";
-//	public static String coberturaJenkinsFilepath = "codebase/jenkins/core/target/site/cobertura";
-
-	public static String gitInspectorElasticSearchFilepath = "gitinspectorOutput/elasticsearchtest2.xml";
-	public static String coberturaElasticSearchFilepath = "codebase/elasticSearch/target/site/cobertura/coverage.xml";
-
 	
+	
+	//this is the main method for the entire project
+	//due to the structure of processing this is where it needed to be
 	public static void main(String[] args) {
 		codeBasename = args[0];
 		coberturaFilePath = args[1];
@@ -52,13 +47,9 @@ public class FlowerVisualizer extends PApplet {
 		size(SIZE_WIDTH, SIZE_HEIGHT);
 		pg = createGraphics(SIZE_WIDTH, SIZE_HEIGHT);
 		try {
-			
-			
 
-			
 			//GitInspector
-			GitInspectorXMLOutputParser gitParser = new GitInspectorXMLOutputParser();
-		    Object[][] gitParserOutput = gitParser.returnParsedArray(gitInspectorFilePath);
+		    Object[][] gitParserOutput = GitInspectorXMLOutputParser.returnParsedArray(gitInspectorFilePath);
 		    
 		    //Cobertura
 		    CoberturaXMLOutputParser cobParser = new CoberturaXMLOutputParser();
@@ -189,7 +180,7 @@ public class FlowerVisualizer extends PApplet {
 	 * @param edges
 	 * @param n
 	 */
-	public void drawNodes(ArrayList edges, int n) {
+	public void drawNodes(ArrayList<FlowerNode> edges, int n) {
 		if (n == 0) {
 			return;
 		} else {
@@ -247,7 +238,7 @@ public class FlowerVisualizer extends PApplet {
 	 * 
 	 * @param testGraph
 	 */
-	public void drawLines(ArrayList edges, int n) {
+	public void drawLines(ArrayList<FlowerNode> edges, int n) {
 		if (n == 0) {
 			return;
 		} else {
@@ -315,8 +306,7 @@ public class FlowerVisualizer extends PApplet {
 	public static int generateRadius(FlowerNode node, int siblingCount) {
 		
 		if (node.getParent().getDepth() == 1){
-		return 250 + (node.getNumNodes() * 20);
-				//+ (siblingCount * 10);
+			return 250 + (node.getNumNodes() * 20);
 		}
 		else{
 			return 110;
