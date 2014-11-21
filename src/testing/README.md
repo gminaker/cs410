@@ -1,15 +1,13 @@
 # Test cases
 
 ### Overview
-JUnit tests were created for each class within our projects for unit testing and regression test after intergration. Test files corresponds to tests are seperated by each components in the architecture diagram. 
-
-In order to run the tests, ensure that the mock files specified are located within the same directory and run the unit test within Eclipse. Mock data for testing are in a 
+JUnit tests were created for each class within our projects for unit testing and regression test after intergration. Test files corresponds to tests are seperated by each components in the architecture diagram. In order to run the tests, ensure that the mock files specified are located within the same directory and run the unit test within Eclipse. Mock data for testing are in a 
 - sample XML files for CorberturaXMLOutPutParserTest.java and GitInspectorXMLOutputParserTest.java. 
 - set up within the code for other test classes.
 
 ### 1. GitInspectorXMLOutputParserTest.java
 Test cases verified that the output array resulting from the GitInspectorXMLOutputParsers were correctly formatted and contained the correct values. 
-- Mock file: TestGitInspectorOutput.xml. Contains known number of authors and file names for testing. 
+Mock file: TestGitInspectorOutput.xml. Contains known number of authors and file names for testing. 
 
 Test cases:
 - returnParsedArray_OutputArrayFormat_HappyPath - verifies that the output array is not null and contains correct dimensions
@@ -19,14 +17,14 @@ Test cases:
 - returnParsedArray_GetFileNames_HappyPath - GetFileNames method grabs all edited file names 
 
 ### 2. CoberturaXMLOutputParserTest.java
-- Mock file : test.xml. Test parsed output from Cobertura tool.
+Mock file : test.xml. Test parsed output from Cobertura tool.
 
 Test cases:
 - testParseXML() - verifies correct table size & expected complexity value
 
 ### 3. FlowerNodeTest.java
 This file verifies the number of nodes, value of nodes as well as latitudes of the nodes to be visualized. 
-- Mock data: within code.
+Mock data: within code.
 
 Test cases: 
 - testSetandGetNodeLat - Verify the lat value is set correctly and is persisted
@@ -37,7 +35,7 @@ Test cases:
 ### 4. FlowerVisualizerTest.java
 This test class verifies that the visualization coordinates and dimensions is correctly displayed.
 
-- Mock data: within code.
+Mock data: within code.
 
 Test cases:
 - testCalculateNodeWidth - calculated node width is correct
@@ -48,7 +46,7 @@ Test cases:
 ### 5. OutputFuserTest.java
 This test class uses test output array and tests that the visulization is processed correctly. 
 
-- Mock data: within code.
+Mock data: within code.
 
 Test cases:
 - makeAuthorNodeTest - tests that correct number of children are created
