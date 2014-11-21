@@ -2,6 +2,7 @@ package testing;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.TreeMap;
 
@@ -140,7 +141,7 @@ public class GitInspectorXMLOutputParserTest {
 
 	// helper method to force assert to true. Always evaluates to true
 	private void ForceAssertSuccess() {
-		Assert.assertTrue(1 == 1);
+		Assert.assertTrue(true);
 	}
 
 	// helper method to force assert to false. Always evaluates to false

@@ -18,31 +18,6 @@ public class OutputFuser {
 									{ 82, 81, 69 } }; //worst
 	
 
-	private Object[][] xmlParserOutput;
-	private Object[][] htmlParserOutput;
-
-	static Object[][] gitNamesssssss = { { "author_aaa", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" },
-			{ "author_bbb", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, { "author_ccc", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" },
-			{ "author_ddd","c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, { "author_eee", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" }, 
-			{ "author_fff", "c1", "class_22222", "class_33333", "class_44444", "class_55555", "class_66666" } };
-
-	static Object[][] locTablesssss = { { "c1", 28 }, { "class_22222", 7 },
-			{ "class_33333", 15 }, { "class_44444", 2 }, { "class_55555", 40 }, { "class_66666", 22 }};
-
-	// public static void main(String[] args) {
-	// fuse("api", locTablesssss, gitNamesssssss);
-	// }
-
-
-	/**
-	 * Test method for using test objects (not to be called for other purposes)
-	 * 
-	 * @return Node
-	 */
-//	public Node fuse(String apiName, Object[][] xmlParserOutput, Object[][] htmlParserOutput) {
-//		return makeAPINode("API", xmlParserOutput, htmlParserOutput);
-//
-//	}
 
 	/**
 	 * Recursively constructs a DAG to be used by the fuser, the first level
@@ -107,8 +82,8 @@ public class OutputFuser {
 	 * @param parent
 	 *            - parent of class (should be an author)
 	 * @param locTable
-	 *            - table containing classes and their associated compleities
-	 * @return - a Node reprenting a class
+	 *            - table containing classes and their associated complexities
+	 * @return - a Node representing a class
 	 */
 	public FlowerNode makeClassNode(String className, FlowerNode parent, Hashtable<String, Double> locTable) {
 		FlowerNode classNode = new FlowerNode(className, parent);
@@ -129,13 +104,13 @@ public class OutputFuser {
 
 		if (tempComplexity < 0) {
 			tempColour = white;
-		}else if (tempComplexity < 5) {
+		}else if (tempComplexity < 2) {
 			tempColour = LEAF_COLOURS[0];
-		} else if (tempComplexity < 10) {
+		} else if (tempComplexity < 3) {
 			tempColour = LEAF_COLOURS[1];
-		} else if (tempComplexity < 15) {
+		} else if (tempComplexity < 4) {
 			tempColour = LEAF_COLOURS[2];
-		} else if (tempComplexity < 20) {
+		} else if (tempComplexity < 5) {
 			tempColour = LEAF_COLOURS[3];
 		} else {
 			tempColour = LEAF_COLOURS[4];
